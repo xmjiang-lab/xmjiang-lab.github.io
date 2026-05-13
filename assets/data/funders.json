@@ -1,15 +1,22 @@
 [
   {
-    "name": "国家自然科学基金 (NSFC) | NSFC",
-    "logo_path": "nsfc.svg",
-    "tooltip": "国家自然科学基金面上项目 | NSFC General Program",
+    "name": "国家自然科学基金 / NSFC",
+    "logo_path": "nsfc.png",
+    "tooltip": "国家自然科学基金面上项目 (NSFC General Program)",
     "period": "ongoing",
     "url": "https://www.nsfc.gov.cn/"
   },
   {
-    "name": "上海市哲学社会科学规划 | Shanghai Philosophy & Social Sci.",
-    "logo_path": "shanghai-philosophy.svg",
-    "tooltip": "Shanghai Municipal Philosophy and Social Sciences Planning Project",
-    "period": "ongoing"
+    "name": "国家社科基金 / NSSFC",
+    "logo_path": "nssfc.png",
+    "tooltip": "国家社科基金重大项目（参与）/ National Social Science Fund of China (Major Project, participated)",
+    "period": "ongoing",
+    "url": "http://www.nopss.gov.cn/"
+  },
+  {
+    "name": "上海市科学技术委员会 / STCSM",
+    "tooltip": "Shanghai Science and Technology Commission — Shanghai Sci-tech Co-research Program",
+    "period": "ongoing",
+    "url": "https://stcsm.sh.gov.cn/"
   }
 ]

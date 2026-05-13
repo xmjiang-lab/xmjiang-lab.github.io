@@ -1,0 +1,42 @@
+[
+  {
+    "group": "key",
+    "name": "Prof. Jixing Li",
+    "affiliation": "City University of Hong Kong",
+    "url": "https://jixing-li.github.io/",
+    "bio": "A key collaborator on neuroimaging studies of naturalistic language processing. We have published in NeuroImage and are developing a large-scale neural database using naturalistic paradigms — a dataset with MEG/fMRI recordings of natural language listening, with annotated text and speaker information, recently submitted to Scientific Data."
+  },
+  {
+    "group": "key",
+    "name": "Prof. Mingya Liu",
+    "affiliation": "Humboldt-Universität zu Berlin, Germany",
+    "url": "https://www.angl.hu-berlin.de/department/staff-faculty/professors/liu",
+    "bio": "Collaborator on cross-cultural studies of formal-pragmatic communication and social cognition, with a focus on the formal-linguistic encoding of social cues (e.g., counter-expectational markers) in multilingual contexts."
+  },
+  {
+    "group": "emerging",
+    "name": "Tianze Xu",
+    "affiliation": "PhD candidate, ETH Zürich",
+    "bio": "Co-authored work on fMRI computational modeling of naturalistic language processing (NeuroImage 2025)."
+  },
+  {
+    "group": "emerging",
+    "name": "Yi Li",
+    "affiliation": "PhD candidate, University of Cambridge",
+    "bio": "Collaborator on sound-symbolic association studies (Humanities and Social Sciences Communications 2024; Scientific Reports 2025)."
+  },
+  {
+    "group": "emerging",
+    "name": "Wenjun Chen",
+    "affiliation": "PhD candidate, McGill University",
+    "url": "https://wenjunchen29.github.io/",
+    "bio": "Co-authored work on AI-cloned voice encoding/decoding using EEG (JoVE 2024, Speech Prosody 2024, and ongoing)."
+  },
+  {
+    "group": "key",
+    "name": "Prof. Marc D. Pell",
+    "affiliation": "McGill University, Canada",
+    "url": "https://www.mcgill.ca/scsd/marc-pell",
+    "bio": "My longest-standing collaborator, co-authoring seminal work on vocal emotion, social pragmatics, and dynamic social impression formation from voice (e.g., Trends in Cognitive Sciences 2024, Cortex 2022). Several of my former and visiting students — including Wenjun Chen and Shuyi Zhang — are currently pursuing their PhD under his supervision, fostering ongoing academic inheritance."
+  }
+]
