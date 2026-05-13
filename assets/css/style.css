@@ -278,22 +278,73 @@ img { max-width: 100%; height: auto; }
   background: var(--sisu-yellow);
 }
 
-/* PI card on home */
+/* PI card on home — with photo */
 .pi-card {
   margin-top: 32px;
   padding: 24px;
   background: var(--bg-soft);
   border-left: 4px solid var(--sisu-blue);
 }
+.pi-card-inner {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.pi-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--sisu-blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pi-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pi-photo .photo-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--sisu-blue);
+}
 .pi-card .pi-name {
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   color: var(--ink);
   font-weight: 600;
 }
 .pi-card .pi-meta { font-size: 0.9375rem; color: var(--muted); margin-top: 4px; }
-.pi-card .pi-links { margin-top: 12px; }
-.pi-card .pi-links a { margin-right: 16px; }
+.pi-card .pi-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pi-card .pi-links a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border: 1.5px solid var(--sisu-blue);
+  color: var(--sisu-blue);
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: all 0.15s;
+  margin-right: 0;
+}
+.pi-card .pi-links a:hover {
+  background: var(--sisu-blue);
+  color: #fff;
+  border-color: var(--sisu-blue);
+}
 
 /* ── Sidebar ─────────────────────────────────────────────── */
 #sidebar {
@@ -365,16 +416,126 @@ img { max-width: 100%; height: auto; }
 .announce-card a:hover { color: #fff; border-bottom-color: #fff; }
 
 .funders-row {
-  margin-top: 48px;
-  padding-top: 24px;
+  margin-top: 56px;
+  padding-top: 28px;
   border-top: 1px solid var(--line-soft);
   display: flex;
-  align-items: center;
-  gap: 36px;
+  align-items: flex-start;
+  gap: 24px;
   flex-wrap: wrap;
 }
-.funders-row .label { font-size: 0.875rem; color: var(--muted); }
-.funders-row img { max-height: 60px; width: auto; opacity: 0.85; }
+.funders-row .label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding-top: 18px;
+  flex-shrink: 0;
+}
+.funder-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.funder-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 8px 16px;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.funder-card:hover {
+  border-color: var(--sisu-blue);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.funder-card a, .funder-card > span { display: inline-flex; align-items: center; }
+.funder-card img {
+  max-height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.funder-text {
+  font-family: var(--serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sisu-blue);
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+/* ── Collaborator cards (on People page) ──────────────── */
+.collab-heading {
+  border-bottom-color: var(--sisu-yellow) !important;
+}
+.collab-heading::after {
+  background: var(--sisu-blue) !important;
+}
+.collab-heading.emerging-heading {
+  border-bottom-color: var(--line) !important;
+}
+.collab-heading.emerging-heading::after {
+  background: var(--muted) !important;
+}
+.collab-intro {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  margin: 6px 0 18px;
+  font-style: italic;
+}
+.collab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.collab-card {
+  background: var(--bg);
+  border-left: 4px solid var(--sisu-blue);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow 0.15s;
+}
+.collab-card:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+.emerging-list .collab-card {
+  border-left-color: var(--sisu-yellow);
+  padding: 12px 18px;
+}
+.collab-name {
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.collab-name a {
+  color: var(--ink);
+  border: none;
+}
+.collab-name a:hover {
+  color: var(--sisu-blue);
+  border: none;
+}
+.collab-affil {
+  font-size: 0.8125rem;
+  color: var(--sisu-blue);
+  margin-top: 2px;
+  font-weight: 600;
+}
+.collab-bio {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--body);
+  margin: 10px 0 0;
+}
 
 /* ── People page (grid of clickable cards that expand) ───── */
 .people-group-heading {
@@ -400,6 +561,95 @@ img { max-width: 100%; height: auto; }
 .people-group-heading.alumni-heading::after {
   background: var(--muted);
 }
+
+/* ── PI card (always expanded on People page) ─────────── */
+.person-card.person-pi {
+  grid-column: 1 / -1;      /* spans full grid width */
+  border: 1px solid var(--line-soft);
+  background: var(--bg-soft);
+  padding: 24px 28px;
+  display: block;
+}
+.person-card.person-pi:hover { border-color: var(--sisu-blue); }
+.person-pi-header {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.person-card.person-pi .person-photo { width: 120px; height: 120px; }
+.person-card.person-pi .person-photo .photo-placeholder { font-size: 3rem; }
+.person-card.person-pi .person-name {
+  font-size: 1.25rem;
+  text-align: left;
+  margin-bottom: 6px;
+}
+.person-card.person-pi .person-title,
+.person-card.person-pi .person-affil { text-align: left; }
+.person-card.person-pi .person-details {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border-top: none;
+  animation: none;
+}
+
+/* Education as a clean bulleted list */
+.person-education-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 14px;
+}
+.person-education-list li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--body);
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 2px;
+}
+.person-education-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--sisu-blue);
+  font-weight: 700;
+}
+
+/* Alumni cards a touch lighter visually */
+.person-card.person-alumni .person-photo { background: #eef2f7; }
+.person-card.person-alumni .person-photo .photo-placeholder { color: var(--muted); }
+
+/* ── Person-detail link badges: 4 distinct colors ─────── */
+.person-links a.ln-home    { border-color: var(--sisu-blue); color: var(--sisu-blue); }
+.person-links a.ln-home:hover { background: var(--sisu-blue); color: #fff; }
+.person-links a.ln-orcid   { border-color: #a6ce39; color: #6a8423; }
+.person-links a.ln-orcid:hover { background: #a6ce39; color: #fff; border-color: #a6ce39; }
+.person-links a.ln-scholar { border-color: #4285f4; color: #1a73e8; }
+.person-links a.ln-scholar:hover { background: #4285f4; color: #fff; border-color: #4285f4; }
+.person-links a.ln-mail    { border-color: #888; color: #555; }
+.person-links a.ln-mail:hover { background: #555; color: #fff; border-color: #555; }
+/* Home-page PI links use the same scheme */
+.pi-card .pi-links a.ln-home    { border-color: var(--sisu-blue); color: var(--sisu-blue); }
+.pi-card .pi-links a.ln-home:hover { background: var(--sisu-blue); color: #fff; }
+.pi-card .pi-links a.ln-orcid   { border-color: #a6ce39; color: #6a8423; }
+.pi-card .pi-links a.ln-orcid:hover { background: #a6ce39; color: #fff; border-color: #a6ce39; }
+.pi-card .pi-links a.ln-scholar { border-color: #4285f4; color: #1a73e8; }
+.pi-card .pi-links a.ln-scholar:hover { background: #4285f4; color: #fff; border-color: #4285f4; }
+.pi-card .pi-links a.ln-mail    { border-color: #888; color: #555; }
+.pi-card .pi-links a.ln-mail:hover { background: #555; color: #fff; border-color: #555; }
+
+/* Dark mode tweaks for badges */
+body.dark .person-links a.ln-orcid,
+body.dark .pi-card .pi-links a.ln-orcid { color: #a6ce39; }
+body.dark .person-links a.ln-scholar,
+body.dark .pi-card .pi-links a.ln-scholar { color: #6ea8ff; border-color: #6ea8ff; }
+body.dark .person-links a.ln-mail,
+body.dark .pi-card .pi-links a.ln-mail { color: var(--body); border-color: var(--line); }
+body.dark .person-card.person-alumni .person-photo { background: #1e242b; }
 
 .people-grid {
   display: grid;
@@ -971,6 +1221,14 @@ body.dark .facility-card { background: var(--bg-soft); }
 body.dark .facility-card h3 { color: #6ea8ff; }
 body.dark .pi-card { background: var(--bg-soft); }
 body.dark .pi-card .pi-name { color: var(--ink); }
+body.dark .funder-card { background: var(--bg-soft); border-color: var(--line); }
+body.dark .funder-card:hover { border-color: #6ea8ff; }
+body.dark .funder-text { color: #6ea8ff; }
+body.dark .collab-card { background: var(--bg-soft); }
+body.dark .collab-name, body.dark .collab-name a { color: var(--ink); }
+body.dark .collab-affil { color: #6ea8ff; }
+body.dark .collab-bio { color: var(--body); }
+body.dark .collab-intro { color: var(--muted); }
 body.dark .announce-card { background: var(--sisu-blue-dk); }
 body.dark #footer { background: #0a0c10; }
 body.dark #subfooter { background: #000; }

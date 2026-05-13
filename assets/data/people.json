@@ -22,12 +22,13 @@
       "affil_en": "Institute of Language Sciences, SISU｜Research Center of Psycholinguistics & Neurolinguistics",
       "bio_zh": "主要从事心理与神经语言学的科学研究与人才培养工作。研究方向：心理与神经语言学、实验语言学、言语交际与言语障碍、嗓音编码与解码、神经语用学。",
       "bio_en": "Research areas: psycholinguistics & neurolinguistics, experimental linguistics, speech communication & speech disorders, vocal encoding/decoding, neuropragmatics.",
-      "education": "[请填写教育背景 / Education to be filled]",
+      "education": "PhD, Peking University (2005–2010) | Undergraduate, East China Normal University (2001–2005) | Postdoc, Peking University (2010–2012) | Postdoc / Research Associate / Visiting Professor, McGill University (2013–2018) | Associate Professor, Tongji University (2018–2020) | Professor, SISU – Institute of Linguistics (2020–2024) | Professor, SISU – Institute of Language Sciences (2024–present)",
       "research_areas": "Vocal emotion, Neuropragmatics, Speech & speaker perception",
       "photo": "xiaoming-jiang.jpg",
       "email": "xiaoming.jiang@shisu.edu.cn",
       "orcid": "0000-0002-5171-9774",
-      "homepage": "https://ilas.shisu.edu.cn/jxm_10942/list.htm"
+      "scholar": "https://scholar.google.com/citations?user=iF2CM7sAAAAJ&hl=en",
+      "homepage": "https://ilas.shisu.edu.cn/21/0f/c18209a205071/page.htm"
     }
   ],
   "alumni": [
@@ -41,15 +42,11 @@
       "title_en": "MA Student",
       "affil_zh": "心理与神经语言学｜MTL · BrowserPsyLab",
       "affil_en": "Psycholinguistics & Neurolinguistics｜MTL · BrowserPsyLab",
-      "bio_zh": "硕士期间研究嗓音克隆与说话人感知，开发 ZhCDN-24-HAI 语料库。",
-      "bio_en": "MA research on voice cloning and speaker perception. Developed the ZhCDN-24-HAI corpus.",
-      "education": "BA, Heilongjiang University | MA, SISU | PhD, McGill",
-      "research_areas": "Voice cloning, Speaker identification, Speech perception",
       "orcid": "0000-0003-3870-5041",
       "scholar": "https://scholar.google.com/citations?user=MOPUcx8AAAAJ",
       "homepage": "https://wenjunchen29.github.io/",
-      "now": "PhD Student, McGill University (with Marc Pell)",
-      "period": "2021-2024"
+      "now": "PhD Student, McGill University (2024–2028, with Marc Pell)",
+      "period": "2021–2024"
     }
   ]
 }

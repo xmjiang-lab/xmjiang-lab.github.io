@@ -87,7 +87,8 @@
       <div id="brand-strip">
         <div class="brand-inner">
           <a class="brand-sisu" href="https://www.shisu.edu.cn" target="_blank" rel="noopener" aria-label="SISU">
-            <img src="assets/images/logos/sisu.svg" alt="SISU">
+            <img src="assets/images/logos/sisu-brand.png" alt="上海外国语大学 SISU"
+                 onerror="this.onerror=null; this.src='assets/images/logos/sisu-brand.svg'">
           </a>
           <div class="brand-divider"></div>
           <div class="brand-lab">
@@ -111,10 +112,9 @@
         <div class="nav-inner">
           <ul id="nav-links">
             <li${activePage === "home" ? ' class="active"' : ""}><a href="index.html"><span class="home-icon">🏠</span><span data-i18n="nav.home">首页</span></a></li>
-            <li${activePage === "people" ? ' class="active"' : ""}><a href="people.html" data-i18n="nav.people">团队成员</a></li>
+            <li${activePage === "people" ? ' class="active"' : ""}><a href="people.html" data-i18n="nav.people">团队与合作</a></li>
             <li${activePage === "projects" ? ' class="active"' : ""}><a href="projects.html" data-i18n="nav.projects">研究方向</a></li>
             <li${activePage === "publications" ? ' class="active"' : ""}><a href="publications.html" data-i18n="nav.publications">发表论文</a></li>
-            <li${activePage === "mentorship" ? ' class="active"' : ""}><a href="mentorship.html" data-i18n="nav.mentorship">指导学生</a></li>
             <li${activePage === "facilities" ? ' class="active"' : ""}><a href="facilities.html" data-i18n="nav.facilities">实验平台</a></li>
             <li${activePage === "news" ? ' class="active"' : ""}><a href="news.html" data-i18n="nav.news">新闻动态</a></li>
             <li${activePage === "contact" ? ' class="active"' : ""}><a href="contact.html" data-i18n="nav.contact">联系我们</a></li>
@@ -149,7 +149,7 @@
             </p>
           </div>
           <div class="footer-logos">
-            <img src="assets/images/logos/sisu-white.svg" alt="SISU"
+            <img src="assets/images/logos/ilas-foot.svg" alt="SISU · Institute of Language Sciences"
                  onerror="this.style.display='none'">
           </div>
         </div>
@@ -239,19 +239,58 @@
         ? `<img src="${photoSrc}" alt="${name}" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot;>${initial}</div>'">`
         : `<div class="photo-placeholder">${initial}</div>`;
 
-      // Links: orcid / scholar / homepage / email
+      // Links: only show what's filled in; one badge per link
       const links = [];
-      if (p.orcid) links.push(`<a href="https://orcid.org/${p.orcid}" target="_blank" rel="noopener">ORCID</a>`);
-      if (p.scholar) links.push(`<a href="${p.scholar}" target="_blank" rel="noopener">Google Scholar</a>`);
-      if (p.homepage) links.push(`<a href="${p.homepage}" target="_blank" rel="noopener">${lang === "zh" ? "个人主页" : "Homepage"}</a>`);
-      if (p.email) links.push(`<a href="mailto:${p.email}">${p.email}</a>`);
+      if (p.homepage) links.push(`<a class="ln-home"    href="${p.homepage}" target="_blank" rel="noopener">${lang === "zh" ? "个人主页" : "Homepage"}</a>`);
+      if (p.orcid)    links.push(`<a class="ln-orcid"   href="https://orcid.org/${p.orcid}" target="_blank" rel="noopener">ORCID</a>`);
+      if (p.scholar)  links.push(`<a class="ln-scholar" href="${p.scholar}" target="_blank" rel="noopener">Google Scholar</a>`);
+      if (p.email)    links.push(`<a class="ln-mail"    href="mailto:${p.email}">${p.email}</a>`);
 
-      const educationLabel = lang === "zh" ? "学业背景" : "Education";
-      const researchLabel  = lang === "zh" ? "研究方向" : "Research areas";
-      const nowLabel       = lang === "zh" ? "现在"     : "Currently";
+      const educationLabel = lang === "zh" ? "学业与履历" : "Education & career";
+      const researchLabel  = lang === "zh" ? "研究方向"   : "Research areas";
+      const nowLabel       = lang === "zh" ? "现在"      : "Currently";
+      const periodLabel    = lang === "zh" ? "在课题组时间" : "Period in lab";
 
+      // PI is always expanded; others toggle. Alumni show only meta (period + now),
+      // no bio/education/research_areas — keep them compact.
+      const isPI = (p.role || "").toLowerCase() === "pi";
+      const isAlumni = (p.status || "").toLowerCase() === "alumni";
+
+      // Compact details for alumni: just period + current position
+      const detailsHtml = isAlumni
+        ? `
+            ${p.period ? `<div class="person-row-label">${periodLabel}</div><p>${p.period}</p>` : ""}
+            ${p.now ? `<div class="person-row-label">${nowLabel}</div><p>${p.now}</p>` : ""}
+            ${links.length ? `<div class="person-links">${links.join("")}</div>` : ""}
+          `
+        : `
+            ${bio ? `<p class="person-bio">${bio}</p>` : ""}
+            ${p.education ? `<div class="person-row-label">${educationLabel}</div><div class="person-education">${formatEducation(p.education)}</div>` : ""}
+            ${p.research_areas ? `<div class="person-row-label">${researchLabel}</div><p>${p.research_areas}</p>` : ""}
+            ${p.now ? `<div class="person-row-label">${nowLabel}</div><p>${p.now}${p.period ? ` <span style="opacity:0.6;">(${p.period})</span>` : ""}</p>` : ""}
+            ${links.length ? `<div class="person-links">${links.join("")}</div>` : ""}
+          `;
+
+      // PI: card is always-expanded (no button), wider layout
+      if (isPI) {
+        return `
+          <div class="person-card person-pi expanded">
+            <div class="person-pi-header">
+              <div class="person-photo">${photoEl}</div>
+              <div class="person-meta">
+                <div class="person-name">${name}</div>
+                ${title ? `<div class="person-title">${title}</div>` : ""}
+                ${affil ? `<div class="person-affil">${affil}</div>` : ""}
+              </div>
+            </div>
+            <div class="person-details">${detailsHtml}</div>
+          </div>
+        `;
+      }
+
+      // Non-PI: clickable to expand
       return `
-        <div class="person-card" data-id="${p.id || ""}">
+        <div class="person-card${isAlumni ? ' person-alumni' : ''}" data-id="${p.id || ""}">
           <button class="person-avatar-btn" type="button"
                   onclick="this.closest('.person-card').classList.toggle('expanded')"
                   aria-expanded="false">
@@ -263,15 +302,17 @@
             </div>
             <div class="person-toggle-hint" aria-hidden="true">▾</div>
           </button>
-          <div class="person-details">
-            ${bio ? `<p class="person-bio">${bio}</p>` : ""}
-            ${p.education ? `<div class="person-row-label">${educationLabel}</div><p>${(p.education || "").replace(/\|/g, " · ")}</p>` : ""}
-            ${p.research_areas ? `<div class="person-row-label">${researchLabel}</div><p>${p.research_areas}</p>` : ""}
-            ${p.now ? `<div class="person-row-label">${nowLabel}</div><p>${p.now}${p.period ? ` <span style="opacity:0.6;">(${p.period})</span>` : ""}</p>` : ""}
-            ${links.length ? `<div class="person-links">${links.join("")}</div>` : ""}
-          </div>
+          <div class="person-details">${detailsHtml}</div>
         </div>
       `;
+    }
+
+    // Format education as a clean list. Input: "BA, X | MA, Y | PhD, Z"
+    function formatEducation(edu) {
+      if (!edu) return "";
+      const lines = edu.split("|").map(s => s.trim()).filter(Boolean);
+      if (lines.length <= 1) return `<p>${edu}</p>`;
+      return `<ul class="person-education-list">${lines.map(l => `<li>${l}</li>`).join("")}</ul>`;
     }
 
     // Group current members by role
@@ -301,65 +342,92 @@
       `);
     }
 
+    // ── Collaborators (Key + Emerging) ──
+    try {
+      const collabs = await loadJSON("assets/data/collaborators.json");
+      if (collabs && collabs.length) {
+        const keyLabel      = lang === "zh" ? "重要合作者" : "Key Collaborators";
+        const emergingLabel = lang === "zh" ? "青年合作者" : "Emerging Researchers";
+        const keyIntro      = lang === "zh"
+          ? "课题组与全球多所机构的资深学者保持长期、富有成效的合作。"
+          : "Long-standing, impactful partnerships with leading scholars worldwide.";
+        const emergingIntro = lang === "zh"
+          ? "课题组也很自豪能与一批活跃在学术前沿的青年学者保持合作（多为课题组毕业生）。"
+          : "We take pride in collaborating with promising emerging researchers, many of them lab alumni.";
+
+        const key      = collabs.filter(c => c.group === "key");
+        const emerging = collabs.filter(c => c.group === "emerging");
+
+        function collabCard(c) {
+          const nameLink = c.url
+            ? `<a href="${c.url}" target="_blank" rel="noopener">${c.name}</a>`
+            : c.name;
+          return `
+            <div class="collab-card">
+              <div class="collab-name">${nameLink}</div>
+              ${c.affiliation ? `<div class="collab-affil">${c.affiliation}</div>` : ""}
+              ${c.bio ? `<p class="collab-bio">${c.bio}</p>` : ""}
+            </div>
+          `;
+        }
+
+        if (key.length) {
+          sections.push(`
+            <h2 class="people-group-heading collab-heading">${keyLabel}</h2>
+            <p class="collab-intro">${keyIntro}</p>
+            <div class="collab-list">${key.map(collabCard).join("")}</div>
+          `);
+        }
+        if (emerging.length) {
+          sections.push(`
+            <h2 class="people-group-heading collab-heading emerging-heading">${emergingLabel}</h2>
+            <p class="collab-intro">${emergingIntro}</p>
+            <div class="collab-list emerging-list">${emerging.map(collabCard).join("")}</div>
+          `);
+        }
+      }
+    } catch { /* no collaborators.json yet, skip */ }
+
     root.innerHTML = sections.join("");
   }
 
-  /* ── Mentorship ───────────────────────────────────────── */
-  async function renderMentorship() {
-    const root = $("#mentorship-content");
+  /* ── Funders strip (home page) ────────────────────────── */
+  async function renderFunders() {
+    const root = $("#funders-row");
     if (!root) return;
     let items;
     try {
-      items = await loadJSON("assets/data/mentorship.json");
-    } catch {
-      root.innerHTML = '<p style="color:#888;">No data.</p>';
-      return;
+      items = await loadJSON("assets/data/funders.json");
+    } catch { return; }
+    if (!items || !items.length) return;
+
+    const cards = items.map(f => {
+      const tooltip = f.tooltip || f.name || "";
+      const inner = f.logo_path
+        ? `<img src="assets/images/logos/${f.logo_path}" alt="${f.name || ''}"
+               onerror="this.outerHTML='<span class=&quot;funder-text&quot;>${f.name || ''}</span>'">`
+        : `<span class="funder-text">${f.name || ''}</span>`;
+      const wrapped = f.url
+        ? `<a href="${f.url}" target="_blank" rel="noopener" title="${tooltip}">${inner}</a>`
+        : `<span title="${tooltip}">${inner}</span>`;
+      return `<div class="funder-card">${wrapped}</div>`;
+    }).join("");
+
+    // Keep the label, replace everything after it
+    const label = root.querySelector(".label");
+    root.innerHTML = "";
+    if (label) root.appendChild(label);
+    const wrap = document.createElement("div");
+    wrap.className = "funder-cards";
+    wrap.innerHTML = cards;
+    root.appendChild(wrap);
+
+    // Re-apply i18n for the label
+    if (label) {
+      const key = label.getAttribute("data-i18n");
+      const val = get(I18N.data, key);
+      if (val != null) label.innerHTML = val;
     }
-    if (!items.length) {
-      root.innerHTML = '<p style="color:#888;font-style:italic;">' +
-        (I18N.current === "zh" ? "暂无记录。" : "No entries yet.") + '</p>';
-      return;
-    }
-    const lang = I18N.current;
-    const GROUP_LABELS = {
-      undergraduate: { zh: "本科生", en: "Undergraduate students" },
-      master:        { zh: "硕士研究生", en: "Master's students" },
-      phd:           { zh: "博士研究生", en: "PhD students" },
-      other:         { zh: "其他", en: "Other" },
-    };
-    const ORDER = ["undergraduate", "master", "phd", "other"];
-
-    const groups = {};
-    items.forEach(m => {
-      const g = m.group || "other";
-      (groups[g] = groups[g] || []).push(m);
-    });
-
-    const sections = [];
-    ORDER.forEach(g => {
-      if (!groups[g]) return;
-      const label = (GROUP_LABELS[g] || GROUP_LABELS.other)[lang];
-      const cards = groups[g].map(m => {
-        const meta = [m.at_the_time, m.period].filter(Boolean).join(" · ");
-        const workLink = m.url && m.work
-          ? `<a href="${m.url}" target="_blank" rel="noopener">${m.work}</a>`
-          : (m.work || "");
-        return `
-          <div class="mentee-block">
-            <div class="mentee-name">${m.name || ""}</div>
-            ${meta ? `<div class="mentee-meta">${meta}</div>` : ""}
-            ${workLink ? `<div class="mentee-work">${workLink}</div>` : ""}
-            ${m.now ? `<div class="mentee-now">${m.now}</div>` : ""}
-          </div>
-        `;
-      }).join("");
-      sections.push(`
-        <h2 class="mentorship-group-title">${label}</h2>
-        ${cards}
-      `);
-    });
-
-    root.innerHTML = sections.join("");
   }
 
   /* ── Projects ─────────────────────────────────────────── */
@@ -540,22 +608,20 @@
     await applyLang(I18N.current);
 
     const page = document.body.getAttribute("data-page");
-    if (page === "home")              await renderSidebar();
+    if (page === "home")              { await renderSidebar(); await renderFunders(); }
     else if (page === "people")       await renderPeople();
     else if (page === "projects")     await renderProjects();
     else if (page === "publications") await renderPublications();
     else if (page === "facilities")   await renderFacilities();
     else if (page === "news")         await renderNews();
-    else if (page === "mentorship")   await renderMentorship();
 
     document.addEventListener("langchange", async () => {
-      if (page === "home")              await renderSidebar();
+      if (page === "home")              { await renderSidebar(); await renderFunders(); }
       else if (page === "people")       await renderPeople();
       else if (page === "projects")     await renderProjects();
       else if (page === "publications") renderPubsList(ALL_PUBS);
       else if (page === "facilities")   await renderFacilities();
       else if (page === "news")         await renderNews();
-      else if (page === "mentorship")   await renderMentorship();
     });
   }
 
