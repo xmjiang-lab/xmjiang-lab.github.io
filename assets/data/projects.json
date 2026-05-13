@@ -1,0 +1,37 @@
+[
+  {
+    "id": "neuropragmatics",
+    "title_zh": "神经语用学与社会交流",
+    "title_en": "Neuropragmatics & social communication",
+    "body_zh": "言外之意、反讽、礼貌、信任判断——课题组关注说话人身份与社会语境如何调制语用加工的脑活动，并用 ERP 与功能成像考察相关的时间进程与脑网络。",
+    "body_en": "Irony, politeness, trust judgments, indirect meaning: we investigate how speaker identity and social context modulate the brain's response to pragmatic content, using ERP and fMRI."
+  },
+  {
+    "id": "ai_voice_perception",
+    "title_zh": "AI 嗓音感知",
+    "title_en": "AI voice perception",
+    "body_zh": "在 AI 合成语音迅速发展的当下，听者如何分辨人声与机器声？韵律一致性、说话人身份、神经层面的实时区分等都是课题组近年的研究主题。",
+    "body_en": "As AI-cloned speech becomes ubiquitous, how do listeners separate human from machine voices? We study prosodic consistency, speaker identity, and the rapid neural distinction between human and AI voices."
+  },
+  {
+    "id": "crosslinguistic",
+    "title_zh": "跨语言与跨文化认知加工",
+    "title_en": "Cross-linguistic & cross-cultural cognition",
+    "body_zh": "情绪识别与社会判断是否随语言文化而变？课题组系统比较母语者与二语者、不同文化背景听者在情绪与意图解读上的差异。",
+    "body_en": "Do emotion recognition and social inference vary across language and culture? We compare native and second-language listeners, and listeners from different cultural backgrounds."
+  },
+  {
+    "id": "applied",
+    "title_zh": "应用神经语言学与脑机接口",
+    "title_en": "Applied neurolinguistics & language BMI",
+    "body_zh": "包括语言习得、临床语言学（如帕金森病、自闭症谱系障碍中的语用与韵律加工障碍），以及面向脑机接口与大规模神经语言数据库的基础工作。",
+    "body_en": "Language acquisition, clinical populations (Parkinson's disease, autism), and foundational work toward language brain-machine interfaces and large-scale neural language databases."
+  },
+  {
+    "id": "vocal_emotion",
+    "title_zh": "嗓音情绪的编码与解码",
+    "title_en": "Encoding & decoding of vocal emotion",
+    "body_zh": "我们研究人在交流中如何用声音传递情绪——包括韵律特征、非言语发声（如笑声、叹息），以及听者如何在毫秒级时间窗口内识别这些情绪。综合使用 EEG/ERP、眼动与行为方法。",
+    "body_en": "How do speakers convey emotion through the voice — through prosody and nonverbal vocalizations — and how do listeners decode these signals on a millisecond timescale? We combine EEG/ERP, eye-tracking and behavioural methods."
+  }
+]

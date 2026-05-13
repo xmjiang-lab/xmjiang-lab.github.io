@@ -1,0 +1,55 @@
+{
+  "author_patterns": [
+    "Jiang,\\s?X\\.?(\\s?[A-Z]\\.?)?",
+    "Jiang,\\s?Xiaoming",
+    "X\\.?\\s?[A-Z]?\\.?\\s?Jiang",
+    "Xiaoming\\sJiang",
+    "Chen,\\s?W\\.?(\\s?[A-Z]\\.?)?",
+    "Chen,\\s?Wenjun",
+    "W\\.?\\s?[A-Z]?\\.?\\s?Chen",
+    "Wenjun\\sChen"
+  ],
+  "current": [
+    {
+      "id": "xiaoming-jiang",
+      "role": "pi",
+      "cohort_year": "2018",
+      "name_zh": "蒋晓鸣",
+      "name_en": "Xiaoming Jiang",
+      "title_zh": "教授 · 博士生导师",
+      "title_en": "Professor · Doctoral Supervisor",
+      "affil_zh": "上海外国语大学 语言科学研究院｜心理与神经语言学研究中心",
+      "affil_en": "Institute of Language Sciences, SISU｜Research Center of Psycholinguistics & Neurolinguistics",
+      "bio_zh": "主要从事心理与神经语言学的科学研究与人才培养工作。研究方向：心理与神经语言学、实验语言学、言语交际与言语障碍、嗓音编码与解码、神经语用学。",
+      "bio_en": "Research areas: psycholinguistics & neurolinguistics, experimental linguistics, speech communication & speech disorders, vocal encoding/decoding, neuropragmatics.",
+      "education": "[请填写教育背景 / Education to be filled]",
+      "research_areas": "Vocal emotion, Neuropragmatics, Speech & speaker perception",
+      "photo": "xiaoming-jiang.jpg",
+      "email": "xiaoming.jiang@shisu.edu.cn",
+      "orcid": "0000-0002-5171-9774",
+      "homepage": "https://ilas.shisu.edu.cn/jxm_10942/list.htm"
+    }
+  ],
+  "alumni": [
+    {
+      "id": "alumni-wenjun-chen",
+      "role": "master",
+      "cohort_year": "2021",
+      "name_zh": "陈文均",
+      "name_en": "Wenjun Chen",
+      "title_zh": "硕士研究生",
+      "title_en": "MA Student",
+      "affil_zh": "心理与神经语言学｜MTL · BrowserPsyLab",
+      "affil_en": "Psycholinguistics & Neurolinguistics｜MTL · BrowserPsyLab",
+      "bio_zh": "硕士期间研究嗓音克隆与说话人感知，开发 ZhCDN-24-HAI 语料库。",
+      "bio_en": "MA research on voice cloning and speaker perception. Developed the ZhCDN-24-HAI corpus.",
+      "education": "BA, Heilongjiang University | MA, SISU | PhD, McGill",
+      "research_areas": "Voice cloning, Speaker identification, Speech perception",
+      "orcid": "0000-0003-3870-5041",
+      "scholar": "https://scholar.google.com/citations?user=MOPUcx8AAAAJ",
+      "homepage": "https://wenjunchen29.github.io/",
+      "now": "PhD Student, McGill University (with Marc Pell)",
+      "period": "2021-2024"
+    }
+  ]
+}

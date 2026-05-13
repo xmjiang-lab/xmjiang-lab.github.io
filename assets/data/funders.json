@@ -1,0 +1,15 @@
+[
+  {
+    "name": "国家自然科学基金 (NSFC) | NSFC",
+    "logo_path": "nsfc.svg",
+    "tooltip": "国家自然科学基金面上项目 | NSFC General Program",
+    "period": "ongoing",
+    "url": "https://www.nsfc.gov.cn/"
+  },
+  {
+    "name": "上海市哲学社会科学规划 | Shanghai Philosophy & Social Sci.",
+    "logo_path": "shanghai-philosophy.svg",
+    "tooltip": "Shanghai Municipal Philosophy and Social Sciences Planning Project",
+    "period": "ongoing"
+  }
+]

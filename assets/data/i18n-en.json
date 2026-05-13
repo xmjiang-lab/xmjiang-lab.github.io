@@ -1,0 +1,113 @@
+{
+  "lang_switch_to": "中文",
+  "brand": {
+    "lab_name": "Institute of Language Sciences · Jiang Lab",
+    "lab_name_sub": "Shanghai International Studies University"
+  },
+  "nav": {
+    "home": "Home",
+    "people": "People",
+    "projects": "Research",
+    "publications": "Publications",
+    "facilities": "Facilities",
+    "news": "News",
+    "contact": "Contact",
+    "mentorship": "Mentorship"
+  },
+  "breadcrumb": {
+    "sisu": "SISU",
+    "lab": "Institute of Language Sciences · Jiang Lab"
+  },
+  "home": {
+    "hero_motto": "INTEGRITY · VISION · ACADEMIC EXCELLENCE",
+    "h1": "Emotion, intention and social meaning in spoken language",
+    "p1": "Humans communicate emotions, attitudes, and intentions in many ways while speaking — through the content of language (what we say) and through nonverbal expressions of the voice and face that accompany language (how we say it).",
+    "p2": "The broad aim of our research is to understand how adults convey their emotions and intentions to others, how listeners interpret these meanings in spoken language, and what brain mechanisms support these abilities. We are also examining social and cultural factors that shape vocal communication, using acoustic, behavioural, electrophysiological (EEG/ERP), and functional neuroimaging (fMRI) methods.",
+    "pi_title": "Xiaoming Jiang, Ph.D.",
+    "pi_subtitle": "Professor · Doctoral Supervisor",
+    "pi_affil": "Research Center of Psycholinguistics &amp; Neurolinguistics<br>Institute of Language Sciences, SISU",
+    "pi_bio": "Prof. Jiang's research lies in psycholinguistics and neurolinguistics, with a focus on training the next generation of researchers in these fields. Since 2021, he has been continuously listed among Elsevier's Highly Cited Chinese Researchers in Foreign Languages &amp; Literature. His work was recognized by ISCA and EURASIP with the Best Paper Award in Speech Communication, and he has been selected for Shanghai's Young Top-Notch Talent Program and the Chenguang Scholar Program.<br><br>Research areas: psycholinguistics &amp; neurolinguistics, experimental linguistics, speech communication &amp; speech disorders, vocal encoding/decoding, neuropragmatics. His group uses behavioral, electrophysiological, and neuroimaging methods to investigate how voice and prosody convey emotion and social meaning, how listeners decode these in healthy and clinical populations, and the cognitive computations underlying language in social contexts.",
+    "scholar_link": "Google Scholar",
+    "orcid_link": "ORCID",
+    "funded_by": "Affiliations &amp; partners",
+    "sidebar_title": "Recent papers",
+    "sidebar_full": "Full publication list",
+    "announce_title": "Recruitment / Announcements",
+    "announce_more": "See all →"
+  },
+  "people": {
+    "h1": "Our research group",
+    "intro": "Current members of the lab (PI, postdocs, PhD/MA students, undergraduates, and visitors). Click an avatar to expand a member's details.",
+    "pi": "Principal Investigator",
+    "postdoc": "Postdoctoral Fellow",
+    "phd": "Ph.D. Student",
+    "master": "M.A. Student",
+    "undergrad": "Undergraduate",
+    "ra": "Research Assistant",
+    "visiting": "Visiting Scholar"
+  },
+  "projects": {
+    "h1": "Research themes",
+    "intro": "Our research is organized around several interlocking themes, all centred on how vocal communication conveys social and emotional meaning.",
+    "rep_pubs": "Representative publications",
+    "vocal_emotion": {
+      "title": "Encoding & decoding of vocal emotion",
+      "body": "How do speakers convey emotion through the voice — through prosody and nonverbal vocalizations (laughs, sighs) — and how do listeners decode these signals on a millisecond timescale? We combine EEG/ERP, eye-tracking and behavioural methods."
+    },
+    "neural_pragmatics": {
+      "title": "Neural bases of pragmatics & social communication",
+      "body": "Irony, politeness, trust judgments, indirect meaning: we investigate how speaker identity and social context modulate the brain's response to pragmatic content, using ERP and functional neuroimaging to characterize the timing and networks involved."
+    },
+    "crosslinguistic": {
+      "title": "Cross-linguistic & cross-cultural cognition",
+      "body": "Do emotion recognition and social inference vary across language and culture? We compare native and second-language listeners, and listeners from different cultural backgrounds, with a focus on how cultural immersion shapes neural responses."
+    },
+    "applied": {
+      "title": "Applied neurolinguistics",
+      "body": "Language acquisition, clinical populations (e.g. Parkinson's disease, autism spectrum) and pragmatic/prosodic processing, plus foundational work toward language brain–machine interfaces and large-scale neural language databases."
+    }
+  },
+  "publications": {
+    "h1": "Publications",
+    "intro": "Publications by Prof. Xiaoming Jiang and members of the lab (auto-synced from ORCID; PDF / code / video links added manually).",
+    "filter_all": "All",
+    "filter_journal": "Journal articles",
+    "filter_preprint": "Preprints",
+    "filter_conference": "Conference papers",
+    "filter_chinese": "Chinese journals"
+  },
+  "facilities": {
+    "h1": "Lab facilities & equipment",
+    "intro": "Our research uses the SISU university-level <strong>Key Laboratory of Language Sciences and Multilingual Artificial Intelligence</strong>, housed at the Institute of Language Sciences. The lab comprises 7 sub-labs (Speech, Eye-tracking, EEG, Behavioral, Child Language, Language Data Processing & Application, and Smart Learning), and we have access to the 3T MRI system at SISU's Brain Imaging Center."
+  },
+  "news": {
+    "h1": "News & Recruitment",
+    "intro": "Recruitment calls, collaboration opportunities, and academic activities.",
+    "read_more": "Read more →"
+  },
+  "contact": {
+    "h1": "How to reach us",
+    "address_h": "Address",
+    "address": "Research Center of Psycholinguistics &amp; Neurolinguistics<br>Institute of Language Sciences, SISU<br><br><strong>Songjiang campus</strong><br>Bldg. 5, Rm. 101, 1550 Wenxiang Road, Songjiang｜Tel.: +86-21-67701865<br><br><strong>Hongkou campus</strong><br>Bldg. 5, Rm. 607, 550 Dalian Road West, Hongkou｜Tel.: +86-21-35372364 / 35372393<br><br><strong>Prof. Jiang's office</strong>: Bldg. 5, Rm. 156, Songjiang campus",
+    "email_h": "Email",
+    "email_general": "For general inquiries, please contact:",
+    "email_pi": "Prof. Xiaoming Jiang:",
+    "location_h": "Visiting us",
+    "location_p1": "Prof. Jiang's office is in Bldg. 5, Rm. 156, on SISU's Songjiang campus. From central Shanghai, take Metro Line 9 to Songjiang University Town station, then transfer to the campus shuttle (about 15 min).",
+    "location_p2": "The lab also maintains research offices on the Hongkou campus (Bldg. 5, Rm. 607). Visitors from abroad are encouraged to contact us in advance; we can help arrange accommodation and visa documents.",
+    "positions_h": "Interested in joining us?",
+    "positions_p1": "We welcome Ph.D. applicants, postdoctoral fellows, and visiting scholars working on psycholinguistics, neurolinguistics, and the neurocognitive basis of pragmatics.",
+    "positions_p2": "International applicants may consider the China Studies Program (CSP) Ph.D. Fellowship and the Shanghai Sci-tech Co-research Program — see <a href=\"news.html\">News</a> for current calls.",
+    "positions_p3": "Postdoctoral candidates and collaborators are encouraged to contact Prof. Jiang directly."
+  },
+  "footer": {
+    "school_name": "Institute of Language Sciences, SISU",
+    "school_address": "<strong>Songjiang campus</strong><br>Bldg. 5, Rm. 101, 1550 Wenxiang Road, Songjiang<br>Tel.: +86-21-67701865<br><br><strong>Hongkou campus</strong><br>Bldg. 5, Rm. 607, 550 Dalian Road West, Hongkou<br>Tel.: +86-21-35372364 / 35372393",
+    "copyright": "© 2026 Jiang Lab · Institute of Language Sciences, SISU",
+    "sisu_link": "SISU website"
+  },
+  "mentorship": {
+    "h1": "Mentorship",
+    "intro": "Undergraduate, MA, and PhD students Prof. Jiang has mentored, with current positions."
+  }
+}

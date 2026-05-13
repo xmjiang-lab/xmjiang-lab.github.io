@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发表论文 · 蒋晓鸣课题组 · SISU</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body data-page="publications">
+
+<div id="header-slot"></div>
+
+<main id="main" class="page-single">
+  <div class="main-col">
+    <h1 data-i18n="publications.h1">发表论文</h1>
+    <p data-i18n="publications.intro">蒋晓鸣教授及课题组成员的学术发表（自动同步自 ORCID，可手工补充 PDF / 代码 / 视频链接）。</p>
+
+    <div class="pub-filters">
+      <button class="pub-filter-btn active" data-cat="all" onclick="filterPubs('all', this)">
+        <span data-i18n="publications.filter_all">全部</span> <span class="count" id="cnt-all"></span>
+      </button>
+      <button class="pub-filter-btn" data-cat="journal" onclick="filterPubs('journal', this)">
+        <span data-i18n="publications.filter_journal">期刊论文</span> <span class="count" id="cnt-journal"></span>
+      </button>
+      <button class="pub-filter-btn" data-cat="preprint" onclick="filterPubs('preprint', this)">
+        <span data-i18n="publications.filter_preprint">预印本</span> <span class="count" id="cnt-preprint"></span>
+      </button>
+      <button class="pub-filter-btn" data-cat="conference" onclick="filterPubs('conference', this)">
+        <span data-i18n="publications.filter_conference">会议论文</span> <span class="count" id="cnt-conference"></span>
+      </button>
+      <button class="pub-filter-btn" data-cat="chinese" onclick="filterPubs('chinese', this)">
+        <span data-i18n="publications.filter_chinese">中文期刊</span> <span class="count" id="cnt-chinese"></span>
+      </button>
+    </div>
+
+    <div id="pub-list">
+      <p style="color:#888;font-style:italic;">Loading…</p>
+    </div>
+  </div>
+</main>
+
+<div id="footer-slot"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

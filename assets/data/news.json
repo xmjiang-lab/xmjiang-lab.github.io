@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "date": "2026-01",
+      "featured": true,
+      "tag_zh": "国际合作招募",
+      "tag_en": "Int'l Recruitment",
+      "title_zh": "上海市国际合作研究项目 2026 年度招募外籍青年学者",
+      "title_en": "2026 Shanghai Sci-tech Co-research Program: call for foreign young scientists",
+      "summary_zh": "面向 45 岁以下外籍青年学者，单项资助 40 万人民币，资助期 2 年。课题组优先合作方向：言语情绪、神经语用、跨语言认知。",
+      "summary_en": "Open to foreign scientists under 45. Each project funded at RMB 400,000 over 2 years. Priority areas: vocal emotion, neuropragmatics, cross-linguistic cognition.",
+      "body_zh": "由上海市科学技术委员会（STCSM）发布，面向全球 45 岁以下、在海外高校或研究机构任职的青年学者。项目期内需在上海累计驻留不少于 6 个月（含一次连续 3 个月）。申请期：2026 年 1 月 28 日 9:00 — 2026 年 12 月 31 日 16:30（北京时间）。课题组提供合作方案打磨、签证及行政支持。意向合作请直接邮件联系蒋晓鸣教授。",
+      "body_en": "Released by the Shanghai Science and Technology Commission (STCSM). Eligible to foreign scientists under 45 holding a position at an overseas university or research institute. Requires a cumulative 6-month stay in Shanghai (with one continuous 3-month block) during the project. Application window: 9:00 28 Jan 2026 — 16:30 31 Dec 2026 (Beijing time). The lab provides proposal-shaping, visa and administrative support — write directly to Prof. Jiang to discuss.",
+      "link": "https://xiaomingjiang.wordpress.com/"
+    },
+    {
+      "date": "2025-12",
+      "tag_zh": "博士招生",
+      "tag_en": "Ph.D. Admissions",
+      "title_zh": "中国研究 (CSP) 博士奖学金 — 持续招收国际博士生",
+      "title_en": "China Studies Program (CSP) Ph.D. Fellowship — ongoing intake",
+      "summary_zh": "面向国际申请者的全额博士奖学金，研究方向涵盖心理语言学、神经语言学、跨文化交际等。",
+      "summary_en": "Fully-funded Ph.D. scholarship for international applicants in psycholinguistics, neurolinguistics, and intercultural communication.",
+      "body_zh": "申请人须具备相关学科本科或硕士背景，提交研究计划与推荐信。课题组每年接收 1–2 名 CSP 博士生。具体申请流程请参考上外研究生院相关页面，意向请提前邮件联系。",
+      "body_en": "Applicants should hold a relevant Bachelor's/Master's degree and submit a research proposal with letters of recommendation. The lab accepts 1–2 CSP fellows per year. See SISU Graduate School pages for the formal process; please email in advance to express interest.",
+      "link": "https://xiaomingjiang.wordpress.com/looking-for-a-phd-through-2022-2023-china-studies-program-csp-ph-d-fellowship/"
+    },
+    {
+      "date": "2025-09",
+      "tag_zh": "学术活动",
+      "tag_en": "Conference",
+      "title_zh": "中国心理语言学年会 (China Psycholinguistics Annual Conference)",
+      "title_en": "China Psycholinguistics Annual Conference",
+      "summary_zh": "上外语言科学研究院定期承办的国内顶级心理语言学学术会议。",
+      "summary_en": "The leading domestic psycholinguistics meeting, regularly hosted by SISU ILAS.",
+      "body_zh": "课题组成员积极参与会议组织与报告，欢迎合作者联系交流。",
+      "body_en": "Lab members are actively involved in organization and presentations; collaborators are welcome to get in touch."
+    }
+  ]
+}
