@@ -1,0 +1,27 @@
+name: Graduation / departure (form fallback)
+description: Manual fallback for the graduation form. Power users only.
+title: "[Form:graduation] "
+labels: ["form:graduation", "pending-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most users should use the web form at `graduation-form.html`.
+        Keep the `---` markers and `key: "value"` lines below intact.
+
+  - type: textarea
+    id: payload
+    attributes:
+      label: Graduation payload
+      description: Fill in values inside the quotes.
+      value: |
+        ---
+        form_type: graduation
+        name_zh: ""
+        end_date: ""
+        period_summary: ""
+        next_position_zh: ""
+        next_position_en: ""
+        ---
+    validations:
+      required: true

@@ -1,0 +1,30 @@
+name: News item (form fallback)
+description: Manual fallback for submitting a news item. Power users only.
+title: "[Form:news] "
+labels: ["form:news", "pending-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most users should use the web form at `news-form.html`.
+        Keep the `---` markers and `key: "value"` lines below intact.
+
+  - type: textarea
+    id: payload
+    attributes:
+      label: News payload
+      description: Fill in values inside the quotes. Date as YYYY-MM-DD.
+      value: |
+        ---
+        form_type: news
+        title_zh: ""
+        title_en: ""
+        tag_zh: ""
+        tag_en: ""
+        date: ""
+        body_zh: ""
+        body_en: ""
+        link: ""
+        ---
+    validations:
+      required: true

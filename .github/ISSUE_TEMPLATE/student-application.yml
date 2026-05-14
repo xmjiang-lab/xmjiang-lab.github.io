@@ -1,0 +1,36 @@
+name: Student application (form fallback)
+description: Manual fallback for the student application form. Power users only.
+title: "[Form:student] "
+labels: ["form:student-application", "pending-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most applicants should use the web form at `student-form.html`.
+        This template is a fallback for users comfortable with GitHub.
+        After submit, leave the YAML block format intact — the processor
+        relies on the `---` markers and `key: "value"` lines below.
+
+  - type: textarea
+    id: payload
+    attributes:
+      label: Application payload
+      description: Fill in the values inside the quotes. Keep the `---` markers.
+      value: |
+        ---
+        form_type: student-application
+        name_zh: ""
+        name_en: ""
+        layer: ""
+        cohort_year: ""
+        bio_zh: ""
+        bio_en: ""
+        education: ""
+        research_areas: ""
+        email: ""
+        homepage: ""
+        orcid: ""
+        scholar: ""
+        ---
+    validations:
+      required: true
