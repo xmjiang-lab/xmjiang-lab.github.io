@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投稿新闻 · 蒋晓鸣课题组 · SISU</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/form.css">
+  <link rel="stylesheet" href="assets/fonts/phosphor/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body data-page="news-form">
+
+<div id="header-slot"></div>
+
+<section class="form-hero">
+  <div class="form-hero-inner">
+    <h1>投稿新闻 / Submit News</h1>
+    <p>课题组成员或合作者可在此提交一条新闻 / 招募 / 公告，审核通过后会显示在新闻动态页面。</p>
+  </div>
+</section>
+
+<main class="form-page">
+  <form id="news-form" class="form-card" autocomplete="off">
+
+    <div class="form-field">
+      <label class="form-field-label" for="title_zh">中文标题 / Chinese title<span class="req">*</span></label>
+      <input type="text" id="title_zh" name="title_zh" required>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="title_en">英文标题 / English title <span class="hint">(可选 optional)</span></label>
+      <input type="text" id="title_en" name="title_en">
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="tag_zh">中文标签 / Chinese tag<span class="req">*</span></label>
+      <input type="text" id="tag_zh" name="tag_zh" placeholder="例 国际合作招募 / 学术活动 / 博士招生" required>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="tag_en">英文标签 / English tag <span class="hint">(可选 optional)</span></label>
+      <input type="text" id="tag_en" name="tag_en" placeholder="e.g. Int'l Recruitment / Conference / Admissions">
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="date">日期 / Date<span class="req">*</span> <span class="hint">(YYYY-MM-DD)</span></label>
+      <input type="date" id="date" name="date" required>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="body_zh">中文正文 / Chinese body<span class="req">*</span></label>
+      <textarea id="body_zh" name="body_zh" rows="6" required></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="body_en">英文正文 / English body <span class="hint">(可选 optional)</span></label>
+      <textarea id="body_en" name="body_en" rows="6"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="link">外部链接 / External link <span class="hint">(可选 optional)</span></label>
+      <input type="url" id="link" name="link" placeholder="https://...">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="form-submit">投稿新闻 / Submit</button>
+    </div>
+
+    <div id="form-status" class="form-status"></div>
+
+    <div class="form-note">
+      <strong>提示：</strong>新闻审核通过后将出现在「新闻动态」页面，并按日期倒序排列。如表单失败，请改用邮件
+      <a href="mailto:xiaoming.jiang@shisu.edu.cn">xiaoming.jiang@shisu.edu.cn</a>。
+    </div>
+
+    <a class="form-back" href="news.html">← 返回新闻动态 / Back to News</a>
+  </form>
+</main>
+
+<div id="footer-slot"></div>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/form-submit.js"></script>
+<script>
+  (function () {
+    const form = document.getElementById("news-form");
+    const statusEl = document.getElementById("form-status");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector(".form-submit");
+      const fd = new FormData(form);
+      const fields = {};
+      fd.forEach((v, k) => { fields[k] = v; });
+      await window.JiangLabForm.submitForm({
+        type: "news",
+        fields,
+        photoFile: null,
+        statusEl,
+        submitButton: submitBtn,
+      });
+    });
+  })();
+</script>
+</body>
+</html>
