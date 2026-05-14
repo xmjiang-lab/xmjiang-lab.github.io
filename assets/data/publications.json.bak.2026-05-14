@@ -1,6 +1,74 @@
 [
   {
     "year": "2026",
+    "title": "Human brains implicitly and rapidly distinguish AI from human voices before decoding prosodic meaning",
+    "authors": "Wenjun Chen; Marc D. Pell; Xiaoming Jiang",
+    "type": "preprint",
+    "doi": "10.64898/2026.04.08.716483",
+    "url": "https://doi.org/10.64898/2026.04.08.716483",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2026.04.08.716483v1.full.pdf",
+    "code_url": "https://osf.io/chje7/overview?view_only=ed137660b3e74abab321ee214a323c35",
+    "category": "preprint",
+    "source": "0000-0002-5171-9774"
+  },
+  {
+    "year": "2026",
+    "title": "Prosodic cues strengthen human-AI voice boundaries: Listeners do not easily perceive human speakers and AI clones as the same person",
+    "authors": "Wenjun Chen; Marc D. Pell; Xiaoming Jiang",
+    "journal": "Computers in Human Behavior: Artificial Humans",
+    "type": "journal-article",
+    "doi": "10.1016/j.chbah.2026.100261",
+    "url": "https://doi.org/10.1016/j.chbah.2026.100261",
+    "code_url": "https://osf.io/26yr5/overview?view_only=5b208c266b824f8eb105bed9dad4739a",
+    "category": "journal",
+    "source": "0000-0002-5171-9774"
+  },
+  {
+    "year": "2026",
+    "title": "Altered Selective Attention or Increased Imagination: Effects of Eye Closure on Vocal Expression Perception",
+    "authors": "Xiaoming Jiang; Renneng Luo; Qi Yang",
+    "journal": "Journal of Speech, Language, and Hearing Research",
+    "type": "journal-article",
+    "doi": "10.1044/2025_JSLHR-25-00294",
+    "url": "https://doi.org/10.1044/2025_JSLHR-25-00294",
+    "category": "journal",
+    "source": "0000-0002-5171-9774"
+  },
+  {
+    "year": "2026",
+    "title": "Temporal expectation in turn-taking: Prosodic cues modulate behavioral and neural signatures of turn-end prediction in conversation",
+    "authors": "Yue Ji; Quanjun Song; Xiaoming Jiang; Yan Tan; Wei Chang; Xiaolin Zhou",
+    "journal": "Brain and Language, 275, 105723",
+    "type": "journal-article",
+    "doi": "10.1016/j.bandl.2026.105723",
+    "url": "https://doi.org/10.1016/j.bandl.2026.105723",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2026",
+    "title": "Ambiguity in vocal expression perception: Evidence from voice morphing and its electrophysiological correlates",
+    "authors": "Ruoyu Xu; Xiaoming Jiang",
+    "journal": "NeuroImage, 121987",
+    "type": "journal-article",
+    "doi": "10.1016/j.neuroimage.2026.121987",
+    "url": "https://doi.org/10.1016/j.neuroimage.2026.121987",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2026",
+    "title": "Speak or shout? Nonverbal vocalizations promote rapid detection of emotions in vocal communication",
+    "authors": "Marc D. Pell; Hongwei Cui; Yui Mori; Xiaoming Jiang",
+    "journal": "PLoS One, e0327529",
+    "type": "journal-article",
+    "doi": "10.1371/journal.pone.0327529",
+    "url": "https://doi.org/10.1371/journal.pone.0327529",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2026",
     "title": "Stereotypes vs. general knowledge: How listener-specific expectations shape the processing of counter-expectation meaning",
     "authors": "Xun Li; Xiaoming Jiang",
     "journal": "Lingua",
@@ -23,122 +91,16 @@
     "source": "0000-0002-5171-9774"
   },
   {
-    "year": "2026",
-    "title": "Ambiguity in vocal expression perception: Evidence from voice morphing and its electrophysiological correlates",
-    "authors": "Ruixuan Xu; Xiaoming Jiang",
-    "journal": "NeuroImage",
-    "type": "journal-article",
-    "doi": "10.1016/j.neuroimage.2026.121987",
-    "url": "https://doi.org/10.1016/j.neuroimage.2026.121987",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2026",
+    "year": "2025",
     "title": "Human and AI voice identities evoke shared neural signatures during speaker recognition across changes in speech content and prosody",
     "authors": "Wenjun Chen; Marc D. Pell; Xiaoming Jiang",
     "journal": "Neuropsychologia",
-    "type": "journal-article",
-    "doi": "10.1016/j.neuropsychologia.2026.109493",
-    "url": "https://doi.org/10.1016/j.neuropsychologia.2026.109493",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2026",
-    "title": "Altered Selective Attention or Increased Imagination: Effects of Eye Closure on Vocal Expression Perception",
-    "authors": "Xiaoming Jiang; Renneng Luo; Qi Yang",
-    "journal": "Journal of Speech, Language, and Hearing Research",
-    "type": "journal-article",
-    "doi": "10.1044/2025_JSLHR-25-00294",
-    "url": "https://doi.org/10.1044/2025_JSLHR-25-00294",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2026",
-    "title": "Human brains implicitly and rapidly distinguish AI from human voices before decoding prosodic meaning",
-    "authors": "Wenjun Chen; Marc D. Pell; Xiaoming Jiang",
     "type": "preprint",
-    "doi": "10.64898/2026.04.08.716483",
-    "url": "https://doi.org/10.64898/2026.04.08.716483",
-    "show": "yes",
+    "doi": "10.64898/2025.12.22.695263",
+    "url": "https://doi.org/10.64898/2025.12.22.695263",
+    "pdf_url": "https://www.biorxiv.org/content/10.64898/2025.12.22.695263v1.full.pdf",
+    "code_url": "https://osf.io/9b8pq/overview?view_only=360d32c442e4440e89859d379192043a",
     "category": "preprint",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2026",
-    "title": "Temporal expectation in turn-taking: prosodic cues modulate behavioral and neural signatures of turn-end prediction in conversation",
-    "authors": "Yujie Ji; Qingyi Song; Xiaoming Jiang; Yingying Tan; Wenshuo Chang; Xiaolin Zhou",
-    "journal": "Brain and Language",
-    "type": "journal-article",
-    "doi": "10.1016/j.bandl.2026.105723",
-    "url": "https://doi.org/10.1016/j.bandl.2026.105723",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2026",
-    "title": "Prosodic cues strengthen human-AI voice boundaries: Listeners do not easily perceive human speakers and AI clones as the same person",
-    "authors": "Wenjun Chen; Marc D. Pell; Xiaoming Jiang",
-    "journal": "Computers in Human Behavior: Artificial Humans",
-    "type": "journal-article",
-    "doi": "10.1016/j.chbah.2026.100261",
-    "url": "https://doi.org/10.1016/j.chbah.2026.100261",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2026",
-    "title": "Speak or shout? Nonverbal vocalizations promote rapid detection of emotions in vocal communication",
-    "authors": "Marc D. Pell; Haining Cui; Yondu Mori; Xiaoming Jiang",
-    "journal": "PLOS One",
-    "type": "journal-article",
-    "doi": "10.1371/journal.pone.0327529",
-    "url": "https://doi.org/10.1371/journal.pone.0327529",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2025",
-    "title": "Naturalistic fMRI and MEG recordings during viewing of a reality TV show",
-    "authors": "Jixing Li; Qiang Wang; Yike Wang; Chengcheng Wang; Zhengwu Ma; Ruixuan Xu; Shiyan Feng; Xiaoming Jiang; Zhaoli Meng",
-    "journal": "Scientific Data",
-    "type": "journal-article",
-    "doi": "10.1038/s41597-025-06110-5",
-    "url": "https://doi.org/10.1038/s41597-025-06110-5",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2025",
-    "title": "On How Vocal Cues Impact Dynamic Credibility Judgments: Mouse-Tracking Paradigm Examining Speaker Confidence and Gender Through Voice Morphing",
-    "authors": "Zhikang Peng; Chaoyi Wang; Xiaoming Jiang",
-    "journal": "Journal of Speech, Language, and Hearing Research",
-    "type": "journal-article",
-    "doi": "10.1044/2025_JSLHR-24-00849",
-    "url": "https://doi.org/10.1044/2025_JSLHR-24-00849",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2025",
-    "title": "Perceiving female physical attractiveness and expressive traits from body features and body motion",
-    "authors": "Lin Gao; Marc D. Pell; Zhikang Peng; Xiaoming Jiang",
-    "journal": "BMC Psychology",
-    "type": "journal-article",
-    "doi": "10.1186/s40359-025-03522-1",
-    "url": "https://doi.org/10.1186/s40359-025-03522-1",
-    "show": "yes",
-    "category": "journal",
     "source": "0000-0002-5171-9774"
   },
   {
@@ -148,21 +110,103 @@
     "type": "preprint",
     "doi": "10.20944/preprints202510.1492.v1",
     "url": "https://doi.org/10.20944/preprints202510.1492.v1",
-    "show": "yes",
+    "pdf_url": "https://www.preprints.org/frontend/manuscript/9ccd15a8562792c12b159e8c3f0c7aa8/download_pub",
+    "code_url": "https://osf.io/qgrva/overview?view_only=2a4d21db2419426299af9229e8945675",
     "category": "preprint",
     "source": "0000-0002-5171-9774"
   },
   {
     "year": "2025",
+    "title": "Introducing the SISU Voice Matching Test (SVMT): A novel tool for assessing voice discrimination in Chinese",
+    "authors": "Tianqi Xu; Xiaoming Jiang; Peng Zhang; Aijun Wang",
+    "journal": "Behavior Research Methods, 57, 86",
+    "type": "journal-article",
+    "doi": "10.3758/s13428-025-02608-3",
+    "url": "https://doi.org/10.3758/s13428-025-02608-3",
+    "category": "journal",
+    "source": "seed",
+    "notes": "Undergrad-led"
+  },
+  {
+    "year": "2025",
     "title": "Semantic processing of argument structure during naturalistic story listening: Evidence from computational modeling on fMRI",
-    "authors": "Tianze Xu; Jixing Li; Xiaoming Jiang",
-    "journal": "NeuroImage",
+    "authors": "Tianqi Xu; Jixing Li; Xiaoming Jiang",
+    "journal": "NeuroImage, 314, 121253",
     "type": "journal-article",
     "doi": "10.1016/j.neuroimage.2025.121253",
     "url": "https://doi.org/10.1016/j.neuroimage.2025.121253",
-    "show": "yes",
     "category": "journal",
-    "source": "0000-0002-5171-9774"
+    "source": "seed"
+  },
+  {
+    "year": "2025",
+    "title": "Measuring the semantic priming effect across many languages",
+    "authors": "Erin Buchanan; Kelly Cuccolo; Tom Heyman; ...; Xiaoming Jiang; ...",
+    "journal": "Nature Human Behaviour, 10, 182-201",
+    "type": "journal-article",
+    "category": "journal",
+    "source": "seed",
+    "notes": "Multi-lab"
+  },
+  {
+    "year": "2025",
+    "title": "Naturalistic fMRI and MEG recordings during viewing of a reality TV show",
+    "authors": "Jixing Li; Qingjuan Wang; Yue Wang; Chao Wang; Zhuoran Ma; Ruoyu Xu; Shaoning Feng; Xiaoming Jiang; Zhen Meng",
+    "journal": "Scientific Data, 1809",
+    "type": "journal-article",
+    "doi": "10.1038/s41597-025-06110-5",
+    "url": "https://doi.org/10.1038/s41597-025-06110-5",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2025",
+    "title": "Neural evidence for encoding communicative functions in speech across linguistic forms with varying iconicity",
+    "authors": "Yi Li; Xiaoming Jiang",
+    "journal": "Language, Cognition & Neuroscience",
+    "type": "journal-article",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2025",
+    "title": "On how vocal cues impact dynamic credibility judgments: Mouse-tracking paradigm examining speaker confidence and gender through voice morphing",
+    "authors": "Zhikang Peng; Chao Wang; Xiaoming Jiang",
+    "journal": "Journal of Speech, Language, and Hearing Research, 68, 5261-5277",
+    "type": "journal-article",
+    "doi": "10.1044/2025_JSLHR-24-00849",
+    "url": "https://doi.org/10.1044/2025_JSLHR-24-00849",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2025",
+    "title": "Perceiving female physical attractiveness and expressive traits from body features and body motion",
+    "authors": "Lina Gao; Marc D. Pell; Zhikang Peng; Xiaoming Jiang",
+    "journal": "BMC Psychology, 13, 1206",
+    "type": "journal-article",
+    "doi": "10.1186/s40359-025-03522-1",
+    "url": "https://doi.org/10.1186/s40359-025-03522-1",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2025",
+    "title": "Detecting implicit biases of large language models with Bayesian hypothesis testing",
+    "authors": "Shijing Si; Xiaoming Jiang; Qing Su; Lawrence Carin",
+    "journal": "Scientific Reports, 15, 12415",
+    "type": "journal-article",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2025",
+    "title": "Tactile and interpersonal sound symbolic associations in patients with multiple somatic symptoms",
+    "authors": "Yi Li; Xiaobing Ma; Xiaoming Jiang; Qiang Feng; Lina Wang",
+    "journal": "Scientific Reports, 15, 18303",
+    "type": "journal-article",
+    "category": "journal",
+    "source": "seed"
   },
   {
     "year": "2025",
@@ -177,16 +221,110 @@
     "source": "0000-0002-5171-9774"
   },
   {
-    "year": "2025",
-    "title": "Introducing the Sisu Voice Matching Test (SVMT): A novel tool for assessing voice discrimination in Chinese",
-    "authors": "Tianze Xu; Xiaoming Jiang; Peng Zhang; Anni Wang",
-    "journal": "Behavior Research Methods",
+    "year": "2024",
+    "title": "Memorization-Based Training and Testing Paradigm for Robust Vocal Identity Recognition in Expressive Speech Using Event-Related Potentials Analysis",
+    "authors": "Chen, W.; Jiang, X.",
+    "journal": "Journal of visualized experiments : JoVE",
     "type": "journal-article",
-    "doi": "10.3758/s13428-025-02608-3",
-    "url": "https://doi.org/10.3758/s13428-025-02608-3",
-    "show": "yes",
+    "doi": "10.3791/66913",
+    "url": "https://doi.org/10.3791/66913",
+    "video_url": "https://www.jove.com/v/66913",
     "category": "journal",
     "source": "0000-0002-5171-9774"
+  },
+  {
+    "year": "2024",
+    "title": "Inconsistent prosodies more severely impair speaker discrimination of artificial-intelligence-cloned than human talkers",
+    "authors": "Wenjun Chen; Xiaoming Jiang; Jingyi Ge; Shuwan Shan; Siyuan Zou; Yiyang Ding",
+    "journal": "Speech Prosody 2024",
+    "type": "conference-paper",
+    "doi": "10.21437/speechprosody.2024-171",
+    "url": "https://doi.org/10.21437/speechprosody.2024-171",
+    "pdf_url": "https://www.isca-archive.org/speechprosody_2024/chen24c_speechprosody.pdf",
+    "category": "conference",
+    "source": "seed",
+    "notes": "Leiden, Netherlands"
+  },
+  {
+    "year": "2024",
+    "title": "The change in aesthetic experience and empathic concern predicts theory of mind ability: Evidence from drama improvisation training",
+    "authors": "Hu, Y.; Li, R.; Jiang, X.; Chen, W.",
+    "journal": "Arts in Psychotherapy",
+    "type": "journal-article",
+    "doi": "10.1016/j.aip.2024.102167",
+    "url": "https://doi.org/10.1016/j.aip.2024.102167",
+    "category": "journal",
+    "source": "0000-0002-5171-9774"
+  },
+  {
+    "year": "2024",
+    "title": "Tracking dynamic social impressions from multidimensional voice representation",
+    "authors": "Xiaoming Jiang; Marc D. Pell",
+    "journal": "Trends in Cognitive Sciences, 28, 878-880",
+    "type": "journal-article",
+    "doi": "10.1016/j.tics.2024.08.005",
+    "url": "https://doi.org/10.1016/j.tics.2024.08.005",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2024",
+    "title": "Adapting to changes in communication: The orbitofrontal cortex in language and speech processing",
+    "authors": "Xiaoming Jiang; Xiaobing Ma; Ryan Sanford; Xiaohong Li",
+    "journal": "Brain Sciences, 14, 264",
+    "type": "journal-article",
+    "doi": "10.3390/brainsci14030264",
+    "url": "https://doi.org/10.3390/brainsci14030264",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2024",
+    "title": "Acoustic encoding of vocally-expressed confidence and doubt in Chinese bidialectics",
+    "authors": "Shaoning Feng; Xiaoming Jiang",
+    "journal": "Journal of the Acoustical Society of America, 156, 2860-2876",
+    "type": "journal-article",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2024",
+    "title": "眶额叶皮质在语言神经认知处理中的机制探析",
+    "authors": "蒋晓鸣",
+    "journal": "天津外国语大学学报, 31, 11-28",
+    "type": "journal-article",
+    "category": "chinese",
+    "source": "seed"
+  },
+  {
+    "year": "2024",
+    "title": "面向协作知识建构的《神经语言学》线上与线下混合式教材设计与开发实践研究",
+    "authors": "蒋晓鸣; 金慧",
+    "journal": "外语教材研究, 3(1), 1-19",
+    "type": "journal-article",
+    "category": "chinese",
+    "source": "seed",
+    "notes": "教材建设"
+  },
+  {
+    "year": "2024",
+    "title": "语音象似性视角下状貌词的意义编码与解码：问题、模型与展望",
+    "authors": "李怡; 蒋晓鸣",
+    "journal": "外国语, 47, 43-56",
+    "type": "journal-article",
+    "category": "chinese",
+    "source": "seed",
+    "notes": "CSSCI"
+  },
+  {
+    "year": "2024",
+    "title": "嗓音模仿认知神经加工的多阶段模型",
+    "authors": "胡砚冰; 蒋晓鸣",
+    "journal": "心理科学进展, 32, 499-513",
+    "type": "journal-article",
+    "category": "chinese",
+    "source": "seed",
+    "notes": "CSSCI"
   },
   {
     "year": "2024",
@@ -196,18 +334,6 @@
     "type": "journal-article",
     "doi": "10.1121/10.0032400",
     "url": "https://doi.org/10.1121/10.0032400",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2024",
-    "title": "Tracking dynamic social impressions from multidimensional voice representation",
-    "authors": "Xiaoming Jiang; Marc D. Pell",
-    "journal": "Trends in Cognitive Sciences",
-    "type": "journal-article",
-    "doi": "10.1016/j.tics.2024.08.005",
-    "url": "https://doi.org/10.1016/j.tics.2024.08.005",
     "show": "yes",
     "category": "journal",
     "source": "0000-0002-5171-9774"
@@ -238,18 +364,6 @@
   },
   {
     "year": "2024",
-    "title": "Adapting to Changes in Communication: The Orbitofrontal Cortex in Language and Speech Processing",
-    "authors": "Jiang, X.; Ma, X.; Sanford, R.; Li, X.",
-    "journal": "Brain Sciences",
-    "type": "journal-article",
-    "doi": "10.3390/brainsci14030264",
-    "url": "https://doi.org/10.3390/brainsci14030264",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2024",
     "title": "Auditory Challenges and Listening Effort in School-Age Children With Autism: Insights From Pupillary Dynamics During Speech-in-Noise Perception",
     "authors": "Xu, S.; Zhang, H.; Fan, J.; Jiang, X.; Zhang, M.; Guan, J.; Ding, H.; Zhang, Y.",
     "journal": "Journal of Speech, Language, and Hearing Research",
@@ -261,39 +375,60 @@
     "source": "0000-0002-5171-9774"
   },
   {
-    "year": "2024",
-    "title": "Memorization-Based Training and Testing Paradigm for Robust Vocal Identity Recognition in Expressive Speech Using Event-Related Potentials Analysis",
-    "authors": "Chen, W.; Jiang, X.",
-    "journal": "Journal of visualized experiments : JoVE",
-    "type": "journal-article",
-    "doi": "10.3791/66913",
-    "url": "https://doi.org/10.3791/66913",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2024",
-    "title": "The change in aesthetic experience and empathic concern predicts theory of mind ability: Evidence from drama improvisation training",
-    "authors": "Hu, Y.; Li, R.; Jiang, X.; Chen, W.",
-    "journal": "Arts in Psychotherapy",
-    "type": "journal-article",
-    "doi": "10.1016/j.aip.2024.102167",
-    "url": "https://doi.org/10.1016/j.aip.2024.102167",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
     "year": "2023",
     "title": "Voice-Cloning Artificial-Intelligence Speakers Can Also Mimic Human-Specific Vocal Expression",
     "authors": "Wenjun Chen; Xiaoming Jiang",
     "type": "preprint",
     "doi": "10.20944/preprints202312.0807.v1",
     "url": "https://doi.org/10.20944/preprints202312.0807.v1",
-    "show": "yes",
+    "pdf_url": "https://www.preprints.org/frontend/manuscript/f63d112d03549a13ef1f1e1e9b678621/download_pub",
+    "code_url": "https://osf.io/3c7rd/overview?view_only=a194fd9070ad4ca18b2eb7d5c4d303f4",
     "category": "preprint",
     "source": "0000-0002-5171-9774"
+  },
+  {
+    "year": "2023",
+    "title": "社会心理语言学视域下言者个体与群体身份的编码和解码 / Encoding and decoding mechanisms for speakers' individual and group identities",
+    "authors": "Wenjun Chen; Yanbing Hu; Xiaoming Jiang",
+    "journal": "外国语 / Journal of Foreign Languages, 46, 68-81",
+    "type": "journal-article",
+    "url": "https://jfl.shisu.edu.cn/cn/article/id/729?viewType=HTML",
+    "pdf_url": "https://jfl.shisu.edu.cn/cn/article/pdf/preview/729.pdf",
+    "category": "chinese",
+    "source": "seed",
+    "notes": "CSSCI"
+  },
+  {
+    "year": "2023",
+    "title": "Temporal shift length and antecedent occurrence likelihood modulate counterfactual conditional comprehension: Evidence from event-related potentials",
+    "authors": "Liwen Kong; Yu Jiang; Yan Huang; Xiaoming Jiang",
+    "journal": "Brain Sciences, 13, 1724",
+    "type": "journal-article",
+    "doi": "10.3390/brainsci13121724",
+    "url": "https://doi.org/10.3390/brainsci13121724",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2023",
+    "title": "Attentional relevance modulates nonverbal attractiveness perception in multimodal display",
+    "authors": "Yanbing Hu; Zhanao Mou; Xiaoming Jiang",
+    "journal": "Journal of Nonverbal Behavior, 47, 285-319",
+    "type": "journal-article",
+    "doi": "10.1007/s10919-023-00428-7",
+    "url": "https://doi.org/10.1007/s10919-023-00428-7",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2023",
+    "title": "\"信\"以传信，\"疑\"以传疑？基于人声线索的可信度编码与解码",
+    "authors": "胡砚冰; 蒋晓鸣",
+    "journal": "心理科学, 46, 1057-1066",
+    "type": "journal-article",
+    "category": "chinese",
+    "source": "seed",
+    "notes": "CSSCI"
   },
   {
     "year": "2023",
@@ -321,18 +456,6 @@
   },
   {
     "year": "2023",
-    "title": "Attentional Relevance Modulates Nonverbal Attractiveness Perception in Multimodal Display",
-    "authors": "Hu, Y.; Mou, Z.; Jiang, X.",
-    "journal": "Journal of Nonverbal Behavior",
-    "type": "journal-article",
-    "doi": "10.1007/s10919-023-00428-7",
-    "url": "https://doi.org/10.1007/s10919-023-00428-7",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2023",
     "title": "Editorial: Psychological and neurocognitive mechanisms of presupposition processing in speech and language processing",
     "authors": "Zhou, X.; Jiang, X.; Tan, Y.",
     "journal": "Frontiers in Psychology",
@@ -351,18 +474,6 @@
     "type": "journal-article",
     "doi": "10.1016/j.actpsy.2023.103955",
     "url": "https://doi.org/10.1016/j.actpsy.2023.103955",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2023",
-    "title": "Temporal Shift Length and Antecedent Occurrence Likelihood Modulate Counterfactual Conditional Comprehension: Evidence from Event-Related Potentials",
-    "authors": "Kong, L.; Jiang, Y.; Huang, Y.; Jiang, X.",
-    "journal": "Brain Sciences",
-    "type": "journal-article",
-    "doi": "10.3390/brainsci13121724",
-    "url": "https://doi.org/10.3390/brainsci13121724",
     "show": "yes",
     "category": "journal",
     "source": "0000-0002-5171-9774"
@@ -405,6 +516,28 @@
   },
   {
     "year": "2022",
+    "title": "Segmental and suprasegmental encoding of speaker confidence in Wuxi dialect vowels",
+    "authors": "Yue Ji; Yanbing Hu; Xiaoming Jiang",
+    "journal": "Frontiers in Psychology, 13, 1028106",
+    "type": "journal-article",
+    "doi": "10.3389/fpsyg.2022.1028106",
+    "url": "https://doi.org/10.3389/fpsyg.2022.1028106",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2022",
+    "title": "Emotional voices modulate perception and predictions about an upcoming face",
+    "authors": "Marc D. Pell; Sameer Sethi; Simon Rigoulot; Kathrin Rothermich; Pan Liu; Xiaoming Jiang",
+    "journal": "Cortex, 149, 148-164",
+    "type": "journal-article",
+    "doi": "10.1016/j.cortex.2021.12.017",
+    "url": "https://doi.org/10.1016/j.cortex.2021.12.017",
+    "category": "journal",
+    "source": "seed"
+  },
+  {
+    "year": "2022",
     "title": "A global experiment on motivating social distancing during the COVID-19 pandemic",
     "authors": "Legate, N.; Nguyen, T.-V.; Weinstein, N.; Moller, A.; Legault, L.; Vally, Z.; Tajchman, Z.; Zsido, A.N.; Zrimsek, M.; Chen, Z.; Ziano, I.; Gialitaki, Z.; Basnight-Brown, D.M.; Ceary, C.D.; Jang, Y.; IJzerman, H.; Lin, Y.; Kunisato, Y.; Yamada, Y.; Xiao, Q.; Jiang, X.; Du, X.; Yao, E.; Ryan, W.S.; Wilson, J.P.; Cyrus-Lai, W.; Jimenez-Leal, W.; Law, W.; Unanue, W.; Collins, W.M.; Richard, K.L.; Vranka, M.; Ankushev, V.; Schei, V.; Lerche, V.; Kovic, V.; Krizanic, V.; Kadreva, V.H.; Adoric, V.C.; Tran, U.S.; Yeung, S.K.; Hassan, W.; Houston, R.; Urry, H.L.; Machin, M.A.; Lima, T.J.S.; Ostermann, T.; Frizzo, T.; Sverdrup, T.E.; House, T.; Gill, T.; Fedotov, M.; Paltrow, T.; Moshontz, H.; Jernsäther, T.; Rahman, T.; Machin, T.; Koptjevskaja-Tamm, M.; Hostler, T.J.; Ishii, T.; Szaszi, B.; Adamus, S.; Suter, L.; Von Bormann, S.M.; Habib, S.; Studzinska, A.; Stojanovska, D.; Janssen, S.M.J.; Stieger, S.; Primbs, M.A.; Schulenberg, S.E.; Buchanan, E.M.; Tatachari, S.; Azouaghe, S.; Sorokowski, P.; Sorokowska, A.; Song, X.; Morbée, S.; Lewis, S.; Sinkolova, S.; Grigoryev, D.; Drexler, S.M.; Daches, S.; Levine, S.L.; Geniole, S.N.; Akter, S.; Vracar, S.; Massoni, S.; Costa, S.; Zorjan, S.; Sarioguz, E.; Izquierdo, S.M.; Tshonda, S.S.; Miller, J.K.; Alves, S.G.; Pöntinen, S.; Solas, S.Á.; Ordoñez-Riaño, S.; Ocovaj, S.B.; Onie, S.; Lins, S.; Biberauer, T.; Çoksan, S.; Khumkom, S.; Sacakli, A.; Coles, N.A.; Ruiz-Fernández, S.; Geiger, S.J.; FatahModares, S.; Walczak, R.B.; Betlehem, R.; Vilar, R.; Cárcamo, R.A.; Ross, R.M.; McCarthy, R.; Ballantyne, T.; Westgate, E.C.; Ryan, R.M.; Gargurevich, R.; Afhami, R.; Ren, D.; Monteiro, R.P.; Reips, U.-D.; Reggev, N.; Calin-Jageman, R.J.; Pourafshari, R.; Oliveira, R.; Nedelcheva-Datsova, M.; Rahal, R.-M.; Ribeiro, R.R.; Radtke, T.; Searston, R.; Jai-Ai, R.; Habte, R.; Zdybek, P.; Chen, S.-C.; Wajanatinapart, P.; Maturan, P.L.G.; Perillo, J.T.; Isager, P.M.; Kacmár, P.; Macapagal, P.M.; Maniaci, M.R.; Szwed, P.; Hanel, P.H.P.; Forbes, P.A.G.; Arriaga, P.; Paris, B.; Parashar, N.; Papachristopoulos, K.; Chartier, C.R.; Correa, P.S.; Kácha, O.; Bernardo, M.; Campos, O.; Bravo, O.N.; Mallik, P.R.; Galindo-Caballero, O.J.; Ogbonnaya, C.E.; Bialobrzeska, O.; Kiselnikova, N.; Simonovic, N.; Cohen, N.; Nock, N.L.; Hernandez, A.; Thogersen-Ntoumani, C.; Ntoumanis, N.; Johannes, N.; Albayrak-Aydemir, N.; Say, N.; Neubauer, A.B.; Martin, N.I.; Torunsky, N.; Van Antwerpen, N.; Van Doren, N.; Sunami, N.; Rachev, N.R.; Majeed, N.M.; Schmidt, N.-D.; Nadif, K.; Forscher, P.S.; Corral-Frías, N.S.; Ouherrou, N.; Abbas, N.; Pantazi, M.; Lucas, M.Y.; Vasilev, M.R.; Ortiz, M.V.; Butt, M.M.; Kurfali, M.; Kabir, M.; Muda, R.; Del Carmen M. C. Tejada Rivera, M.; Sirota, M.; Seehuus, M.; Parzuchowski, M.; Toro, M.; Hricova, M.; Maldonado, M.A.; Arvanitis, A.; Rentzelas, P.; Vansteenkiste, M.; Metz, M.A.; Marszalek, M.; Karekla, M.; Mioni, G.; Bosma, M.J.; Westerlund, M.; Vdovic, M.; Bialek, M.; Silan, M.A.; Anne, M.; Misiak, M.; Gugliandolo, M.C.; Grinberg, M.; Capizzi, M.; Espinoza Barría, M.F.; Kurfali, M.A.; Mensink, M.C.; Harutyunyan, M.; Khosla, M.; Dunn, M.R.; Korbmacher, M.; Adamkovic, M.; Ribeiro, M.F.F.; Terskova, M.; Hruška, M.; Martoncik, M.; Voracek, M.; Cadek, M.; Frias-Armenta, M.; Kowal, M.; Topor, M.; Roczniewska, M.; Oosterlinck, M.; Thomas, A.G.; Kohlová, M.B.; Paruzel-Czachura, M.; Sabristov, M.; Greenburgh, A.; Romanova, M.; Papadatou-Pastou, M.; Lund, M.L.; Antoniadi, M.; Magrin, M.E.; Jones, M.V.; Li, M.; Ortiz, M.S.; Manavalan, M.; Muminov, A.; Stoyanova, A.; Kossowska, M.; Friedemann, M.; Wielgus, M.; Van Hooff, M.L.M.; Varella, M.A.C.; Standage, M.; Nicolotti, M.; Colloff, M.F.; Bradford, M.; Vaughn, L.A.; Eudave, L.; Vieira, L.; Lu, J.G.; Pineda, L.M.S.; Matos, L.; Pérez, L.C.; Lazarevic, L.B.; Jaremka, L.M.; Smit, E.S.; Kushnir, E.; Wichman, A.L.; Ferguson, L.J.; Anton-Boicuk, L.; De Holanda Coelho, G.L.; Ahlgren, L.; Liga, F.; Levitan, C.A.; Micheli, L.; Gunton, L.-A.; Volz, L.; Stojanovska, M.; Boucher, L.; Samojlenko, L.; Delgado, L.G.J.; Kaliska, L.; Beatrix, L.; Warmelink, L.; Rojas-Berscia, L.M.; Yu, K.; Wylie, K.; Wachowicz, J.; Charyate, A.C.; Desai, K.; Barzykowski, K.; Kozma, L.; Evans, K.; Kirgizova, K.; Belaus, A.; Emmanuel Agesin, B.B.; Koehn, M.A.; Wolfe, K.; Korobova, T.; Morris, K.; Klevjer, K.; Van Schie, K.; Vezirian, K.; Damnjanovic, K.; Thommesen, K.K.; Schmidt, K.; Filip, K.; Staniaszek, K.; Adetula, A.; Grzech, K.; Hoyer, K.; Moon, K.; Khaobunmasiri, S.; Rana, K.; Janjic, K.; Suchow, J.W.; Kielinska, J.; Cruz Vásquez, J.E.; Chanal, J.; Beitner, J.; Vargas-Nieto, J.C.; Roxas, J.C.T.; Taber, J.; Urriago-Rayo, J.; Askelund, A.D.; Pavlacic, J.M.; Benka, J.; Bavolar, J.; Soto, J.A.; Olofsson, J.K.; Vilsmeier, J.K.; Messerschmidt, J.; Czamanski-Cohen, J.; Waterschoot, J.; Moss, J.D.; Boudesseul, J.; Lee, J.M.; Kamburidis, J.; Joy-Gaba, J.A.; Zickfeld, J.; Miranda, J.F.; Verharen, J.P.H.; Hristova, E.; Beshears, J.E.; Djordjevic, J.M.; Bosch, J.; Valentova, J.V.; Antfolk, J.; Berkessel, J.B.; Schrötter, J.; Urban, J.; Röer, J.P.; Norton, J.O.; Silva, J.R.; Pickering, J.S.; Vintr, J.; Uttley, J.; Kunst, J.R.; Ndukaihe, I.L.G.; Iyer, A.; Vilares, I.; Ivanov, A.; Ropovik, I.; Sula, I.; Groyecka-Bernard, A.; Sarieva, I.; Metin-Orta, I.; Prusova, I.; Pinto, I.; Bozdoc, A.I.; Almeida, I.A.T.; Pit, I.L.; Dalgar, I.; Zakharov, I.; Arinze, A.I.; Ihaya, K.; Stephen, I.D.; Gjoneska, B.; Brohmer, H.; Flowe, H.; Godbersen, H.; Kocalar, H.E.; Hedgebeth, M.V.; Chuan-Peng, H.; Sharifian, M.; Manley, H.; Akkas, H.; Hajdu, N.; Azab, H.; Kaminski, G.; Nilsonne, G.; Anjum, G.; Travaglino, G.A.; Feldman, G.; Pfuhl, G.; Czarnek, G.; Marcu, G.M.; Hofer, G.; Banik, G.; Adetula, G.A.; Bijlstra, G.; Verbruggen, F.; Kung, F.Y.H.; Martela, F.; Foroni, F.; Forest, J.; Singer, G.; Muchembled, F.; Azevedo, F.; Mosannenzadeh, F.; Marinova, E.; Strukelj, E.; Etebari, Z.; Bradshaw, E.L.; Baskin, E.; Garcia, E.O.L.; Musser, E.; Van Steenkiste, I.M.M.; Ahn, E.R.; Quested, E.; Pronizius, E.; Jackson, E.A.; Manunta, E.; Agadullina, E.; Sakan, D.; Dursun, P.; Dujols, O.; Dubrov, D.; Willis, M.; Tümer, M.; Beaudry, J.L.; Popovic, D.; Dunleavy, D.; Djamai, I.; Krupic, D.; Herrera, D.; Vega, D.; Du, H.; Mola, D.; Chakarova, D.; Davis, W.E.; Holford, D.L.; Lewis, D.M.G.; Vaidis, D.C.; Ozery, D.H.; Ricaurte, D.Z.; Storage, D.; Sousa, D.; Alvarez, D.S.; Boller, D.; Rosa, A.D.; Dimova, D.; Krupic, D.; Marko, D.; Moreau, D.; Reeck, C.; Correia, R.C.; Whitt, C.M.; Lamm, C.; Solorzano, C.S.; Von Bastian, C.C.; Sutherland, C.A.M.; Ebersole, C.R.; Overkott, C.; Aberson, C.L.; Wang, C.; Niemiec, C.P.; Karashiali, C.; Noone, C.; Chiu, F.; Picciocchi, C.; Brownlow, C.; Karaarslan, C.; Cellini, N.; Esteban-Serna, C.; Reyna, C.; Ferreyra, C.; Batres, C.; Li, R.; Grano, C.; Carpentier, J.; Tamnes, C.K.; Fu, C.H.Y.; Ishkhanyan, B.; Bylinina, L.; Jaeger, B.; Bundt, C.; Allred, T.B.; Vermote, B.J.; Bokkour, A.; Bogatyreva, N.; Shi, J.; Chopik, W.J.; Antazo, B.; Behzadnia, B.; Becker, M.; Bayyat, M.M.; Cocco, B.; Ahmed, A.; Chou, W.-L.; Barkoukis, V.; Hubena, B.; Khaoudi, A.; Žuro, B.; Aczel, B.; Baklanova, E.; Bai, H.; Balci, B.B.; Babincák, P.; Soenens, B.; Dixson, B.J.W.; Mokady, A.; Kappes, H.B.; Atari, M.; Szala, A.; Szabelska, A.; Aruta, J.J.B.; Domurat, A.; Arinze, N.C.; Modena, A.; Adiguzel, A.; Monajem, A.; Ait El Arabi, K.; Özdogru, A.A.; Rothbaum, A.O.; Torres, A.O.; Theodoropoulou, A.; Skowronek, A.; Urooj, A.; Jurkovic, A.P.; Singh, A.; Kassianos, A.P.; Findor, A.; Hartanto, A.; Landry, A.T.; Ferreira, A.; Santos, A.C.; De La Rosa-Gomez, A.; Gourdon-Kanhukamwe, A.; Luxon, A.M.; Todsen, A.L.; Karababa, A.; Janak, A.; Pilato, A.; Bran, A.; Tullett, A.M.; Kuzminska, A.O.; Krafnick, A.J.",
     "journal": "Proceedings of the National Academy of Sciences of the United States of America",
@@ -425,18 +558,6 @@
     "url": "https://doi.org/10.21437/Interspeech.2022-10531",
     "show": "yes",
     "category": "conference",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2022",
-    "title": "Emotional voices modulate perception and predictions about an upcoming face",
-    "authors": "Pell, M.D.; Sethi, S.; Rigoulot, S.; Rothermich, K.; Liu, P.; Jiang, X.",
-    "journal": "Cortex",
-    "type": "journal-article",
-    "doi": "10.1016/j.cortex.2021.12.017",
-    "url": "https://doi.org/10.1016/j.cortex.2021.12.017",
-    "show": "yes",
-    "category": "journal",
     "source": "0000-0002-5171-9774"
   },
   {
@@ -522,28 +643,35 @@
     "source": "0000-0002-5171-9774"
   },
   {
-    "year": "2022",
-    "title": "Segmental and suprasegmental encoding of speaker confidence in Wuxi dialect vowels",
-    "authors": "Ji, Y.; Hu, Y.; Jiang, X.",
-    "journal": "Frontiers in Psychology",
+    "year": "2021",
+    "title": "Unattended emotional prosody affects visual processing of facial expressions in Mandarin-speaking Chinese: A comparison with English-speaking Canadians",
+    "authors": "Pan Liu; Simon Rigoulot; Xiaoming Jiang; Shuyi Zhang; Marc D. Pell",
+    "journal": "Journal of Cross-Cultural Psychology, 52(3), 275-294",
     "type": "journal-article",
-    "doi": "10.3389/fpsyg.2022.1028106",
-    "url": "https://doi.org/10.3389/fpsyg.2022.1028106",
-    "show": "yes",
+    "doi": "10.1177/0022022121990897",
+    "url": "https://doi.org/10.1177/0022022121990897",
     "category": "journal",
-    "source": "0000-0002-5171-9774"
+    "source": "seed"
+  },
+  {
+    "year": "2021",
+    "title": "Immediate on-line use of prosody reveals the ironic intentions of a speaker: Neurophysiological evidence",
+    "authors": "Maël Mauchand; Jonathan Caballero; Xiaoming Jiang; Marc D. Pell",
+    "journal": "Cognitive, Affective & Behavioral Neuroscience, 21, 74-92",
+    "type": "journal-article",
+    "category": "journal",
+    "source": "seed"
   },
   {
     "year": "2021",
     "title": "Cortical processing of speaker politeness: Tracking the dynamic effects of voice tone and politeness markers",
-    "authors": "Caballero, J.A.; Mauchand, M.; Jiang, X.; Pell, M.D.",
-    "journal": "Social Neuroscience",
+    "authors": "Jonathan Caballero; Maël Mauchand; Xiaoming Jiang; Marc D. Pell",
+    "journal": "Social Neuroscience, 16(4), 423-438",
     "type": "journal-article",
     "doi": "10.1080/17470919.2021.1938667",
     "url": "https://doi.org/10.1080/17470919.2021.1938667",
-    "show": "yes",
     "category": "journal",
-    "source": "0000-0002-5171-9774"
+    "source": "seed"
   },
   {
     "year": "2021",
@@ -558,16 +686,25 @@
     "source": "0000-0002-5171-9774"
   },
   {
-    "year": "2021",
-    "title": "Unattended Emotional Prosody Affects Visual Processing of Facial Expressions in Mandarin-Speaking Chinese: A Comparison With English-Speaking Canadians",
-    "authors": "Liu, P.; Rigoulot, S.; Jiang, X.; Zhang, S.; Pell, M.D.",
-    "journal": "Journal of Cross-Cultural Psychology",
+    "year": "2020",
+    "title": "To believe or not to believe? How voice and accent information in speech alter listener impressions of trust",
+    "authors": "Xiaoming Jiang; Kira Gossack-Keenan; Marc D. Pell",
+    "journal": "Quarterly Journal of Experimental Psychology, 73(1), 55-79",
     "type": "journal-article",
-    "doi": "10.1177/0022022121990897",
-    "url": "https://doi.org/10.1177/0022022121990897",
-    "show": "yes",
+    "doi": "10.1177/1747021819865833",
+    "url": "https://doi.org/10.1177/1747021819865833",
     "category": "journal",
-    "source": "0000-0002-5171-9774"
+    "source": "seed"
+  },
+  {
+    "year": "2020",
+    "title": "文化互鉴视角下非言语表情的嗓音编码和解码",
+    "authors": "蒋晓鸣",
+    "journal": "同济大学学报（社会科学版）, 31, 116-124",
+    "type": "journal-article",
+    "category": "chinese",
+    "source": "seed",
+    "notes": "CSSCI"
   },
   {
     "year": "2020",
@@ -612,18 +749,6 @@
     "type": "journal-article",
     "doi": "10.1016/j.biopsycho.2020.107909",
     "url": "https://doi.org/10.1016/j.biopsycho.2020.107909",
-    "show": "yes",
-    "category": "journal",
-    "source": "0000-0002-5171-9774"
-  },
-  {
-    "year": "2020",
-    "title": "To believe or not to believe? How voice and accent information in speech alter listener impressions of trust",
-    "authors": "Jiang, X.; Gossack-Keenan, K.; Pell, M.D.",
-    "journal": "Quarterly Journal of Experimental Psychology",
-    "type": "journal-article",
-    "doi": "10.1177/1747021819865833",
-    "url": "https://doi.org/10.1177/1747021819865833",
     "show": "yes",
     "category": "journal",
     "source": "0000-0002-5171-9774"
