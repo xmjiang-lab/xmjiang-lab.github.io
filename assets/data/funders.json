@@ -15,7 +15,8 @@
   },
   {
     "name": "上海市科学技术委员会 / STCSM",
-    "tooltip": "Shanghai Science and Technology Commission — Shanghai Sci-tech Co-research Program",
+    "logo_path": "",
+    "tooltip": "Shanghai Science and Technology Commission: Shanghai Sci-tech Co-research Program",
     "period": "ongoing",
     "url": "https://stcsm.sh.gov.cn/"
   }

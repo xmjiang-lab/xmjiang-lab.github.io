@@ -3,11 +3,7 @@
     "Jiang,\\s?X\\.?(\\s?[A-Z]\\.?)?",
     "Jiang,\\s?Xiaoming",
     "X\\.?\\s?[A-Z]?\\.?\\s?Jiang",
-    "Xiaoming\\sJiang",
-    "Chen,\\s?W\\.?(\\s?[A-Z]\\.?)?",
-    "Chen,\\s?Wenjun",
-    "W\\.?\\s?[A-Z]?\\.?\\s?Chen",
-    "Wenjun\\sChen"
+    "Xiaoming\\sJiang"
   ],
   "current": [
     {
@@ -31,22 +27,5 @@
       "homepage": "https://ilas.shisu.edu.cn/21/0f/c18209a205071/page.htm"
     }
   ],
-  "alumni": [
-    {
-      "id": "alumni-wenjun-chen",
-      "role": "master",
-      "cohort_year": "2021",
-      "name_zh": "陈文均",
-      "name_en": "Wenjun Chen",
-      "title_zh": "硕士研究生",
-      "title_en": "MA Student",
-      "affil_zh": "心理与神经语言学｜MTL · BrowserPsyLab",
-      "affil_en": "Psycholinguistics & Neurolinguistics｜MTL · BrowserPsyLab",
-      "orcid": "0000-0003-3870-5041",
-      "scholar": "https://scholar.google.com/citations?user=MOPUcx8AAAAJ",
-      "homepage": "https://wenjunchen29.github.io/",
-      "now": "PhD Student, McGill University (2024–2028, with Marc Pell)",
-      "period": "2021–2024"
-    }
-  ]
+  "alumni": []
 }

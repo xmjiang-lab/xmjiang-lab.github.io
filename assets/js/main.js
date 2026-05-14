@@ -302,20 +302,57 @@
     }
 
     // Group current members by role
-    const ROLES = ["pi", "postdoc", "phd", "master", "undergrad", "ra", "visiting"];
+    const ROLES_PRESENT = ["pi", "postdoc", "ra", "visiting"];           // show only if non-empty
+    const ROLES_ALWAYS  = ["phd", "master", "undergrad"];                // always shown, with placeholder if empty
     const byRole = {};
     (data.current || []).forEach(p => {
       const r = (p.role || "other").toLowerCase();
       (byRole[r] = byRole[r] || []).push(p);
     });
 
+    // Build a placeholder card: avatar with role-specific initial, "Student N", grey muted
+    function placeholderCard(role, idx) {
+      const labelByRole = {
+        phd:       lang === "zh" ? "博士研究生" : "Ph.D. Student",
+        master:    lang === "zh" ? "硕士研究生" : "M.A. Student",
+        undergrad: lang === "zh" ? "本科生"     : "Undergraduate",
+      };
+      const tbd = lang === "zh" ? "招生中" : "Position open";
+      const tip = lang === "zh" ? "成员信息更新中" : "Member to be announced";
+      return `
+        <div class="person-card person-placeholder" aria-hidden="true">
+          <div class="person-placeholder-inner">
+            <div class="person-photo"><div class="photo-placeholder placeholder-dim">${idx}</div></div>
+            <div class="person-meta">
+              <div class="person-name placeholder-dim-text">${labelByRole[role] || role} ${idx}</div>
+              <div class="person-title placeholder-tag">${tbd}</div>
+              <div class="person-affil placeholder-dim-text" style="font-size:0.75rem;">${tip}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     const sections = [];
-    ROLES.forEach(role => {
+    // First: PI / postdoc / RA / visiting — only if actually present
+    ROLES_PRESENT.forEach(role => {
       if (!byRole[role] || !byRole[role].length) return;
       const label = roleLabel(role);
       sections.push(`
         <h2 class="people-group-heading">${label}</h2>
         <div class="people-grid">${byRole[role].map(personCard).join("")}</div>
+      `);
+    });
+    // Then: Students — always show heading + cards; 9 placeholders per role if empty
+    ROLES_ALWAYS.forEach(role => {
+      const label = roleLabel(role);
+      const members = byRole[role] || [];
+      const cards = members.length
+        ? members.map(personCard).join("")
+        : [1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => placeholderCard(role, i)).join("");
+      sections.push(`
+        <h2 class="people-group-heading">${label}</h2>
+        <div class="people-grid">${cards}</div>
       `);
     });
 

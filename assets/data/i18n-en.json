@@ -18,16 +18,15 @@
     "lab": "Institute of Language Sciences · Jiang Lab"
   },
   "home": {
-    "hero_motto": "INTEGRITY · VISION · ACADEMIC EXCELLENCE",
     "h1": "Emotion, intention and social meaning in spoken language",
-    "p1": "Humans communicate emotions, attitudes, and intentions in many ways while speaking — through the content of language (what we say) and through nonverbal expressions of the voice and face that accompany language (how we say it).",
-    "p2": "The broad aim of our research is to understand how adults convey their emotions and intentions to others, how listeners interpret these meanings in spoken language, and what brain mechanisms support these abilities. We are also examining social and cultural factors that shape vocal communication, using acoustic, behavioural, electrophysiological (EEG/ERP), and functional neuroimaging (fMRI) methods.",
+    "p1": "We investigate how people convey feelings, attitudes, and intentions when they speak: information carried not only by language itself (what is said), but also by the voice and facial expressions accompanying it (how it is said).",
+    "p2": "The lab's overarching goal is to understand how adults express emotion and intention in spoken communication, how listeners decode these signals, and the brain mechanisms involved. We also study social and cultural factors that shape speech communication, combining acoustic, behavioural, EEG/ERP and fMRI methods to test theoretical hypotheses.",
     "pi_title": "Xiaoming Jiang, Ph.D.",
     "pi_subtitle": "Professor · Doctoral Supervisor",
     "pi_affil": "Center of Psycholinguistics and Neurolinguistics <strong>(Jiang Lab)</strong><br>Institute of Language Sciences, SISU",
     "pi_bio": "Prof. Jiang's research lies in psycholinguistics and neurolinguistics, with a focus on training the next generation of researchers in these fields. Since 2021, he has been continuously listed among Elsevier's Highly Cited Chinese Researchers in Foreign Languages &amp; Literature. His work was recognized by ISCA and EURASIP with the Best Paper Award in Speech Communication, and he has been selected for Shanghai's Young Top-Notch Talent Program and the Chenguang Scholar Program.<br><br>Research areas: psycholinguistics &amp; neurolinguistics, experimental linguistics, speech communication &amp; speech disorders, vocal encoding/decoding, neuropragmatics. His group uses behavioral, electrophysiological, and neuroimaging methods to investigate how voice and prosody convey emotion and social meaning, how listeners decode these in healthy and clinical populations, and the cognitive computations underlying language in social contexts.",
     "orcid_link": "ORCID",
-    "funded_by": "Funding & Affiliations",
+    "funded_by": "Funding",
     "sidebar_title": "Recent papers",
     "sidebar_full": "Full publication list",
     "announce_title": "Recruitment / Announcements",
@@ -51,7 +50,7 @@
     "rep_pubs": "Representative publications",
     "vocal_emotion": {
       "title": "Encoding & decoding of vocal emotion",
-      "body": "How do speakers convey emotion through the voice — through prosody and nonverbal vocalizations (laughs, sighs) — and how do listeners decode these signals on a millisecond timescale? We combine EEG/ERP, eye-tracking and behavioural methods."
+      "body": "How do speakers convey emotion through the voice: through prosody and nonverbal vocalizations (laughs, sighs): and how do listeners decode these signals on a millisecond timescale? We combine EEG/ERP, eye-tracking and behavioural methods."
     },
     "neural_pragmatics": {
       "title": "Neural bases of pragmatics & social communication",
@@ -96,7 +95,7 @@
     "location_p2": "The lab also maintains research offices on the Hongkou campus (Bldg. 5, Rm. 607). Visitors from abroad are encouraged to contact us in advance; we can help arrange accommodation and visa documents.",
     "positions_h": "Interested in joining us?",
     "positions_p1": "We welcome Ph.D. applicants, postdoctoral fellows, and visiting scholars working on psycholinguistics, neurolinguistics, and the neurocognitive basis of pragmatics.",
-    "positions_p2": "International applicants may consider the China Studies Program (CSP) Ph.D. Fellowship and the Shanghai Sci-tech Co-research Program — see <a href=\"news.html\">News</a> for current calls.",
+    "positions_p2": "International applicants may consider the China Studies Program (CSP) Ph.D. Fellowship and the Shanghai Sci-tech Co-research Program: see <a href=\"news.html\">News</a> for current calls.",
     "positions_p3": "Postdoctoral candidates and collaborators are encouraged to contact Prof. Jiang directly."
   },
   "footer": {
