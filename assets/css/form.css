@@ -1,0 +1,210 @@
+/* =========================================================================
+   Jiang Lab @ SISU — public form pages (student / graduation / news)
+   Pill-style inputs with SISU Blue focus rings.
+   ========================================================================= */
+
+.form-hero {
+  background: linear-gradient(135deg, var(--sisu-blue) 0%, var(--sisu-blue-dk) 100%);
+  color: #fff;
+  padding: 40px 24px;
+}
+.form-hero-inner { max-width: 760px; margin: 0 auto; }
+.form-hero h1 {
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 1.875rem;
+  margin: 0 0 8px;
+}
+.form-hero p {
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.form-page { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+
+.form-card {
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.form-field { margin-bottom: 18px; }
+
+.form-field-label {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.875rem;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-field-label .hint {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 8px;
+}
+.form-field-label .req { color: #b52a2a; margin-left: 4px; }
+
+.form-field input[type="text"],
+.form-field input[type="url"],
+.form-field input[type="email"],
+.form-field input[type="date"],
+.form-field input[type="number"],
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+.form-field textarea {
+  border-radius: 14px;
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.55;
+}
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--sisu-blue);
+  box-shadow: 0 0 0 3px rgba(0,63,136,0.15);
+}
+
+.form-field input[type="file"] {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 0.875rem;
+}
+
+.form-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.form-radio-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9375rem;
+  color: var(--body);
+  cursor: pointer;
+}
+.form-radio-group input[type="radio"] {
+  margin: 0;
+  accent-color: var(--sisu-blue);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+.form-submit {
+  background: var(--sisu-blue);
+  color: #fff;
+  border: 1.5px solid var(--sisu-blue);
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.form-submit:hover:not(:disabled) {
+  background: var(--sisu-blue-dk);
+  border-color: var(--sisu-blue-dk);
+}
+.form-submit:active:not(:disabled) { transform: translateY(1px); }
+.form-submit:disabled {
+  background: var(--muted);
+  border-color: var(--muted);
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  display: none;
+}
+.form-status[data-state="loading"] {
+  display: block;
+  background: var(--bg-soft);
+  border-left: 4px solid var(--sisu-blue);
+  color: var(--body);
+}
+.form-status[data-state="ok"] {
+  display: block;
+  background: #eaf6ec;
+  border-left: 4px solid #2e7d32;
+  color: #1b5e20;
+}
+.form-status[data-state="error"] {
+  display: block;
+  background: #fdecea;
+  border-left: 4px solid #c62828;
+  color: #8e1b1b;
+}
+.form-status a { color: inherit; font-weight: 700; }
+
+.form-note {
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--sisu-yellow);
+  font-size: 0.8125rem;
+  color: var(--body);
+  line-height: 1.55;
+}
+.form-note strong { color: var(--ink); }
+
+.form-back {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.875rem;
+  color: var(--sisu-blue);
+}
+
+/* Dark mode */
+body.dark .form-card {
+  background: var(--bg-soft);
+  border-color: var(--line);
+  box-shadow: none;
+}
+body.dark .form-field input,
+body.dark .form-field textarea,
+body.dark .form-field select {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--line);
+}
+body.dark .form-status[data-state="loading"] { background: var(--bg); }
+body.dark .form-status[data-state="ok"] { background: #15301a; color: #a7e8b2; }
+body.dark .form-status[data-state="error"] { background: #301717; color: #f3a8a8; }
+body.dark .form-note { background: var(--bg); }
+
+@media (max-width: 640px) {
+  .form-page { padding: 24px 16px 48px; }
+  .form-card { padding: 20px 18px 16px; }
+  .form-hero { padding: 28px 18px; }
+  .form-hero h1 { font-size: 1.5rem; }
+}
