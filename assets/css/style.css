@@ -824,6 +824,34 @@ body.dark .person-card.person-alumni .person-photo { background: #1e242b; }
   border-color: var(--sisu-blue);
 }
 
+/* ── People + News page CTA blocks (link to public forms) ── */
+.people-cta,
+.news-cta {
+  margin: 18px 0 36px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--sisu-yellow);
+  font-size: 0.9375rem;
+}
+.people-cta.people-cta-alumni { margin-top: 12px; }
+.people-cta-link,
+.news-cta-link {
+  color: var(--sisu-blue);
+  font-weight: 700;
+  border: none;
+  letter-spacing: 0.2px;
+}
+.people-cta-link:hover,
+.news-cta-link:hover {
+  color: var(--sisu-blue-dk);
+  border: none;
+}
+body.dark .people-cta,
+body.dark .news-cta { background: var(--bg-soft); }
+body.dark .people-cta-link,
+body.dark .news-cta-link { color: #6ea8ff; }
+
 /* ── Projects page ───────────────────────────────────────── */
 .project-block {
   margin-bottom: 40px;
