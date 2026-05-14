@@ -529,17 +529,22 @@
     // Both shapes: array (new) or {projects:[...]} (old)
     const items = Array.isArray(data) ? data : (data.projects || []);
 
-    const html = items.map(p => {
+    const cards = items.map(p => {
       const title = lang === "zh" ? (p.title_zh || p.title_en) : (p.title_en || p.title_zh);
       const body  = lang === "zh" ? (p.body_zh  || p.body_en)  : (p.body_en  || p.body_zh);
+      const iconHtml = p.icon
+        ? `<span class="theme-icon"><i class="ph-light ${p.icon}" aria-hidden="true"></i></span>`
+        : "";
       return `
-        <div class="project-block" id="${p.id || ""}">
+        <article class="theme-card" id="${p.id || ""}">
+          ${iconHtml}
           <h3>${title || ""}</h3>
+          <div class="theme-sep" aria-hidden="true"></div>
           <p>${body || ""}</p>
-        </div>
+        </article>
       `;
     }).join("");
-    root.innerHTML = html;
+    root.innerHTML = `<div class="themes-grid">${cards}</div>`;
   }
 
   /* ── Publications ─────────────────────────────────────── */

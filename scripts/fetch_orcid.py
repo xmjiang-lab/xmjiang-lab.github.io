@@ -536,6 +536,7 @@ def emit_projects(rows: list[dict]):
     for r in rows_sorted:
         out.append({k: v for k, v in {
             "id": r.get("id") or "",
+            "icon": r.get("icon") or "",
             "title_zh": r.get("title_zh") or "",
             "title_en": r.get("title_en") or "",
             "body_zh": r.get("body_zh") or "",
