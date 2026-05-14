@@ -245,6 +245,17 @@
         ? `<span class="role-badge role-${role}">${badgeMap[role]}</span>`
         : "";
 
+      // Education / research_areas: prefer the _zh variant when language is
+      // Chinese, fall back to the English string if the _zh field is empty.
+      // (Members migrated before the i18n bio columns existed will have only
+      // the English string — the fallback keeps them readable.)
+      const eduText = lang === "zh"
+        ? (p.education_zh || p.education || "")
+        : (p.education || "");
+      const researchText = lang === "zh"
+        ? (p.research_areas_zh || p.research_areas || "")
+        : (p.research_areas || "");
+
       // Compact details for alumni: just period + current position
       const detailsHtml = isAlumni
         ? `
@@ -254,8 +265,8 @@
           `
         : `
             ${bio ? `<p class="person-bio">${bio}</p>` : ""}
-            ${p.education ? `<div class="person-row-label">${educationLabel}</div><div class="person-education">${formatEducation(p.education)}</div>` : ""}
-            ${p.research_areas ? `<div class="person-row-label">${researchLabel}</div><p>${p.research_areas}</p>` : ""}
+            ${eduText ? `<div class="person-row-label">${educationLabel}</div><div class="person-education">${formatEducation(eduText)}</div>` : ""}
+            ${researchText ? `<div class="person-row-label">${researchLabel}</div><p>${researchText}</p>` : ""}
             ${p.now ? `<div class="person-row-label">${nowLabel}</div><p>${p.now}${p.period ? ` <span style="opacity:0.6;">(${p.period})</span>` : ""}</p>` : ""}
             ${links.length ? `<div class="person-links">${links.join("")}</div>` : ""}
           `;
