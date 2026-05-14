@@ -19,6 +19,7 @@ What this script does:
        - funders.json        (affiliations / funders for the footer / home strip)
        - projects.json       (research themes, ordered)
        - collaborators.json  (key / emerging collaborators, including bio)
+       - news.json           (news items, sorted by date desc)
 
 Run locally (PsychoPy Python works fine):
     pip install requests openpyxl
@@ -430,6 +431,8 @@ def emit_people(rows: list[dict]):
             "homepage": r.get("homepage") or "",
             "now": r.get("now") or "",
             "period": r.get("period") or "",
+            "end_date": r.get("end_date") or "",
+            "next_position": r.get("next_position") or "",
         }
         return {k: v for k, v in out.items() if v not in ("", None)}
 
@@ -452,6 +455,38 @@ def _order_key(r: dict) -> int:
         return int(v)
     except (TypeError, ValueError):
         return 999
+
+
+def emit_news(rows: list[dict]):
+    """Write news.json — sorted by date desc, featured flag preserved."""
+    def _date_key(r):
+        return str(r.get("date") or "")
+
+    rows_sorted = sorted(rows, key=_date_key, reverse=True)
+    items = []
+    for r in rows_sorted:
+        featured = str(r.get("featured") or "").lower() in ("yes", "true", "1")
+        item = {
+            "date": r.get("date") or "",
+            "featured": True if featured else None,
+            "tag_zh": r.get("tag_zh") or "",
+            "tag_en": r.get("tag_en") or "",
+            "title_zh": r.get("title_zh") or "",
+            "title_en": r.get("title_en") or "",
+            "summary_zh": r.get("summary_zh") or "",
+            "summary_en": r.get("summary_en") or "",
+            "body_zh": r.get("body_zh") or "",
+            "body_en": r.get("body_en") or "",
+            "link": r.get("link") or "",
+        }
+        items.append({k: v for k, v in item.items() if v not in ("", None)})
+    payload = {"items": items}
+    target = DATA_DIR / "news.json"
+    target.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"  -> {target.name} ({len(items)} entries)")
 
 
 def emit_collaborators(rows: list[dict]):
@@ -541,6 +576,7 @@ def main():
     emit_funders(read_sheet_records(XLSX, "Funders"))
     emit_projects(read_sheet_records(XLSX, "Projects"))
     emit_collaborators(read_sheet_records(XLSX, "Collaborators"))
+    emit_news(read_sheet_records(XLSX, "News"))
 
     print(f"\nDone.")
 
