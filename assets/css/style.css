@@ -233,9 +233,10 @@ img { max-width: 100%; height: auto; }
 .page-grid .main-col h2:first-child { margin-top: 0; }
 .page-single .main-col { max-width: 920px; }
 
-/* PI card on home — with photo */
+/* PI card on home — with photo. Lives at the top of .main-col since
+   the homepage now leads with the PI block, so no top margin. */
 .pi-card {
-  margin-top: 32px;
+  margin-top: 0;
   padding: 24px;
   background: var(--bg-soft);
   border-left: 4px solid var(--sisu-blue);
