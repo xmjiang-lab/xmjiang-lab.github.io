@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80" role="img" aria-label="ILAS placeholder logo">
-  <rect width="200" height="80" fill="#ffffff" stroke="#003f88" stroke-width="2"/>
-  <text x="100" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#003f88" letter-spacing="1">ILAS</text>
-  <text x="100" y="58" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#003f88" letter-spacing="0.6">语言科学研究院</text>
-  <text x="100" y="70" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="6" fill="#5a5a5a" letter-spacing="0.3">Institute of Language Sciences</text>
-</svg>
