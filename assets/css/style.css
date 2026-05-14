@@ -346,74 +346,88 @@ img { max-width: 100%; height: auto; }
   border-color: var(--sisu-blue);
 }
 
-/* ── Sidebar ─────────────────────────────────────────────── */
+/* ── Sidebar (Latest updates card stack) ─────────────────── */
 #sidebar {
   background: var(--bg-soft);
-  padding: 24px;
+  padding: 22px 20px;
   border-top: 3px solid var(--sisu-blue);
 }
-#sidebar h3 {
+#sidebar .sidebar-news-heading {
   font-family: var(--serif);
   font-size: 1.0625rem;
   color: var(--ink);
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
-#sidebar .sidebar-list { list-style: none; margin: 0; padding: 0; }
-#sidebar .sidebar-list li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line-soft);
-  font-size: 0.875rem;
-  line-height: 1.6;
+.news-mini-card {
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: var(--bg);
+  border-left: 3px solid var(--sisu-blue);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow 0.15s, transform 0.15s;
 }
-#sidebar .sidebar-list li:last-child { border-bottom: none; }
-#sidebar .sidebar-list .pub-year { color: var(--muted); font-style: italic; }
-#sidebar .sidebar-list a { color: var(--sisu-blue); }
-#sidebar .full-link {
+.news-mini-card:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+.news-mini-card.featured {
+  border-left-color: var(--sisu-yellow);
+  border-left-width: 4px;
+  background: linear-gradient(to right, rgba(252,184,19,0.08), var(--bg) 60%);
+}
+.news-mini-tag {
   display: inline-block;
-  margin-top: 14px;
-  font-size: 0.9375rem;
-  color: var(--sisu-blue);
-  font-weight: 600;
-}
-#sidebar .full-link::after { content: " →"; }
-
-.announce-card {
-  margin-top: 24px;
-  padding: 20px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 2px 8px;
   background: var(--sisu-blue);
   color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }
-.announce-card h3 {
-  color: #fff;
-  font-family: var(--serif);
-  font-size: 1.0625rem;
-  margin: 0 0 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  padding-bottom: 8px;
-}
-.announce-card .ann-tag {
-  display: inline-block;
+.news-mini-card.featured .news-mini-tag {
   background: var(--sisu-yellow);
   color: var(--ink);
+}
+.news-mini-title {
+  font-family: var(--serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+.news-mini-summary {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--body);
+  margin: 0 0 10px;
+}
+.news-mini-more {
   font-size: 0.75rem;
-  padding: 2px 8px;
-  margin-bottom: 8px;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--sisu-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
-.announce-card p {
+.news-mini-more:hover { color: var(--sisu-blue-dk); }
+
+#sidebar .full-link {
+  display: inline-block;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  width: 100%;
+  text-align: right;
   font-size: 0.875rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.92);
-  margin: 0 0 12px;
-}
-.announce-card a {
-  color: var(--sisu-yellow);
   font-weight: 600;
-  border-bottom: 1px solid var(--sisu-yellow);
+  color: var(--sisu-blue);
 }
-.announce-card a:hover { color: #fff; border-bottom-color: #fff; }
 
 .funders-row {
   margin-top: 56px;
@@ -490,16 +504,16 @@ img { max-width: 100%; height: auto; }
   font-style: italic;
 }
 .collab-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
   margin-bottom: 8px;
 }
 .collab-card {
   background: var(--bg);
   border-left: 4px solid var(--sisu-blue);
   border-radius: 0 6px 6px 0;
-  padding: 16px 20px;
+  padding: 14px 18px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   transition: box-shadow 0.15s;
 }
@@ -508,7 +522,7 @@ img { max-width: 100%; height: auto; }
 }
 .emerging-list .collab-card {
   border-left-color: var(--sisu-yellow);
-  padding: 12px 18px;
+  padding: 12px 16px;
 }
 .collab-name {
   font-family: var(--serif);
@@ -560,6 +574,12 @@ img { max-width: 100%; height: auto; }
 }
 .people-group-heading.alumni-heading::after {
   background: var(--muted);
+}
+.alumni-placeholder {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  font-style: italic;
+  padding: 12px 0;
 }
 
 /* ── PI card (always expanded on People page) ─────────── */
@@ -1194,8 +1214,13 @@ body.dark .theme-toggle, body.dark .dark-toggle {
 body.dark #breadcrumb { background: var(--bg-soft); color: var(--muted); }
 body.dark #breadcrumb a { color: #6ea8ff; }
 body.dark #sidebar { background: var(--bg-soft); }
-body.dark #sidebar h3 { color: var(--ink); }
-body.dark #sidebar .sidebar-list li { border-bottom-color: var(--line); }
+body.dark #sidebar .sidebar-news-heading { color: var(--ink); border-bottom-color: var(--line); }
+body.dark .news-mini-card { background: #181c22; box-shadow: none; }
+body.dark .news-mini-card.featured { background: linear-gradient(to right, rgba(252,184,19,0.04), #181c22 60%); }
+body.dark .news-mini-title { color: var(--ink); }
+body.dark .news-mini-summary { color: var(--body); }
+body.dark .news-mini-more { color: #6ea8ff; }
+body.dark #sidebar .full-link { color: #6ea8ff; border-top-color: var(--line); }
 body.dark .pub-item {
   background: var(--bg-soft);
   box-shadow: none;

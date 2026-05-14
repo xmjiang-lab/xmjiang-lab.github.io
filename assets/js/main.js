@@ -163,57 +163,43 @@
     `;
   }
 
-  /* ── Sidebar (home) ───────────────────────────────────── */
+  /* ── Sidebar (home) - News cards ─────────────────────── */
   async function renderSidebar() {
     const root = $("#sidebar");
     if (!root) return;
-    await ensureAuthorPatterns();
 
-    let listHtml = "";
-    try {
-      const pubs = await loadJSON("assets/data/publications.json");
-      const recent = pubs.slice(0, 5);
-      listHtml = recent.map(p => {
-        const authors = boldLabAuthors(p.authors || "", "me");
-        const titleHtml = p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>` : p.title;
-        return `<li>
-          ${authors ? `<div>${authors} <span class="pub-year">(${p.year || "?"})</span></div>` : ""}
-          <div>${titleHtml}${p.journal ? `. <em>${p.journal}</em>` : ""}.</div>
-        </li>`;
-      }).join("");
-    } catch { listHtml = ""; }
-
-    let announceHtml = "";
+    let cards = "";
     try {
       const news = await loadJSON("assets/data/news.json");
-      const featured = (news.items || []).find(n => n.featured) || (news.items || [])[0];
-      if (featured) {
-        const lang = I18N.current;
-        const title   = lang === "zh" ? featured.title_zh   : featured.title_en;
-        const summary = lang === "zh" ? featured.summary_zh : featured.summary_en;
-        const tag     = lang === "zh" ? featured.tag_zh     : featured.tag_en;
-        announceHtml = `
-          <div class="announce-card">
-            <h3 data-i18n="home.announce_title">最新公告</h3>
-            ${tag ? `<div class="ann-tag">${tag}</div>` : ""}
-            <p><strong>${title || ""}</strong></p>
-            ${summary ? `<p>${summary}</p>` : ""}
-            <p style="margin:0;"><a href="news.html" data-i18n="home.announce_more">查看全部 →</a></p>
-          </div>
+      const items = (news.items || []).slice(0, 3);   // top-3 newest
+      const lang = I18N.current;
+
+      cards = items.map(n => {
+        const title   = lang === "zh" ? (n.title_zh   || n.title_en) : (n.title_en   || n.title_zh);
+        const summary = lang === "zh" ? (n.summary_zh || n.summary_en) : (n.summary_en || n.summary_zh);
+        const tag     = lang === "zh" ? (n.tag_zh     || n.tag_en) : (n.tag_en     || n.tag_zh);
+        const readLabel = lang === "zh" ? "阅读全文" : "Read more";
+        // Use the dedicated news link if present, else point at news.html
+        const href = n.link || "news.html";
+        return `
+          <article class="news-mini-card${n.featured ? ' featured' : ''}">
+            ${tag ? `<div class="news-mini-tag">${tag}</div>` : ""}
+            <div class="news-mini-title">${title || ""}</div>
+            ${summary ? `<p class="news-mini-summary">${summary}</p>` : ""}
+            <a class="news-mini-more" href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${readLabel} →</a>
+          </article>
         `;
-      }
-    } catch { /* no news.json */ }
+      }).join("");
+    } catch { /* no news.json - leave empty */ }
+
+    const headingTitle = I18N.current === "zh" ? "近期动态" : "Latest updates";
+    const allLinkLabel = I18N.current === "zh" ? "全部新闻 →" : "All news →";
 
     root.innerHTML = `
-      <h3 data-i18n="home.sidebar_title">近期论文</h3>
-      <ul class="sidebar-list">${listHtml || '<li style="color:#888;">暂无</li>'}</ul>
-      <a class="full-link" href="publications.html" data-i18n="home.sidebar_full">查看完整论文列表</a>
-      ${announceHtml}
+      <h3 class="sidebar-news-heading">${headingTitle}</h3>
+      ${cards || `<p style="color:#888;font-style:italic;font-size:0.875rem;">${I18N.current === "zh" ? "暂无动态。" : "No updates yet."}</p>`}
+      <a class="full-link" href="news.html">${allLinkLabel}</a>
     `;
-    $$("[data-i18n]", root).forEach(el => {
-      const v = get(I18N.data, el.getAttribute("data-i18n"));
-      if (v != null) el.innerHTML = v;
-    });
   }
 
   /* ── People ───────────────────────────────────────────── */
@@ -333,12 +319,20 @@
       `);
     });
 
-    // Alumni
+    // Alumni — always show heading; show placeholder if no entries yet
+    const alumniLabel = lang === "zh" ? "毕业生 / 离任成员" : "Alumni / Former members";
     if (data.alumni && data.alumni.length) {
-      const alumniLabel = lang === "zh" ? "毕业生 / 离任成员" : "Alumni / Former members";
       sections.push(`
         <h2 class="people-group-heading alumni-heading">${alumniLabel}</h2>
         <div class="people-grid">${data.alumni.map(personCard).join("")}</div>
+      `);
+    } else {
+      const placeholder = lang === "zh"
+        ? "课题组毕业生记录将在这里更新。"
+        : "Alumni records will appear here as members graduate.";
+      sections.push(`
+        <h2 class="people-group-heading alumni-heading">${alumniLabel}</h2>
+        <p class="alumni-placeholder">${placeholder}</p>
       `);
     }
 
@@ -366,7 +360,6 @@
             <div class="collab-card">
               <div class="collab-name">${nameLink}</div>
               ${c.affiliation ? `<div class="collab-affil">${c.affiliation}</div>` : ""}
-              ${c.bio ? `<p class="collab-bio">${c.bio}</p>` : ""}
             </div>
           `;
         }
