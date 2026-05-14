@@ -87,8 +87,7 @@
       <div id="brand-strip">
         <div class="brand-inner">
           <a class="brand-sisu" href="https://www.shisu.edu.cn" target="_blank" rel="noopener" aria-label="SISU">
-            <img src="assets/images/logos/sisu-brand.png" alt="上海外国语大学 SISU"
-                 onerror="this.onerror=null; this.src='assets/images/logos/sisu-brand.svg'">
+            <img src="assets/images/logos/sisu-brand.png" alt="上海外国语大学 SISU">
           </a>
           <div class="brand-divider"></div>
           <div class="brand-lab">
