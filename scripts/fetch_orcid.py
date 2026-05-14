@@ -13,12 +13,12 @@ What this script does:
   3. Opens `site_data.xlsx`. Merges ORCID data into the Publications sheet,
      PRESERVING any manual-only columns (pdf_url, code_url, video_url,
      show, category, group_id, notes). Re-saves the xlsx.
-  4. Reads ALL sheets and emits four JSON files into assets/data/:
-       - publications.json  (sorted by year desc, show != "no")
-       - people.json        (current + alumni split, with author_patterns)
-       - mentorship.json    (grouped by undergrad/master/phd)
-       - funders.json       (affiliations / funders for the footer / home strip)
-       - projects.json      (research themes, ordered)
+  4. Reads ALL sheets and emits JSON files into assets/data/:
+       - publications.json   (sorted by year desc, show != "no")
+       - people.json         (current + alumni split, with author_patterns)
+       - funders.json        (affiliations / funders for the footer / home strip)
+       - projects.json       (research themes, ordered)
+       - collaborators.json  (key / emerging collaborators, including bio)
 
 Run locally (PsychoPy Python works fine):
     pip install requests openpyxl
@@ -443,20 +443,30 @@ def emit_people(rows: list[dict]):
     print(f"  -> {target.name} ({len(current)} current, {len(alumni)} alumni)")
 
 
-def emit_mentorship(rows: list[dict]):
-    """Write mentorship.json — flat list, frontend groups by `group`."""
+def _order_key(r: dict) -> int:
+    """Robust integer order key. Treat blank/None as last; 0 stays 0."""
+    v = r.get("order")
+    if v is None or v == "":
+        return 999
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return 999
+
+
+def emit_collaborators(rows: list[dict]):
+    """Write collaborators.json — preserves order, includes bio when populated."""
+    rows_sorted = sorted(rows, key=_order_key)
     out = []
-    for r in rows:
+    for r in rows_sorted:
         out.append({k: v for k, v in {
-            "group": r.get("group") or "other",
-            "name":  r.get("name") or "",
-            "at_the_time": r.get("at_the_time") or "",
-            "period": r.get("period") or "",
-            "work": r.get("work") or "",
+            "group": r.get("group") or "",
+            "name": r.get("name") or "",
+            "affiliation": r.get("affiliation") or "",
             "url": r.get("url") or "",
-            "now": r.get("now") or "",
+            "bio": r.get("bio") or "",
         }.items() if v})
-    target = DATA_DIR / "mentorship.json"
+    target = DATA_DIR / "collaborators.json"
     target.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  -> {target.name} ({len(out)} entries)")
 
@@ -477,7 +487,7 @@ def emit_funders(rows: list[dict]):
 
 
 def emit_projects(rows: list[dict]):
-    rows_sorted = sorted(rows, key=lambda r: int(str(r.get("order") or "999") or "999"))
+    rows_sorted = sorted(rows, key=_order_key)
     out = []
     for r in rows_sorted:
         out.append({k: v for k, v in {
@@ -528,9 +538,9 @@ def main():
     print(f"\nEmitting JSON to {DATA_DIR}/:")
     emit_publications(merged)
     emit_people(read_sheet_records(XLSX, "People"))
-    emit_mentorship(read_sheet_records(XLSX, "Mentorship"))
     emit_funders(read_sheet_records(XLSX, "Funders"))
     emit_projects(read_sheet_records(XLSX, "Projects"))
+    emit_collaborators(read_sheet_records(XLSX, "Collaborators"))
 
     print(f"\nDone.")
 
