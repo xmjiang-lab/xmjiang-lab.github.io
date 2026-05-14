@@ -351,12 +351,6 @@
       `);
     });
 
-    // CTA: apply to join the lab
-    const applyLabel = lang === "zh" ? "申请加入课题组 →" : "Apply to join the lab →";
-    sections.push(`
-      <p class="people-cta"><a class="people-cta-link" href="student-form.html">${applyLabel}</a></p>
-    `);
-
     // Alumni — always show heading; show placeholder if no entries yet
     const alumniLabel = lang === "zh" ? "毕业生 / 离任成员" : "Alumni / Former members";
     if (data.alumni && data.alumni.length) {
@@ -373,14 +367,6 @@
         <p class="alumni-placeholder">${placeholder}</p>
       `);
     }
-
-    // CTA: graduation / departure registration (for departing or graduated members)
-    const gradLabel = lang === "zh"
-      ? "课题组毕业生 / 离任成员可在此登记 →"
-      : "Lab alumni: register your current status →";
-    sections.push(`
-      <p class="people-cta people-cta-alumni"><a class="people-cta-link" href="graduation-form.html">${gradLabel}</a></p>
-    `);
 
     // ── Collaborators (Key + Emerging) ──
     try {
@@ -729,10 +715,6 @@
     if (!root) return;
     const data = await loadJSON("assets/data/news.json");
     const lang = I18N.current;
-    const submitLabel = lang === "zh" ? "投稿新闻 →" : "Submit a news item →";
-    const submitCta = `
-      <p class="news-cta"><a class="news-cta-link" href="news-form.html">${submitLabel}</a></p>
-    `;
     const items = (data.items || []).map(n => {
       const title = lang === "zh" ? n.title_zh : n.title_en;
       const body  = lang === "zh" ? n.body_zh  : n.body_en;
@@ -749,7 +731,7 @@
         </li>
       `;
     }).join("");
-    root.innerHTML = `${submitCta}<ul class="news-list">${items}</ul>`;
+    root.innerHTML = `<ul class="news-list">${items}</ul>`;
     $$("[data-i18n]", root).forEach(el => {
       const v = get(I18N.data, el.getAttribute("data-i18n"));
       if (v != null) el.innerHTML = v;

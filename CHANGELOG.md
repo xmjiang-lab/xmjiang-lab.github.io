@@ -1,5 +1,22 @@
 # Changelog
 
+## [unreleased] — Phase 2: Form system removal
+
+### Removed
+- Three public form pages: `student-form.html`, `graduation-form.html`, `news-form.html`.
+- `assets/css/form.css` and `assets/js/form-submit.js` (the latter contained a hardcoded GitHub PAT split across three string segments — the token is being revoked manually on GitHub).
+- The three GitHub-issue fallback templates: `.github/ISSUE_TEMPLATE/student-application.yml`, `graduation.yml`, `news.yml`.
+- `.github/workflows/process-approved-issue.yml` — the workflow that ran when an Issue received the `approved` label.
+- `scripts/process_issue.py` — the Python processor that merged approved Issue payloads into `site_data.xlsx`.
+- `docs/student-form-guide.md` and `docs/jiang-admin-guide.md` — submitter and admin guides for the form flow.
+- Three CTA blocks in `assets/js/main.js`: "apply to join the lab" and "graduation registration" in `renderPeople()`, "submit a news item" in `renderNews()`.
+
+### Rationale
+- The client-side `form-submit.js` baked a GitHub PAT into a publicly-served static asset; splitting it across three string segments did not obscure it from anyone viewing source. Removing the entire form pipeline eliminates that attack surface.
+- Content management now flows exclusively through `site_data.xlsx` + the build pipeline (see upcoming Phase 2 content tooling). The Issue-based approval flow added more moving parts than the lab's submission volume justified.
+
+---
+
 ## [unreleased] — Phase 1 Block C: Weekly auto-sync
 
 ### Added
