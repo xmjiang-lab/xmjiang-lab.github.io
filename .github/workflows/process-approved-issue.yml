@@ -3,6 +3,12 @@ name: Process approved form submission
 on:
   issues:
     types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "Issue number to process manually"
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -11,7 +17,7 @@ permissions:
 
 jobs:
   process:
-    if: github.event.label.name == 'approved'
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'issues' && github.event.label.name == 'approved')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -30,13 +36,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests openpyxl
 
+      - name: Determine issue number
+        id: issue
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "number=${{ inputs.issue_number }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "number=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run issue processor
         id: process
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -e
-          python scripts/process_issue.py "${{ github.event.issue.number }}" 2>&1 | tee process.log
+          python scripts/process_issue.py "${{ steps.issue.outputs.number }}" 2>&1 | tee process.log
 
       - name: Commit and push
         if: success()
@@ -49,7 +64,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Process approved form submission #${{ github.event.issue.number }}"
+            git commit -m "Process approved form submission #${{ steps.issue.outputs.number }}"
             git push origin main
           fi
 
@@ -65,19 +80,21 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh issue comment "${{ github.event.issue.number }}" \
+          gh issue comment "${{ steps.issue.outputs.number }}" \
             --body "Processed and deployed. Site update will be live shortly."
-          gh issue close "${{ github.event.issue.number }}"
+          gh issue close "${{ steps.issue.outputs.number }}"
 
       - name: Comment failure
         if: failure()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          LOG="$(tail -c 3000 process.log 2>/dev/null || true)"
-          gh issue comment "${{ github.event.issue.number }}" \
-            --body "Processing failed. Issue will stay open. Recent log:
-
-\`\`\`
-${LOG}
-\`\`\`"
+          LOG="$(tail -c 3000 process.log 2>/dev/null || echo 'no log available')"
+          {
+            echo "Processing failed. Issue will stay open. Recent log:"
+            echo ""
+            echo '```'
+            echo "$LOG"
+            echo '```'
+          } > /tmp/comment.md
+          gh issue comment "${{ steps.issue.outputs.number }}" --body-file /tmp/comment.md
