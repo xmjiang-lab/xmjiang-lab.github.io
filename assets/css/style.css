@@ -322,6 +322,15 @@ img { max-width: 100%; height: auto; }
   border-color: var(--sisu-blue);
 }
 
+.pi-bio {
+  margin-top: 24px;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--body);
+}
+.pi-bio strong { color: var(--ink); }
+body.dark .pi-bio { color: var(--body); }
+
 /* ── Sidebar (Latest updates card stack) ─────────────────── */
 #sidebar {
   background: var(--bg-soft);
