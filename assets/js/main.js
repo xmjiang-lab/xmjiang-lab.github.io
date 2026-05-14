@@ -86,14 +86,14 @@
     return `
       <div id="brand-strip">
         <div class="brand-inner">
-          <a class="brand-sisu" href="https://www.shisu.edu.cn" target="_blank" rel="noopener" aria-label="SISU">
-            <img src="assets/images/logos/sisu-brand.png" alt="上海外国语大学 SISU">
+          <a class="brand-sisu" href="https://www.shisu.edu.cn" target="_blank" rel="noopener noreferrer" aria-label="Shanghai International Studies University">
+            <img src="assets/images/logos/sisu-brand.png" alt="上海外国语大学 Shanghai International Studies University">
           </a>
           <div class="brand-divider"></div>
-          <div class="brand-lab">
-            <span data-i18n="brand.lab_name">语言科学研究院 · 蒋晓鸣课题组</span>
-            <span class="en" data-i18n="brand.lab_name_sub">Institute of Language Sciences · Jiang Lab</span>
-          </div>
+          <a class="brand-lab" href="index.html">
+            <span data-i18n="brand.lab_name">心理与神经语言学研究中心</span>
+            <span class="en" data-i18n="brand.lab_name_sub">上海外国语大学 · 语言科学研究院</span>
+          </a>
           <div class="brand-controls">
             <button class="dark-toggle" type="button" onclick="toggleDark()"
                     title="Toggle dark mode" aria-label="Toggle dark mode">
@@ -121,9 +121,9 @@
 
       <div id="breadcrumb">
         <div class="breadcrumb-inner">
-          <a href="https://www.shisu.edu.cn" target="_blank" rel="noopener" data-i18n="breadcrumb.sisu">上海外国语大学</a>
+          <a href="https://www.shisu.edu.cn" target="_blank" rel="noopener noreferrer" data-i18n="breadcrumb.sisu">上海外国语大学</a>
           &nbsp;/&nbsp;
-          <a href="index.html" data-i18n="breadcrumb.lab">语言科学研究院 · 蒋晓鸣课题组</a>
+          <a href="index.html" data-i18n="breadcrumb.lab">心理与神经语言学研究中心</a>
         </div>
       </div>
     `;
@@ -133,26 +133,25 @@
     return `
       <div id="footer">
         <div class="footer-banner">
-          <img src="assets/images/logos/ilas-foot.svg" alt="SISU · Institute of Language Sciences"
+          <img src="assets/images/logos/ilas-foot.svg" alt="Institute of Language Sciences"
                onerror="this.style.display='none'">
         </div>
         <div class="footer-inner">
           <div class="footer-school">
-            <h2 data-i18n="footer.school_name">上海外国语大学 语言科学研究院</h2>
-            <p data-i18n="footer.school_address">
-              中国 上海市 虹口区 大连西路 550 号<br>
-              邮编 200083
+            <h2 data-i18n="footer.school_name">心理与神经语言学研究中心</h2>
+            <p class="footer-school-sub" data-i18n="footer.school_sub">上海外国语大学 · 语言科学研究院</p>
+            <p class="footer-school-address" data-i18n="footer.school_address">上海市文翔路 1550 号 5 教楼 101 室</p>
+            <p class="footer-contact-link">
+              <a href="contact.html" data-i18n="footer.contact_link">联系我们 →</a>
             </p>
-            <p style="margin-top:8px;">
-              <a href="mailto:xiaoming.jiang@shisu.edu.cn">xiaoming.jiang@shisu.edu.cn</a>
-            </p>
+            <p id="footer-last-updated" class="footer-last-updated"></p>
           </div>
         </div>
       </div>
       <div id="subfooter">
         <div class="subfooter-inner">
-          <span data-i18n="footer.copyright">© 2026 蒋晓鸣课题组 · 上海外国语大学语言科学研究院</span>
-          <a href="https://www.shisu.edu.cn" target="_blank" rel="noopener" data-i18n="footer.sisu_link">SISU 官网</a>
+          <span data-i18n="footer.copyright">© 2026 心理与神经语言学研究中心 · 上海外国语大学语言科学研究院 · 保留所有权利</span>
+          <a href="https://www.shisu.edu.cn" target="_blank" rel="noopener noreferrer" data-i18n="footer.sisu_link">SISU 官网</a>
         </div>
       </div>
     `;
@@ -738,6 +737,18 @@
     });
   }
 
+  /* ── Build metadata (last-updated stamp in footer) ────── */
+  async function applyLastUpdated() {
+    try {
+      const info = await loadJSON("assets/data/build-info.json");
+      if (!info || !info.last_updated) return;
+      const el = $("#footer-last-updated");
+      if (!el) return;
+      const lbl = I18N.current === "zh" ? "最近更新" : "Last updated";
+      el.textContent = `${lbl}: ${info.last_updated}`;
+    } catch { /* no build-info.json — local dev */ }
+  }
+
   /* ── Bootstrap ────────────────────────────────────────── */
   async function init() {
     const headerSlot = $("#header-slot");
@@ -749,6 +760,7 @@
     if (footerSlot) footerSlot.outerHTML = buildFooter();
 
     await applyLang(I18N.current);
+    await applyLastUpdated();
 
     const page = document.body.getAttribute("data-page");
     if (page === "home")              { await renderSidebar(); await renderFunders(); }
@@ -759,6 +771,7 @@
     else if (page === "news")         await renderNews();
 
     document.addEventListener("langchange", async () => {
+      await applyLastUpdated();
       if (page === "home")              { await renderSidebar(); await renderFunders(); }
       else if (page === "people")       await renderPeople();
       else if (page === "projects")     await renderProjects();

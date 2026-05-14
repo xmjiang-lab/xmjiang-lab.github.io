@@ -81,7 +81,12 @@ img { max-width: 100%; height: auto; }
   font-size: 1.5rem;
   line-height: 1.25;
   font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
 }
+.brand-lab:hover { color: var(--sisu-blue); border: none; }
+.brand-lab:visited { color: var(--ink); }
 .brand-lab .en {
   display: block;
   font-size: 0.875rem;
@@ -1214,12 +1219,33 @@ i.facility-icon { /* phosphor icon variant */
   font-family: var(--serif);
   color: #fff;
   font-size: 1.125rem;
-  margin: 0 0 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  padding-bottom: 8px;
+  margin: 0 0 6px;
+}
+.footer-school-sub {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  letter-spacing: 0.2px;
 }
 .footer-school p { font-size: 0.875rem; line-height: 1.65; margin: 0 0 8px; }
 .footer-school a { color: var(--sisu-yellow); }
+.footer-contact-link { margin: 12px 0 8px; }
+.footer-contact-link a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sisu-yellow);
+  border: none;
+}
+.footer-contact-link a:hover { color: #fff; border: none; }
+.footer-last-updated {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin: 12px 0 0;
+  letter-spacing: 0.3px;
+}
+.footer-last-updated:empty { display: none; }
 
 #subfooter {
   background: #000;
@@ -1363,10 +1389,33 @@ body.dark .project-block h3 { color: #6ea8ff; }
   /* News list collapses to single column */
   .news-item { grid-template-columns: 1fr; gap: 4px; }
 
-  /* Brand strip — keep logo + name on one row, allow controls to wrap */
-  .brand-inner { gap: 14px; flex-wrap: wrap; }
-  .brand-lab { font-size: 1.125rem; }
-  .brand-lab .en { display: none; }
+  /* Brand strip — centered stacked layout (logo above title), controls top-right */
+  .brand-inner {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .brand-sisu img { height: 64px; }
+  .brand-divider { display: none; }
+  .brand-lab {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+  .brand-lab .en { display: block; font-size: 0.75rem; margin-top: 2px; }
+  .brand-controls {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    margin: 0;
+  }
+
+  /* Footer center-align on mobile */
+  .footer-inner { text-align: center; }
+  .footer-school-sub { padding-bottom: 12px; }
+  .subfooter-inner { justify-content: center; text-align: center; }
 
   /* PI card on home — tighten photo column */
   .pi-card-inner { grid-template-columns: 90px 1fr; gap: 16px; }
@@ -1429,10 +1478,10 @@ body.dark .project-block h3 { color: #6ea8ff; }
   #hero { padding: 32px 14px; }
   #hero::after { width: 200px; height: 200px; right: -60px; top: -60px; }
 
-  .brand-sisu img { height: 44px; }
+  .brand-sisu img { height: 56px; }
   .brand-lab { font-size: 1rem; }
-  .brand-divider { margin: 2px 4px; }
-  .brand-controls { gap: 4px; }
+  .brand-lab .en { font-size: 0.7rem; }
+  .brand-controls { top: 8px; right: 8px; gap: 4px; }
 
   .hero-title { font-size: 1.5rem; line-height: 1.3; }
   .hero-sub { font-size: 0.9375rem; }

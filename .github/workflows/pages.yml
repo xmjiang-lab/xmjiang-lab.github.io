@@ -27,6 +27,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Inject build date into assets/data/build-info.json
+        run: |
+          DATE="$(git log -1 --format=%cd --date=format:'%Y-%m-%d')"
+          printf '{\n  "last_updated": "%s"\n}\n' "$DATE" > assets/data/build-info.json
+          echo "Injected last_updated=$DATE"
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
