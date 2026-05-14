@@ -1,5 +1,32 @@
 # Changelog
 
+## [unreleased] — Phase 1 Block B: Form submission system
+
+### Added
+- Three public form pages:
+  - `student-form.html` — application for prospective students (Ph.D. / M.A. / Undergrad).
+  - `graduation-form.html` — register graduation / departure (move from current to alumni).
+  - `news-form.html` — submit a news / recruitment / announcement item.
+- `assets/css/form.css` — SISU-Blue pill-input styling with mobile-responsive layout and loading state.
+- `assets/js/form-submit.js` — shared submit helper. Token split into 3 placeholder segments (`PUT_PART_1_HERE` ...) joined at runtime; replace before deploying. POSTs a structured YAML-block Issue body to GitHub Issues API; embeds photos as base64 fenced blocks.
+- `scripts/process_issue.py` — parses the YAML block from an approved Issue and merges into `site_data.xlsx` (People sheet for student / graduation, News sheet for news), saves uploaded photo to `assets/images/people/<slug>.jpg`, and re-emits the affected JSON.
+- `.github/workflows/process-approved-issue.yml` — runs `process_issue.py` when an Issue gets the `approved` label, commits + pushes back to `main`, triggers Pages deploy, and comments + closes the Issue. Falls back to a failure comment with log tail if processing errors.
+- `.github/ISSUE_TEMPLATE/*.yml` — three Issue forms (`student-application`, `graduation`, `news`) as a fallback path for GitHub-savvy users who skip the web form.
+- `News` sheet in `site_data.xlsx` (12 columns including `featured`, `summary_zh/en`, `body_zh/en`, `link`, `show`); 3 existing news items migrated in from `news.json`.
+- `end_date` and `next_position` columns in the People sheet (placed before `show`), to support the graduation flow.
+- `emit_news` in `fetch_orcid.py` — News sheet is now the source of truth for `news.json`.
+- CTA blocks on People page (apply to join + graduation register) and News page (submit news), styled with SISU-yellow accent.
+- `docs/jiang-admin-guide.md` — Chinese step-by-step on reviewing/approving submissions for Prof. Jiang.
+- `docs/student-form-guide.md` — Chinese usage guide for prospective students, alumni, and news submitters.
+
+### Changed
+- `emit_people` now serializes the new `end_date` and `next_position` fields when present.
+
+### Security
+- The GitHub token is split into 3 source-level placeholders. The placeholders MUST be replaced before deploy. Do NOT commit a working token. If you accidentally commit one, revoke it in GitHub settings and issue a new one.
+
+---
+
 ## [unreleased] — Phase 1 Block A: Cleanup
 
 ### Added
