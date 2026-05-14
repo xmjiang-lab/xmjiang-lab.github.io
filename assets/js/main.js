@@ -141,8 +141,7 @@
             <h2 data-i18n="footer.school_name">上海外国语大学 语言科学研究院</h2>
             <p data-i18n="footer.school_address">
               中国 上海市 虹口区 大连西路 550 号<br>
-              邮编 200083<br>
-              Tel.: +86-21-3537-XXXX
+              邮编 200083
             </p>
             <p style="margin-top:8px;">
               <a href="mailto:xiaoming.jiang@shisu.edu.cn">xiaoming.jiang@shisu.edu.cn</a>
