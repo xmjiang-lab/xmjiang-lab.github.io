@@ -1,0 +1,83 @@
+name: Process approved form submission
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+jobs:
+  process:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests openpyxl
+
+      - name: Run issue processor
+        id: process
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          python scripts/process_issue.py "${{ github.event.issue.number }}" 2>&1 | tee process.log
+
+      - name: Commit and push
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "Wenjun Chen"
+          git config user.email "75600073+wenjunchen29@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Process approved form submission #${{ github.event.issue.number }}"
+            git push origin main
+          fi
+
+      - name: Trigger Pages deploy
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run pages.yml --ref main || true
+
+      - name: Comment success and close
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" \
+            --body "Processed and deployed. Site update will be live shortly."
+          gh issue close "${{ github.event.issue.number }}"
+
+      - name: Comment failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LOG="$(tail -c 3000 process.log 2>/dev/null || true)"
+          gh issue comment "${{ github.event.issue.number }}" \
+            --body "Processing failed. Issue will stay open. Recent log:
+
+\`\`\`
+${LOG}
+\`\`\`"
