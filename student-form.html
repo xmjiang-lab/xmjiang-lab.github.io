@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>申请加入课题组 · 蒋晓鸣课题组 · SISU</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/form.css">
+  <link rel="stylesheet" href="assets/fonts/phosphor/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body data-page="student-form">
+
+<div id="header-slot"></div>
+
+<section class="form-hero">
+  <div class="form-hero-inner">
+    <h1>申请加入课题组 / Student Application</h1>
+    <p>有意加入蒋晓鸣课题组的同学请填写以下信息。提交后蒋老师将进行审核，可能通过邮件与您联系。</p>
+  </div>
+</section>
+
+<main class="form-page">
+  <form id="student-form" class="form-card" autocomplete="off">
+
+    <div class="form-field">
+      <label class="form-field-label" for="name_zh">中文姓名 / Chinese name<span class="req">*</span></label>
+      <input type="text" id="name_zh" name="name_zh" required>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="name_en">英文姓名 / English name <span class="hint">(可选 optional)</span></label>
+      <input type="text" id="name_en" name="name_en">
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label">申请层次 / Layer<span class="req">*</span></label>
+      <div class="form-radio-group">
+        <label><input type="radio" name="layer" value="phd" required> 博士 Ph.D.</label>
+        <label><input type="radio" name="layer" value="master"> 硕士 M.A.</label>
+        <label><input type="radio" name="layer" value="undergrad"> 本科 Undergrad</label>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="cohort_year">入组年份 / Cohort year<span class="req">*</span></label>
+      <input type="number" id="cohort_year" name="cohort_year" min="2000" max="2099" placeholder="e.g. 2026" required>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="bio_zh">中文简介 / Chinese bio<span class="req">*</span></label>
+      <textarea id="bio_zh" name="bio_zh" rows="4" required></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="bio_en">英文简介 / English bio <span class="hint">(可选 optional)</span></label>
+      <textarea id="bio_en" name="bio_en" rows="4"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="education">教育背景 / Education<span class="req">*</span></label>
+      <textarea id="education" name="education" rows="3" placeholder="一行一条，用 | 分隔；例：BA, X University (2019–2023) | MA, Y University (2023–2026)" required></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="research_areas">研究方向 / Research areas<span class="req">*</span></label>
+      <input type="text" id="research_areas" name="research_areas" placeholder="逗号分隔；例：vocal emotion, ERP, social cognition" required>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="email">邮箱 / Email <span class="hint">(可选 optional)</span></label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="homepage">个人主页 / Homepage <span class="hint">(可选 optional)</span></label>
+      <input type="url" id="homepage" name="homepage" placeholder="https://...">
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="orcid">ORCID <span class="hint">(可选 optional)</span></label>
+      <input type="text" id="orcid" name="orcid" placeholder="0000-0000-0000-0000">
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="scholar">Google Scholar <span class="hint">(可选 optional)</span></label>
+      <input type="url" id="scholar" name="scholar" placeholder="https://scholar.google.com/...">
+    </div>
+
+    <div class="form-field">
+      <label class="form-field-label" for="photo">头像 / Photo <span class="hint">(jpg/png, &lt; 2 MB)</span></label>
+      <input type="file" id="photo" name="photo" accept="image/jpeg,image/png">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="form-submit">提交申请 / Submit</button>
+    </div>
+
+    <div id="form-status" class="form-status"></div>
+
+    <div class="form-note">
+      <strong>提示：</strong>提交后会在 GitHub 创建一条 Issue，蒋老师审核通过后将自动加入课题组成员页面。如表单提交失败，请改用邮件：
+      <a href="mailto:xiaoming.jiang@shisu.edu.cn">xiaoming.jiang@shisu.edu.cn</a>。
+    </div>
+
+    <a class="form-back" href="people.html">← 返回团队成员 / Back to People</a>
+  </form>
+</main>
+
+<div id="footer-slot"></div>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/form-submit.js"></script>
+<script>
+  (function () {
+    const form = document.getElementById("student-form");
+    const statusEl = document.getElementById("form-status");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector(".form-submit");
+
+      const photoInput = form.querySelector("#photo");
+      const photoFile = photoInput.files && photoInput.files[0];
+      if (photoFile && photoFile.size > 2 * 1024 * 1024) {
+        statusEl.setAttribute("data-state", "error");
+        statusEl.textContent = "照片超过 2 MB，请压缩后再试 / Photo > 2 MB, please compress.";
+        return;
+      }
+
+      const fd = new FormData(form);
+      const fields = {};
+      fd.forEach((v, k) => { if (k !== "photo") fields[k] = v; });
+
+      await window.JiangLabForm.submitForm({
+        type: "student-application",
+        fields,
+        photoFile,
+        statusEl,
+        submitButton: submitBtn,
+      });
+    });
+  })();
+</script>
+</body>
+</html>
