@@ -393,6 +393,7 @@
             <div class="collab-card">
               <div class="collab-name">${nameLink}</div>
               ${c.affiliation ? `<div class="collab-affil">${c.affiliation}</div>` : ""}
+              ${c.bio ? `<p class="collab-bio">${c.bio}</p>` : ""}
             </div>
           `;
         }
