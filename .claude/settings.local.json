@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python *)",
+      "Bash(where python *)",
+      "Bash(where py *)",
+      "Bash(where python3 *)",
+      "Read(//c/Program Files/PsychoPy/**)",
+      "Bash(where conda *)",
+      "Bash(C:/Program Files/PsychoPy/python.exe *)",
+      "Bash(git *)",
+      "Bash(\"C:/Program Files/PsychoPy/python.exe\" _test_parse.py)",
+      "Bash(\"C:/Program Files/PsychoPy/python.exe\" -m http.server 4173)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:4173/__TRACKED_VAR__)",
+      "Bash(curl -s \"http://127.0.0.1:4173/assets/js/form-submit.js\")",
+      "Bash(curl -s \"http://127.0.0.1:4173/assets/css/form.css\")",
+      "Bash(kill %1)",
+      "Bash(wait)"
+    ]
+  }
+}
