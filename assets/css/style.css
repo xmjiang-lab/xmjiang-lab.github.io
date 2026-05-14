@@ -689,6 +689,7 @@ body.dark .person-card.person-alumni .person-photo { background: #1e242b; }
 }
 
 .person-card {
+  position: relative;  /* anchor for .role-badge */
   background: var(--bg);
   border: 1px solid var(--line-soft);
   border-radius: 6px;
@@ -699,6 +700,28 @@ body.dark .person-card.person-alumni .person-photo { background: #1e242b; }
   border-color: var(--sisu-blue);
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
+
+/* Role badge (PhD / MA / Undergrad) — top-right of student cards */
+.role-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  font-family: var(--sans);
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.role-badge.role-phd       { background: var(--sisu-blue); color: #fff; }
+.role-badge.role-master    { background: var(--bg); color: var(--sisu-blue); border: 1px solid var(--sisu-blue); }
+.role-badge.role-undergrad { background: var(--bg-soft); color: var(--muted); border: 1px solid var(--line); }
+body.dark .role-badge.role-master    { background: var(--bg-soft); color: #6ea8ff; border-color: #6ea8ff; }
+body.dark .role-badge.role-undergrad { background: var(--bg-soft); border-color: var(--line); }
 
 .person-avatar-btn {
   background: none;

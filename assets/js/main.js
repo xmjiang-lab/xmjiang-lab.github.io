@@ -208,6 +208,10 @@
     }
 
     function personCard(p) {
+      const role = (p.role || "").toLowerCase();
+      const isPI = role === "pi";
+      const isAlumni = (p.status || "").toLowerCase() === "alumni";
+
       const name  = lang === "zh" ? (p.name_zh  || p.name_en) : (p.name_en || p.name_zh);
       const title = lang === "zh" ? (p.title_zh || "")        : (p.title_en || "");
       const affil = lang === "zh" ? (p.affil_zh || "")        : (p.affil_en || "");
@@ -219,22 +223,27 @@
         ? `<img src="${photoSrc}" alt="${name}" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot;>${initial}</div>'">`
         : `<div class="photo-placeholder">${initial}</div>`;
 
-      // Links: only show what's filled in; one badge per link
+      // Links: only show what's filled in; one badge per link.
+      // PI's email link is intentionally suppressed — email is reachable only
+      // via the contact page (parallel to footer + homepage email stripping).
       const links = [];
-      if (p.homepage) links.push(`<a class="ln-home"    href="${p.homepage}" target="_blank" rel="noopener">${lang === "zh" ? "个人主页" : "Homepage"}</a>`);
-      if (p.orcid)    links.push(`<a class="ln-orcid"   href="https://orcid.org/${p.orcid}" target="_blank" rel="noopener">ORCID</a>`);
-      if (p.scholar)  links.push(`<a class="ln-scholar" href="${p.scholar}" target="_blank" rel="noopener">Google Scholar</a>`);
-      if (p.email)    links.push(`<a class="ln-mail"    href="mailto:${p.email}">${p.email}</a>`);
+      if (p.homepage) links.push(`<a class="ln-home"    href="${p.homepage}" target="_blank" rel="noopener noreferrer">${lang === "zh" ? "个人主页" : "Homepage"}</a>`);
+      if (p.orcid)    links.push(`<a class="ln-orcid"   href="https://orcid.org/${p.orcid}" target="_blank" rel="noopener noreferrer">ORCID</a>`);
+      if (p.scholar)  links.push(`<a class="ln-scholar" href="${p.scholar}" target="_blank" rel="noopener noreferrer">Google Scholar</a>`);
+      if (p.email && !isPI) links.push(`<a class="ln-mail"    href="mailto:${p.email}">${p.email}</a>`);
 
       const educationLabel = lang === "zh" ? "学业与履历" : "Education & career";
       const researchLabel  = lang === "zh" ? "研究方向"   : "Research areas";
       const nowLabel       = lang === "zh" ? "现在"      : "Currently";
       const periodLabel    = lang === "zh" ? "在课题组时间" : "Period in lab";
 
-      // PI is always expanded; others toggle. Alumni show only meta (period + now),
-      // no bio/education/research_areas — keep them compact.
-      const isPI = (p.role || "").toLowerCase() === "pi";
-      const isAlumni = (p.status || "").toLowerCase() === "alumni";
+      // Role badge for student-tier members (top-right of card)
+      const badgeMap = lang === "zh"
+        ? { phd: "博士", master: "硕士", undergrad: "本科" }
+        : { phd: "PhD", master: "MA", undergrad: "Undergrad" };
+      const roleBadge = badgeMap[role]
+        ? `<span class="role-badge role-${role}">${badgeMap[role]}</span>`
+        : "";
 
       // Compact details for alumni: just period + current position
       const detailsHtml = isAlumni
@@ -251,7 +260,7 @@
             ${links.length ? `<div class="person-links">${links.join("")}</div>` : ""}
           `;
 
-      // PI: card is always-expanded (no button), wider layout
+      // PI: card is always-expanded (no button), wider layout, no role badge
       if (isPI) {
         return `
           <div class="person-card person-pi expanded">
@@ -268,9 +277,10 @@
         `;
       }
 
-      // Non-PI: clickable to expand
+      // Non-PI: clickable to expand. Role badge top-right for students.
       return `
         <div class="person-card${isAlumni ? ' person-alumni' : ''}" data-id="${p.id || ""}">
+          ${roleBadge}
           <button class="person-avatar-btn" type="button"
                   onclick="this.closest('.person-card').classList.toggle('expanded')"
                   aria-expanded="false">
@@ -297,7 +307,8 @@
 
     // Group current members by role
     const ROLES_PRESENT = ["pi", "postdoc", "ra", "visiting"];           // show only if non-empty
-    const ROLES_ALWAYS  = ["phd", "master", "undergrad"];                // always shown, with placeholder if empty
+    // Students (phd / master / undergrad) are merged into a single
+    // "Current students" section below.
     const byRole = {};
     (data.current || []).forEach(p => {
       const r = (p.role || "other").toLowerCase();
@@ -311,15 +322,41 @@
         master:    lang === "zh" ? "硕士研究生" : "M.A. Student",
         undergrad: lang === "zh" ? "本科生"     : "Undergraduate",
       };
-      const tbd = lang === "zh" ? "招生中" : "Position open";
-      const tip = lang === "zh" ? "成员信息更新中" : "Member to be announced";
+      const tbd = lang === "zh" ? "招生中" : "Recruiting";
+      const tip = lang === "zh" ? "成员信息更新中" : "Profile coming soon";
+      const badgeMap = lang === "zh"
+        ? { phd: "博士", master: "硕士", undergrad: "本科" }
+        : { phd: "PhD", master: "MA", undergrad: "Undergrad" };
+      const roleBadge = badgeMap[role]
+        ? `<span class="role-badge role-${role}">${badgeMap[role]}</span>`
+        : "";
       return `
         <div class="person-card person-placeholder" aria-hidden="true">
+          ${roleBadge}
           <div class="person-placeholder-inner">
             <div class="person-photo"><div class="photo-placeholder placeholder-dim">${idx}</div></div>
             <div class="person-meta">
               <div class="person-name placeholder-dim-text">${labelByRole[role] || role} ${idx}</div>
               <div class="person-title placeholder-tag">${tbd}</div>
+              <div class="person-affil placeholder-dim-text" style="font-size:0.75rem;">${tip}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Alumni placeholder — same visual style as student placeholder, no role badge.
+    function alumniPlaceholderCard(idx) {
+      const label = lang === "zh" ? "毕业生" : "Alumni";
+      const tag   = lang === "zh" ? "等待登记" : "To be added";
+      const tip   = lang === "zh" ? "毕业生信息更新中" : "Record to be added";
+      return `
+        <div class="person-card person-placeholder person-alumni" aria-hidden="true">
+          <div class="person-placeholder-inner">
+            <div class="person-photo"><div class="photo-placeholder placeholder-dim">${idx}</div></div>
+            <div class="person-meta">
+              <div class="person-name placeholder-dim-text">${label} ${idx}</div>
+              <div class="person-title placeholder-tag">${tag}</div>
               <div class="person-affil placeholder-dim-text" style="font-size:0.75rem;">${tip}</div>
             </div>
           </div>
@@ -337,35 +374,38 @@
         <div class="people-grid">${byRole[role].map(personCard).join("")}</div>
       `);
     });
-    // Then: Students — always show heading + cards; 9 placeholders per role if empty
-    ROLES_ALWAYS.forEach(role => {
-      const label = roleLabel(role);
-      const members = byRole[role] || [];
-      const cards = members.length
-        ? members.map(personCard).join("")
-        : [1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => placeholderCard(role, i)).join("");
-      sections.push(`
-        <h2 class="people-group-heading">${label}</h2>
-        <div class="people-grid">${cards}</div>
-      `);
-    });
+    // Then: single "Current students" section, merging phd / master / undergrad.
+    // Real members sorted PhD > MA > Undergrad; placeholders (when empty) are
+    // 3 of each role so the badge variety is preserved.
+    const studentLabel = lang === "zh" ? "在读学生" : "Current students";
+    const studentRoles = ["phd", "master", "undergrad"];
+    const roleOrder = { phd: 0, master: 1, undergrad: 2 };
+    const allStudents = studentRoles.flatMap(r => byRole[r] || []);
+    allStudents.sort((a, b) =>
+      (roleOrder[(a.role || "").toLowerCase()] ?? 99) -
+      (roleOrder[(b.role || "").toLowerCase()] ?? 99)
+    );
+    const studentCards = allStudents.length
+      ? allStudents.map(personCard).join("")
+      : [
+          placeholderCard("phd", 1), placeholderCard("phd", 2), placeholderCard("phd", 3),
+          placeholderCard("master", 4), placeholderCard("master", 5), placeholderCard("master", 6),
+          placeholderCard("undergrad", 7), placeholderCard("undergrad", 8), placeholderCard("undergrad", 9),
+        ].join("");
+    sections.push(`
+      <h2 class="people-group-heading">${studentLabel}</h2>
+      <div class="people-grid">${studentCards}</div>
+    `);
 
-    // Alumni — always show heading; show placeholder if no entries yet
+    // Alumni — always show heading; 3 placeholder cards when no entries yet
     const alumniLabel = lang === "zh" ? "毕业生 / 离任成员" : "Alumni / Former members";
-    if (data.alumni && data.alumni.length) {
-      sections.push(`
-        <h2 class="people-group-heading alumni-heading">${alumniLabel}</h2>
-        <div class="people-grid">${data.alumni.map(personCard).join("")}</div>
-      `);
-    } else {
-      const placeholder = lang === "zh"
-        ? "课题组毕业生记录将在这里更新。"
-        : "Alumni records will appear here as members graduate.";
-      sections.push(`
-        <h2 class="people-group-heading alumni-heading">${alumniLabel}</h2>
-        <p class="alumni-placeholder">${placeholder}</p>
-      `);
-    }
+    const alumniCards = (data.alumni && data.alumni.length)
+      ? data.alumni.map(personCard).join("")
+      : [1, 2, 3].map(i => alumniPlaceholderCard(i)).join("");
+    sections.push(`
+      <h2 class="people-group-heading alumni-heading">${alumniLabel}</h2>
+      <div class="people-grid">${alumniCards}</div>
+    `);
 
     // ── Collaborators (Key + Emerging) ──
     try {
