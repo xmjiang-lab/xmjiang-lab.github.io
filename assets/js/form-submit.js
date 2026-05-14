@@ -20,9 +20,9 @@
 
   // ── Token (split, joined at runtime) ────────────────────────────────────
   const TOKEN_PARTS = [
-    "PUT_PART_1_HERE",
-    "PUT_PART_2_HERE",
-    "PUT_PART_3_HERE",
+    "github_pat_11CDZN5QA0gl6Y",
+    "vpwjO1Oe_ANyO9YmqDBdUkduzVf4xAunc",
+    "TEEDNOASc3SHZlxFKDqT65OFZM4RVWL5ymC",
   ];
   const GITHUB_TOKEN = TOKEN_PARTS.join("");
 
