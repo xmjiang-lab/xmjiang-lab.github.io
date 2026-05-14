@@ -1,9 +1,16 @@
 [
   {
+    "id": "vocal_emotion",
+    "title_zh": "嗓音情绪的编码与解码",
+    "title_en": "Encoding & decoding of vocal emotion",
+    "body_zh": "我们研究人在交流中如何用声音传递情绪——包括韵律特征、非言语发声（如笑声、叹息），以及听者如何在毫秒级时间窗口内识别这些情绪。综合使用 EEG/ERP、眼动与行为方法。",
+    "body_en": "How do speakers convey emotion through the voice — through prosody and nonverbal vocalizations — and how do listeners decode these signals on a millisecond timescale? We combine EEG/ERP, eye-tracking and behavioural methods."
+  },
+  {
     "id": "neuropragmatics",
     "title_zh": "神经语用学与社会交流",
     "title_en": "Neuropragmatics & social communication",
-    "body_zh": "言外之意、反讽、礼貌、信任判断：课题组关注说话人身份与社会语境如何调制语用加工的脑活动，并用 ERP 与功能成像考察相关的时间进程与脑网络。",
+    "body_zh": "言外之意、反讽、礼貌、信任判断——课题组关注说话人身份与社会语境如何调制语用加工的脑活动，并用 ERP 与功能成像考察相关的时间进程与脑网络。",
     "body_en": "Irony, politeness, trust judgments, indirect meaning: we investigate how speaker identity and social context modulate the brain's response to pragmatic content, using ERP and fMRI."
   },
   {
@@ -26,12 +33,5 @@
     "title_en": "Applied neurolinguistics & language BMI",
     "body_zh": "包括语言习得、临床语言学（如帕金森病、自闭症谱系障碍中的语用与韵律加工障碍），以及面向脑机接口与大规模神经语言数据库的基础工作。",
     "body_en": "Language acquisition, clinical populations (Parkinson's disease, autism), and foundational work toward language brain-machine interfaces and large-scale neural language databases."
-  },
-  {
-    "id": "vocal_emotion",
-    "title_zh": "嗓音情绪的编码与解码",
-    "title_en": "Encoding & decoding of vocal emotion",
-    "body_zh": "我们研究人在交流中如何用声音传递情绪：包括韵律特征、非言语发声（如笑声、叹息），以及听者如何在毫秒级时间窗口内识别这些情绪。综合使用 EEG/ERP、眼动与行为方法。",
-    "body_en": "How do speakers convey emotion through the voice: through prosody and nonverbal vocalizations: and how do listeners decode these signals on a millisecond timescale? We combine EEG/ERP, eye-tracking and behavioural methods."
   }
 ]
