@@ -23,7 +23,13 @@ What this script does:
 
 Run locally (PsychoPy Python works fine):
     pip install requests openpyxl
-    python scripts/fetch_orcid.py
+    python scripts/fetch_orcid.py             # online mode: fetch ORCID + emit
+    python scripts/fetch_orcid.py --offline   # xlsx → JSON only, no HTTP
+
+`--offline` mode skips the ORCID fetch / merge / xlsx write-back steps and
+emits JSON files straight from the current state of site_data.xlsx. Use it
+from the build_content notebook or any time you just edited the xlsx by
+hand and want to refresh the JSON without hitting the network.
 """
 
 from __future__ import annotations
@@ -539,7 +545,9 @@ def emit_projects(rows: list[dict]):
 
 # ── Main ────────────────────────────────────────────────────
 def main():
-    print(f"Jiang Lab @ SISU — data sync")
+    offline = "--offline" in sys.argv[1:]
+    mode_tag = " (offline mode — xlsx only)" if offline else ""
+    print(f"Jiang Lab @ SISU — data sync{mode_tag}")
     print("=" * 60)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -551,27 +559,34 @@ def main():
     existing = read_pubs_sheet(XLSX)
     print(f"Existing publications in xlsx: {len(existing)}")
 
-    # 2) Fetch ORCID
-    fetched = []
-    print(f"\nFetching ORCID:")
-    for orcid_id, name in LAB_ORCIDS:
-        print(f"  {name} ({orcid_id})")
-        try:
-            fetched.extend(fetch_orcid_works(orcid_id))
-        except Exception as e:
-            print(f"    !! skipped: {e}")
+    if offline:
+        # read_pubs_sheet returns a dict[key, record]; emit_publications expects
+        # a list of record dicts (same shape merge_pubs returns).
+        pubs = list(existing.values())
+        print(f"\nSkipping ORCID fetch. Emitting JSON straight from xlsx.")
+    else:
+        # 2) Fetch ORCID
+        fetched = []
+        print(f"\nFetching ORCID:")
+        for orcid_id, name in LAB_ORCIDS:
+            print(f"  {name} ({orcid_id})")
+            try:
+                fetched.extend(fetch_orcid_works(orcid_id))
+            except Exception as e:
+                print(f"    !! skipped: {e}")
 
-    # 3) Merge
-    merged = merge_pubs(existing, fetched)
-    print(f"\nMerged total: {len(merged)} publications")
+        # 3) Merge
+        merged = merge_pubs(existing, fetched)
+        print(f"\nMerged total: {len(merged)} publications")
 
-    # 4) Write back to xlsx
-    write_pubs_sheet(XLSX, merged)
-    print(f"  -> {XLSX.name} updated")
+        # 4) Write back to xlsx
+        write_pubs_sheet(XLSX, merged)
+        print(f"  -> {XLSX.name} updated")
+        pubs = merged
 
     # 5) Emit all JSON
     print(f"\nEmitting JSON to {DATA_DIR}/:")
-    emit_publications(merged)
+    emit_publications(pubs)
     emit_people(read_sheet_records(XLSX, "People"))
     emit_funders(read_sheet_records(XLSX, "Funders"))
     emit_projects(read_sheet_records(XLSX, "Projects"))
