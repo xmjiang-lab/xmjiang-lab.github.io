@@ -1,5 +1,12 @@
 # Changelog
 
+## [unreleased] — Phase 1 Block C: Weekly auto-sync
+
+### Added
+- `.github/workflows/weekly-sync.yml` — scheduled workflow firing every Monday at 01:00 UTC (09:00 Beijing time), plus manual `workflow_dispatch`. Runs `fetch_orcid.py`, commits as `Wenjun Chen` if anything changed, pushes to `main`, and triggers a Pages deploy. The commit is authored by Wenjun Chen with no Co-Authored-By marker.
+
+---
+
 ## [unreleased] — Phase 1 Block B: Form submission system
 
 ### Added
