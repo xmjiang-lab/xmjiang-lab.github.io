@@ -484,19 +484,27 @@
                onerror="this.outerHTML='<span class=&quot;funder-text&quot;>${f.name || ''}</span>'">`
         : `<span class="funder-text">${f.name || ''}</span>`;
       const wrapped = f.url
-        ? `<a href="${f.url}" target="_blank" rel="noopener" title="${tooltip}">${inner}</a>`
+        ? `<a href="${f.url}" target="_blank" rel="noopener noreferrer" title="${tooltip}">${inner}</a>`
         : `<span title="${tooltip}">${inner}</span>`;
       return `<div class="funder-card">${wrapped}</div>`;
     }).join("");
+
+    // Marquee: render the set twice so the loop is seamless (translateX
+    // from 0 to -50% lands the duplicate set where the original started).
+    // The duplicate is hidden via CSS on mobile + when prefers-reduced-motion
+    // is set, so users without animation only see each funder once.
+    const trackInner = `${cards}<span class="funders-dup" aria-hidden="true">${cards}</span>`;
+    const trackClass = "funders-track funders-track-animated";
 
     // Keep the label, replace everything after it
     const label = root.querySelector(".label");
     root.innerHTML = "";
     if (label) root.appendChild(label);
-    const wrap = document.createElement("div");
-    wrap.className = "funder-cards";
-    wrap.innerHTML = cards;
-    root.appendChild(wrap);
+    const marquee = document.createElement("div");
+    marquee.className = "funders-marquee";
+    marquee.setAttribute("aria-label", I18N.current === "zh" ? "资助来源" : "Funders");
+    marquee.innerHTML = `<div class="${trackClass}">${trackInner}</div>`;
+    root.appendChild(marquee);
 
     // Re-apply i18n for the label
     if (label) {

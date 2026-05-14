@@ -410,12 +410,51 @@ body.dark .pi-bio { color: var(--body); }
   letter-spacing: 2.5px;
   margin-bottom: 22px;
 }
-.funder-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  align-items: center;
+/* Marquee container: clip overflow + soft fade on both edges so cards
+   appear/disappear smoothly. The duplicate set inside .funders-dup is
+   hidden on mobile / reduced-motion so users without animation only
+   see each funder once. */
+.funders-marquee {
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
 }
+.funders-track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+}
+.funders-track-animated {
+  animation: funder-scroll 30s linear infinite;
+}
+.funders-marquee:hover .funders-track-animated {
+  animation-play-state: paused;
+}
+.funders-dup { display: contents; }
+@keyframes funder-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Reduced-motion users: drop animation, hide duplicate set, center wrap */
+@media (prefers-reduced-motion: reduce) {
+  .funders-marquee {
+    -webkit-mask-image: none;
+            mask-image: none;
+    overflow: visible;
+  }
+  .funders-track-animated { animation: none; }
+  .funders-track {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .funders-dup { display: none; }
+}
+
 .funder-card {
   display: inline-flex;
   align-items: center;
@@ -427,6 +466,7 @@ body.dark .pi-bio { color: var(--body); }
   border: 1px solid var(--line-soft);
   border-radius: 8px;
   transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+  flex-shrink: 0;
 }
 .funder-card:hover {
   border-color: var(--sisu-blue);
@@ -435,7 +475,7 @@ body.dark .pi-bio { color: var(--body); }
 }
 .funder-card a, .funder-card > span { display: inline-flex; align-items: center; }
 .funder-card img {
-  max-height: 72px;
+  max-height: 84px;   /* enlarged from 72 — funder logos are the focal point */
   max-width: 260px;
   width: auto;
   display: block;
@@ -1461,9 +1501,31 @@ body.dark .project-block h3 { color: #6ea8ff; }
   /* Facilities grid */
   .facilities-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 
-  /* Funder cards: tighter, fit 2-per-row on phablets */
-  .funder-card { min-width: 160px; padding: 16px 20px; }
-  .funder-cards { gap: 18px; }
+  /* Funder marquee on mobile: swap horizontal animation for swipe-snap.
+     Native horizontal scroll, snap to center, no fade mask. */
+  .funders-marquee {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .funders-track-animated { animation: none; }
+  .funders-track {
+    gap: 18px;
+    padding: 4px 4px 8px;
+  }
+  .funders-dup { display: none; }  /* swipe-scroll only — no duplicates */
+  .funder-card {
+    min-width: 200px;
+    min-height: 100px;
+    padding: 16px 20px;
+    scroll-snap-align: center;
+  }
+  .funder-card img { max-height: 64px; }
+  .funders-row { text-align: center; }
+  .funders-row .label { text-align: center; }
 
   /* Publications filter bar */
   .pub-filter-bar { padding: 14px 14px; }
@@ -1529,10 +1591,10 @@ body.dark .project-block h3 { color: #6ea8ff; }
   .person-photo { width: 80px; height: 80px; }
   .person-photo .photo-placeholder { font-size: 2rem; }
 
-  /* Funder cards smaller still */
-  .funder-card { min-width: 140px; min-height: 90px; padding: 14px 16px; }
+  /* Funder marquee — even more compact on small phones */
+  .funder-card { min-width: 180px; min-height: 90px; padding: 14px 16px; }
   .funder-card img { max-height: 56px; }
-  .funder-cards { gap: 14px; }
+  .funders-track { gap: 14px; }
 
   /* Sidebar */
   #sidebar { padding: 18px 14px; }
