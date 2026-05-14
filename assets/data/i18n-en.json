@@ -72,7 +72,10 @@
     "filter_journal": "Journal articles",
     "filter_preprint": "Preprints",
     "filter_conference": "Conference papers",
-    "filter_chinese": "Chinese journals"
+    "filter_chinese": "Chinese journals",
+    "filter_cat_label": "Type",
+    "filter_year_label": "Year",
+    "filter_clear": "Clear filters"
   },
   "facilities": {
     "h1": "Lab facilities & equipment",

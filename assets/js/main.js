@@ -96,13 +96,10 @@
             <span class="en" data-i18n="brand.lab_name_sub">Institute of Language Sciences · Jiang Lab</span>
           </div>
           <div class="brand-controls">
-            <button class="theme-toggle" type="button" onclick="toggleTheme()"
-                    title="Toggle SISU Blue / Mono" aria-label="Toggle color theme">
-              <span class="theme-dot theme-dot-blue"></span>
-              <span class="theme-dot theme-dot-mono"></span>
-            </button>
             <button class="dark-toggle" type="button" onclick="toggleDark()"
-                    title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+                    title="Toggle dark mode" aria-label="Toggle dark mode">
+              <i class="ph-light ph-moon"></i>
+            </button>
             <a class="brand-lang" href="#" onclick="event.preventDefault(); toggleLang(); return false;" data-i18n="lang_switch_to">EN</a>
           </div>
         </div>
@@ -111,7 +108,7 @@
       <nav id="nav-bar" aria-label="Primary">
         <div class="nav-inner">
           <ul id="nav-links">
-            <li${activePage === "home" ? ' class="active"' : ""}><a href="index.html"><span class="home-icon">🏠</span><span data-i18n="nav.home">首页</span></a></li>
+            <li${activePage === "home" ? ' class="active"' : ""}><a href="index.html"><i class="ph-light ph-house home-icon"></i><span data-i18n="nav.home">首页</span></a></li>
             <li${activePage === "people" ? ' class="active"' : ""}><a href="people.html" data-i18n="nav.people">团队与合作</a></li>
             <li${activePage === "projects" ? ' class="active"' : ""}><a href="projects.html" data-i18n="nav.projects">研究方向</a></li>
             <li${activePage === "publications" ? ' class="active"' : ""}><a href="publications.html" data-i18n="nav.publications">发表论文</a></li>
@@ -119,7 +116,7 @@
             <li${activePage === "news" ? ' class="active"' : ""}><a href="news.html" data-i18n="nav.news">新闻动态</a></li>
             <li${activePage === "contact" ? ' class="active"' : ""}><a href="contact.html" data-i18n="nav.contact">联系我们</a></li>
           </ul>
-          <button id="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+          <button id="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu"><i class="ph-light ph-list"></i></button>
         </div>
       </nav>
 
@@ -136,6 +133,10 @@
   function buildFooter() {
     return `
       <div id="footer">
+        <div class="footer-banner">
+          <img src="assets/images/logos/ilas-foot.svg" alt="SISU · Institute of Language Sciences"
+               onerror="this.style.display='none'">
+        </div>
         <div class="footer-inner">
           <div class="footer-school">
             <h2 data-i18n="footer.school_name">上海外国语大学 语言科学研究院</h2>
@@ -147,10 +148,6 @@
             <p style="margin-top:8px;">
               <a href="mailto:xiaoming.jiang@shisu.edu.cn">xiaoming.jiang@shisu.edu.cn</a>
             </p>
-          </div>
-          <div class="footer-logos">
-            <img src="assets/images/logos/ilas-foot.svg" alt="SISU · Institute of Language Sciences"
-                 onerror="this.style.display='none'">
           </div>
         </div>
       </div>
@@ -489,8 +486,7 @@
   }
 
   /* ── Publications ─────────────────────────────────────── */
-  // Category metadata: color-coded badges + button label per type.
-  // Matches the wenjunchen29.github.io scheme so the two sites feel related.
+  // Color-coded category badges + per-type button labels.
   const PUB_CAT = {
     journal:    { label_zh:"期刊论文",    label_en:"Journal article",  cls:"cat-journal",    btn_zh:"原文",      btn_en:"Article"  },
     preprint:   { label_zh:"预印本",      label_en:"Preprint",         cls:"cat-preprint",   btn_zh:"预印本",     btn_en:"Preprint" },
@@ -499,8 +495,11 @@
     other:      { label_zh:"其他",        label_en:"Other",            cls:"cat-other",      btn_zh:"查看",      btn_en:"View"     }
   };
   let ALL_PUBS = [];
+  let FILTER_STATE = { cats: new Set(), years: new Set() };   // empty = show all
+  const AUTHOR_FOLD_THRESHOLD = 10;     // > this many authors → fold
   const PREPRINT_HOSTS = ["biorxiv.org", "preprints.org", "psyarxiv.com",
                           "arxiv.org", "medrxiv.org", "osf.io"];
+
   function resolveCat(p) {
     if (p.category) return p.category.toLowerCase().trim();
     const u = (p.url || "").toLowerCase();
@@ -511,16 +510,64 @@
     if (t === "preprint")         return "preprint";
     return "other";
   }
-  function renderPubsList(pubs) {
+
+  // Render author list, folding long lists to "first 3 + count more" with reveal.
+  function renderAuthors(authorsRaw, pubIdx) {
+    if (!authorsRaw) return "";
+    const bolded = boldLabAuthors(authorsRaw, "me");
+    // Split on ";" but careful — already-bolded HTML must stay intact
+    const parts = bolded.split(/;\s?/);
+    if (parts.length <= AUTHOR_FOLD_THRESHOLD) return bolded;
+    const head = parts.slice(0, 3).join("; ");
+    const tail = parts.slice(3).join("; ");
+    const more = parts.length - 3;
+    const showLabel  = (I18N.current === "zh" ? "显示全部 " : "show all ") + parts.length + (I18N.current === "zh" ? " 位作者" : " authors");
+    const hideLabel  = (I18N.current === "zh" ? "收起作者" : "hide authors");
+    return `
+      ${head};
+      <span class="authors-tail" data-pub="${pubIdx}" hidden>${tail}</span>
+      <button class="authors-toggle" type="button" data-pub="${pubIdx}"
+              onclick="toggleAuthors('${pubIdx}', this)"
+              data-show="${showLabel}" data-hide="${hideLabel}">
+        … +${more} ${I18N.current === "zh" ? "位作者" : "authors"}
+      </button>
+    `;
+  }
+  window.toggleAuthors = function (pubIdx, btn) {
+    const tail = document.querySelector(`.authors-tail[data-pub="${pubIdx}"]`);
+    if (!tail) return;
+    const showing = !tail.hasAttribute("hidden");
+    if (showing) {
+      tail.setAttribute("hidden", "");
+      btn.innerHTML = btn.dataset.show.replace(/^show all /, "… +").replace(/^显示全部 /, "… +");
+    } else {
+      tail.removeAttribute("hidden");
+      btn.innerHTML = btn.dataset.hide;
+    }
+  };
+
+  function filterPubsList() {
+    return ALL_PUBS.filter(p => {
+      const cat = resolveCat(p);
+      const year = String(p.year || "");
+      const catOk  = FILTER_STATE.cats.size  === 0 || FILTER_STATE.cats.has(cat);
+      const yearOk = FILTER_STATE.years.size === 0 || FILTER_STATE.years.has(year);
+      return catOk && yearOk;
+    });
+  }
+
+  function renderPubsList() {
     const root = $("#pub-list");
     if (!root) return;
+    const pubs = filterPubsList();
     if (!pubs.length) {
-      root.innerHTML = '<p style="color:#888;font-style:italic;">' +
-        (I18N.current === "zh" ? "本类别无论文。" : "No publications in this category.") + '</p>';
+      root.innerHTML = '<p class="pub-empty">' +
+        (I18N.current === "zh" ? "没有符合筛选条件的论文。" : "No publications match the selected filters.") + '</p>';
+      updateCountDisplay(pubs.length);
       return;
     }
     const lang = I18N.current;
-    root.innerHTML = pubs.map(p => {
+    root.innerHTML = pubs.map((p, i) => {
       const cat = resolveCat(p);
       const cfg = PUB_CAT[cat] || PUB_CAT.other;
       const yearEl = p.year
@@ -528,7 +575,7 @@
         : `<span class="pub-year inpress">${lang === "zh" ? "在审" : "In press"}</span>`;
       const catLabel = lang === "zh" ? cfg.label_zh : cfg.label_en;
       const btnLabel = lang === "zh" ? cfg.btn_zh : cfg.btn_en;
-      const authors = boldLabAuthors(p.authors || "", "me");
+      const authorsHtml = renderAuthors(p.authors, "p" + i);
       const titleHtml = p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>` : p.title;
       const viewBtn  = p.url       ? `<a class="btn-view"  href="${p.url}"       target="_blank" rel="noopener">${btnLabel}</a>` : "";
       const pdfBtn   = p.pdf_url   ? `<a class="btn-pdf"   href="${p.pdf_url}"   target="_blank" rel="noopener">PDF</a>` : "";
@@ -540,37 +587,98 @@
         <div class="pub-item" data-cat="${cat}">
           <div class="pub-header">${yearEl}<span class="pub-cat ${cfg.cls}">${catLabel}</span>${noteBadge}</div>
           <div class="pub-title">${titleHtml}</div>
-          ${authors ? `<div class="pub-authors">${authors}</div>` : ""}
+          ${authorsHtml ? `<div class="pub-authors">${authorsHtml}</div>` : ""}
           ${p.journal ? `<div class="pub-journal">${p.journal}</div>` : ""}
           ${actions ? `<div class="pub-actions">${actions}</div>` : ""}
         </div>
       `;
     }).join("");
+    updateCountDisplay(pubs.length);
   }
-  function updateCounts(pubs) {
-    const counts = { journal: 0, preprint: 0, chinese: 0, conference: 0 };
-    pubs.forEach(p => { const c = resolveCat(p); if (c in counts) counts[c]++; });
-    const all = $("#cnt-all"); if (all) all.textContent = pubs.length;
-    Object.keys(counts).forEach(k => {
-      const el = document.getElementById("cnt-" + k);
-      if (el) el.textContent = counts[k];
-      const btn = document.querySelector(`[data-cat="${k}"]`);
-      if (btn) btn.style.display = counts[k] === 0 ? "none" : "";
-    });
+
+  function updateCountDisplay(showing) {
+    const el = $("#pub-shown-count");
+    if (el) el.textContent = showing;
+    const tot = $("#pub-total-count");
+    if (tot) tot.textContent = ALL_PUBS.length;
   }
-  window.filterPubs = function (cat, btn) {
-    $$(".pub-filter-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    renderPubsList(cat === "all" ? ALL_PUBS : ALL_PUBS.filter(p => resolveCat(p) === cat));
+
+  function buildCategoryFilters() {
+    const root = $("#cat-filters");
+    if (!root) return;
+    const counts = { journal: 0, preprint: 0, chinese: 0, conference: 0, other: 0 };
+    ALL_PUBS.forEach(p => { const c = resolveCat(p); if (c in counts) counts[c]++; });
+    const lang = I18N.current;
+    const chips = Object.keys(PUB_CAT).filter(k => k !== "other" && counts[k] > 0).map(k => {
+      const label = lang === "zh" ? PUB_CAT[k].label_zh : PUB_CAT[k].label_en;
+      const isOn = FILTER_STATE.cats.has(k);
+      return `
+        <button class="filter-chip ${PUB_CAT[k].cls} ${isOn ? 'active' : ''}"
+                type="button"
+                data-cat="${k}"
+                onclick="toggleCatFilter('${k}', this)">
+          <span class="filter-chip-label">${label}</span>
+          <span class="filter-chip-count">${counts[k]}</span>
+          ${isOn ? '<i class="ph-light ph-x filter-chip-x"></i>' : ''}
+        </button>
+      `;
+    }).join("");
+    root.innerHTML = chips;
+  }
+
+  function buildYearFilters() {
+    const root = $("#year-filters");
+    if (!root) return;
+    // collect all unique years sorted desc
+    const years = Array.from(new Set(ALL_PUBS.map(p => String(p.year || "")).filter(Boolean)))
+      .sort((a, b) => b.localeCompare(a));
+    const lang = I18N.current;
+    const chips = years.map(y => {
+      const count = ALL_PUBS.filter(p => String(p.year) === y).length;
+      const isOn = FILTER_STATE.years.has(y);
+      return `
+        <button class="filter-chip year-chip ${isOn ? 'active' : ''}"
+                type="button"
+                data-year="${y}"
+                onclick="toggleYearFilter('${y}', this)">
+          <span class="filter-chip-label">${y}</span>
+          <span class="filter-chip-count">${count}</span>
+          ${isOn ? '<i class="ph-light ph-x filter-chip-x"></i>' : ''}
+        </button>
+      `;
+    }).join("");
+    root.innerHTML = chips;
+  }
+
+  window.toggleCatFilter = function (cat) {
+    if (FILTER_STATE.cats.has(cat)) FILTER_STATE.cats.delete(cat);
+    else FILTER_STATE.cats.add(cat);
+    buildCategoryFilters();
+    renderPubsList();
   };
+  window.toggleYearFilter = function (year) {
+    if (FILTER_STATE.years.has(year)) FILTER_STATE.years.delete(year);
+    else FILTER_STATE.years.add(year);
+    buildYearFilters();
+    renderPubsList();
+  };
+  window.clearAllFilters = function () {
+    FILTER_STATE.cats.clear();
+    FILTER_STATE.years.clear();
+    buildCategoryFilters();
+    buildYearFilters();
+    renderPubsList();
+  };
+
   async function renderPublications() {
     const root = $("#pub-list");
     if (!root) return;
     await ensureAuthorPatterns();
     try {
       ALL_PUBS = await loadJSON("assets/data/publications.json");
-      updateCounts(ALL_PUBS);
-      renderPubsList(ALL_PUBS);
+      buildCategoryFilters();
+      buildYearFilters();
+      renderPubsList();
     } catch {
       root.innerHTML = '<p style="color:#c00;">无法载入论文列表 / Could not load publications.</p>';
     }
@@ -585,9 +693,15 @@
     const html = data.facilities.map(f => {
       const name = lang === "zh" ? f.name_zh : f.name_en;
       const desc = lang === "zh" ? f.desc_zh : f.desc_en;
+      // Icon: phosphor class string like "ph-brain", or emoji fallback
+      const iconHtml = f.icon
+        ? (f.icon.startsWith("ph-")
+            ? `<i class="ph-light ${f.icon} facility-icon"></i>`
+            : `<div class="facility-icon">${f.icon}</div>`)
+        : "";
       return `
         <div class="facility-card">
-          ${f.icon ? `<div class="facility-icon">${f.icon}</div>` : ""}
+          ${iconHtml}
           <h3>${name}</h3>
           <p>${desc || ""}</p>
         </div>
@@ -649,7 +763,7 @@
       if (page === "home")              { await renderSidebar(); await renderFunders(); }
       else if (page === "people")       await renderPeople();
       else if (page === "projects")     await renderProjects();
-      else if (page === "publications") renderPubsList(ALL_PUBS);
+      else if (page === "publications") { buildCategoryFilters(); buildYearFilters(); renderPubsList(); }
       else if (page === "facilities")   await renderFacilities();
       else if (page === "news")         await renderNews();
     });
@@ -669,8 +783,10 @@
   // Dark mode
   function applyDark(isDark) {
     document.body.classList.toggle("dark", isDark);
-    const btns = document.querySelectorAll(".dark-toggle");
-    btns.forEach(b => b.textContent = isDark ? "☀️" : "🌙");
+    const btns = document.querySelectorAll(".dark-toggle i");
+    btns.forEach(icon => {
+      icon.className = isDark ? "ph-light ph-sun" : "ph-light ph-moon";
+    });
   }
   window.toggleDark = function () {
     const isDark = !document.body.classList.contains("dark");
@@ -678,24 +794,9 @@
     applyDark(isDark);
   };
 
-  // Accent: "blue" (SISU Blue) or "mono" (grayscale)
-  function applyAccent(mode) {
-    document.body.classList.toggle("mono-accent", mode === "mono");
-    document.querySelectorAll(".theme-toggle").forEach(b => {
-      b.setAttribute("data-mode", mode);
-    });
-  }
-  window.toggleTheme = function () {
-    const cur = localStorage.getItem("jianglab_accent") || "blue";
-    const next = cur === "blue" ? "mono" : "blue";
-    localStorage.setItem("jianglab_accent", next);
-    applyAccent(next);
-  };
-
   // Apply saved prefs on first paint
   function applySaved() {
     applyDark(localStorage.getItem("jianglab_theme") === "dark");
-    applyAccent(localStorage.getItem("jianglab_accent") || "blue");
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", applySaved);

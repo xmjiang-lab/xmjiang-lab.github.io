@@ -72,7 +72,10 @@
     "filter_journal": "期刊论文",
     "filter_preprint": "预印本",
     "filter_conference": "会议论文",
-    "filter_chinese": "中文期刊"
+    "filter_chinese": "中文期刊",
+    "filter_cat_label": "类别",
+    "filter_year_label": "年份",
+    "filter_clear": "清除筛选"
   },
   "facilities": {
     "h1": "实验平台与硬件设施",
