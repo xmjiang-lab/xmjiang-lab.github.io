@@ -25,12 +25,7 @@
     "pi_subtitle": "Professor · Doctoral Supervisor",
     "pi_affil": "Center of Psycholinguistics and Neurolinguistics <strong>(Jiang Lab)</strong><br>Institute of Language Sciences, SISU",
     "pi_bio": "Prof. Jiang's research lies in psycholinguistics and neurolinguistics, with a focus on training the next generation of researchers in these fields. Since 2021, he has been continuously listed among Elsevier's Highly Cited Chinese Researchers in Foreign Languages &amp; Literature. His work was recognized by ISCA and EURASIP with the Best Paper Award in Speech Communication, and he has been selected for Shanghai's Young Top-Notch Talent Program and the Chenguang Scholar Program.<br><br>Research areas: psycholinguistics &amp; neurolinguistics, experimental linguistics, speech communication &amp; speech disorders, vocal encoding/decoding, neuropragmatics. His group uses behavioral, electrophysiological, and neuroimaging methods to investigate how voice and prosody convey emotion and social meaning, how listeners decode these in healthy and clinical populations, and the cognitive computations underlying language in social contexts.",
-    "orcid_link": "ORCID",
     "funded_by": "Funding",
-    "sidebar_title": "Recent papers",
-    "sidebar_full": "Full publication list",
-    "announce_title": "Recruitment / Announcements",
-    "announce_more": "See all →",
     "ilas_link": "ILAS profile"
   },
   "people": {
@@ -46,33 +41,10 @@
   },
   "projects": {
     "h1": "Research themes",
-    "intro": "Our research is organized around several interlocking themes, all centred on how vocal communication conveys social and emotional meaning.",
-    "rep_pubs": "Representative publications",
-    "vocal_emotion": {
-      "title": "Encoding & decoding of vocal emotion",
-      "body": "How do speakers convey emotion through the voice: through prosody and nonverbal vocalizations (laughs, sighs): and how do listeners decode these signals on a millisecond timescale? We combine EEG/ERP, eye-tracking and behavioural methods."
-    },
-    "neural_pragmatics": {
-      "title": "Neural bases of pragmatics & social communication",
-      "body": "Irony, politeness, trust judgments, indirect meaning: we investigate how speaker identity and social context modulate the brain's response to pragmatic content, using ERP and functional neuroimaging to characterize the timing and networks involved."
-    },
-    "crosslinguistic": {
-      "title": "Cross-linguistic & cross-cultural cognition",
-      "body": "Do emotion recognition and social inference vary across language and culture? We compare native and second-language listeners, and listeners from different cultural backgrounds, with a focus on how cultural immersion shapes neural responses."
-    },
-    "applied": {
-      "title": "Applied neurolinguistics",
-      "body": "Language acquisition, clinical populations (e.g. Parkinson's disease, autism spectrum) and pragmatic/prosodic processing, plus foundational work toward language brain–machine interfaces and large-scale neural language databases."
-    }
+    "intro": "Our research is organized around several interlocking themes, all centred on how vocal communication conveys social and emotional meaning."
   },
   "publications": {
     "h1": "Publications",
-    "intro": "Publications by Prof. Xiaoming Jiang and members of the lab (auto-synced from ORCID; PDF / code / video links added manually).",
-    "filter_all": "All",
-    "filter_journal": "Journal articles",
-    "filter_preprint": "Preprints",
-    "filter_conference": "Conference papers",
-    "filter_chinese": "Chinese journals",
     "filter_cat_label": "Type",
     "filter_year_label": "Year",
     "filter_clear": "Clear filters"
