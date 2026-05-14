@@ -824,34 +824,6 @@ body.dark .person-card.person-alumni .person-photo { background: #1e242b; }
   border-color: var(--sisu-blue);
 }
 
-/* ── People + News page CTA blocks (link to public forms) ── */
-.people-cta,
-.news-cta {
-  margin: 18px 0 36px;
-  padding: 12px 16px;
-  border-radius: 6px;
-  background: var(--bg-soft);
-  border-left: 3px solid var(--sisu-yellow);
-  font-size: 0.9375rem;
-}
-.people-cta.people-cta-alumni { margin-top: 12px; }
-.people-cta-link,
-.news-cta-link {
-  color: var(--sisu-blue);
-  font-weight: 700;
-  border: none;
-  letter-spacing: 0.2px;
-}
-.people-cta-link:hover,
-.news-cta-link:hover {
-  color: var(--sisu-blue-dk);
-  border: none;
-}
-body.dark .people-cta,
-body.dark .news-cta { background: var(--bg-soft); }
-body.dark .people-cta-link,
-body.dark .news-cta-link { color: #6ea8ff; }
-
 /* ── Projects page ───────────────────────────────────────── */
 .project-block {
   margin-bottom: 40px;
@@ -1347,24 +1319,176 @@ body.dark .project-block { border-bottom-color: var(--line); }
 body.dark .project-block h3 { color: #6ea8ff; }
 
 /* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 860px) {
-  .page-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
-  .hero-title { font-size: 1.875rem; }
-  h1 { font-size: 1.75rem; }
 
+/* Small-laptop & tablet landscape (≤ 1024px) — light horizontal trim */
+@media (max-width: 1024px) {
+  .brand-inner,
+  .nav-inner,
+  .breadcrumb-inner,
+  .hero-inner,
+  #main,
+  .footer-inner,
+  .subfooter-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .page-grid { gap: 32px; grid-template-columns: 1fr 280px; }
+  #hero { padding: 48px 20px; }
+}
+
+/* Tablet portrait & large phones (≤ 768px) — main mobile breakpoint */
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1 { font-size: 1.625rem; }
+  h2 { font-size: 1.375rem; }
+  h3 { font-size: 1.125rem; }
+  .hero-title { font-size: 1.875rem; }
+  .hero-sub { font-size: 1rem; }
+  #hero { padding: 40px 20px; }
+
+  .page-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-grid { grid-template-columns: 1fr; }
+
+  /* Hamburger nav: stack links when hamburger is opened */
   #nav-bar ul {
     display: none;
     flex-direction: column;
     width: 100%;
   }
   #nav-bar ul.open { display: flex; }
-  #nav-bar li a { border-bottom: 1px solid var(--sisu-blue-dk); }
-  #nav-hamburger { display: block; }
+  #nav-bar li a { border-bottom: 1px solid var(--sisu-blue-dk); padding: 14px 20px; }
+  #nav-hamburger { display: block; min-height: 44px; min-width: 44px; }
   .nav-inner { flex-wrap: wrap; }
 
+  /* News list collapses to single column */
   .news-item { grid-template-columns: 1fr; gap: 4px; }
+
+  /* Brand strip — keep logo + name on one row, allow controls to wrap */
+  .brand-inner { gap: 14px; flex-wrap: wrap; }
   .brand-lab { font-size: 1.125rem; }
   .brand-lab .en { display: none; }
+
+  /* PI card on home — tighten photo column */
+  .pi-card-inner { grid-template-columns: 90px 1fr; gap: 16px; }
+  .pi-photo { width: 90px; height: 90px; }
+  .pi-photo .photo-placeholder { font-size: 2.25rem; }
+  .pi-card { padding: 20px; }
+
+  /* People page PI card */
+  .person-pi-header { grid-template-columns: 100px 1fr; gap: 18px; }
+  .person-card.person-pi .person-photo { width: 100px; height: 100px; }
+  .person-card.person-pi { padding: 20px 22px; }
+
+  /* People grid: tighter floor so ≥2 cards still fit on phablets */
+  .people-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+
+  /* Collaborator grid: single column for readability */
+  .collab-list { grid-template-columns: 1fr; }
+
+  /* Facilities grid */
+  .facilities-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+  /* Funder cards: tighter, fit 2-per-row on phablets */
+  .funder-card { min-width: 160px; padding: 16px 20px; }
+  .funder-cards { gap: 18px; }
+
+  /* Publications filter bar */
+  .pub-filter-bar { padding: 14px 14px; }
+  .filter-group { gap: 8px; }
+  .filter-chips.year-chips { max-height: 96px; }
+
+  /* Touch-target lift — minimum 40px tap area on tablet/phone */
+  .dark-toggle { min-width: 40px; min-height: 40px; }
+  .filter-chip { min-height: 32px; padding: 7px 12px; }
+  .filter-clear { min-height: 32px; }
+  .authors-toggle { min-height: 26px; padding: 3px 10px; }
+
+  /* Pub item tighter padding */
+  .pub-item { padding: 16px 16px 12px; }
+  .pub-actions { gap: 8px; }
+}
+
+/* Small phones (≤ 480px) — iPhone SE 375 / iPhone 14 Pro 393 */
+@media (max-width: 480px) {
+  body { font-size: 14.5px; line-height: 1.65; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.0625rem; }
+
+  .brand-inner,
+  .nav-inner,
+  .breadcrumb-inner,
+  .hero-inner,
+  #main,
+  .footer-inner,
+  .subfooter-inner {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  #main { padding-top: 28px; padding-bottom: 40px; }
+  #hero { padding: 32px 14px; }
+  #hero::after { width: 200px; height: 200px; right: -60px; top: -60px; }
+
+  .brand-sisu img { height: 44px; }
+  .brand-lab { font-size: 1rem; }
+  .brand-divider { margin: 2px 4px; }
+  .brand-controls { gap: 4px; }
+
+  .hero-title { font-size: 1.5rem; line-height: 1.3; }
+  .hero-sub { font-size: 0.9375rem; }
+
+  /* PI card stacks photo above text on tiny screens */
+  .pi-card-inner { grid-template-columns: 1fr; gap: 12px; }
+  .pi-photo { width: 88px; height: 88px; margin: 0 auto; }
+  .pi-card { padding: 18px; }
+
+  /* People page PI card — same stack */
+  .person-pi-header { grid-template-columns: 1fr; gap: 14px; text-align: center; }
+  .person-pi-header .person-photo { margin: 0 auto; }
+  .person-card.person-pi .person-name,
+  .person-card.person-pi .person-title,
+  .person-card.person-pi .person-affil { text-align: center; }
+  .person-card.person-pi { padding: 18px; }
+
+  /* People grid: floor at 150px → keeps 2 cards on a 375px screen */
+  .people-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .person-avatar-btn { padding: 12px 8px; }
+  .person-photo { width: 80px; height: 80px; }
+  .person-photo .photo-placeholder { font-size: 2rem; }
+
+  /* Funder cards smaller still */
+  .funder-card { min-width: 140px; min-height: 90px; padding: 14px 16px; }
+  .funder-card img { max-height: 56px; }
+  .funder-cards { gap: 14px; }
+
+  /* Sidebar */
+  #sidebar { padding: 18px 14px; }
+  .news-mini-card { padding: 12px 14px; }
+
+  /* Publications: stack label above chips, horizontally scroll year chips */
+  .pub-filter-bar { padding: 12px 12px; }
+  .filter-group { flex-direction: column; align-items: stretch; gap: 6px; margin-bottom: 8px; }
+  .filter-group-label { min-width: 0; }
+  .filter-chips { gap: 6px; }
+  .filter-chips.year-chips {
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-chips.year-chips .filter-chip { flex-shrink: 0; }
+
+  .pub-item { padding: 14px 14px 10px; }
+  .pub-title { font-size: 0.9375rem; }
+  .pub-actions a { font-size: 0.625rem; padding: 4px 9px; }
+
+  /* News list */
+  .news-item { padding: 18px 0; }
+
+  /* Footer */
+  .footer-inner { padding: 28px 14px; }
+  .footer-school h2 { font-size: 1rem; }
+  .footer-school p { font-size: 0.8125rem; }
 }

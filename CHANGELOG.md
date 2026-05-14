@@ -1,5 +1,43 @@
 # Changelog
 
+## [unreleased] — Phase 3: Mobile responsive overhaul
+
+### Audit findings (before)
+- Only one breakpoint: `@media (max-width: 860px)` — hard cutoff with no small-phone tier and no >860px tablet tuning.
+- Touch targets: dark-mode toggle 32×32 px, filter chips ~28 px tall (below the 44×44 minimum recommended on touch devices).
+- Brand strip (SISU logo + lab name + dark toggle + lang switch) used a 24 px gap that wrapped awkwardly under 400 px.
+- Publications filter bar: chip-label `min-width: 40 px` plus uppercase tracking ate horizontal space on narrow screens; year chips lived in an 80 px vertical scroll that read oddly on phones.
+- PI card on home: `120px 1fr` photo grid stayed two-column even at 375 px.
+- People grid floor of 240 px forced 1-card rows on every phablet.
+- Funder cards `min-width: 200px` produced one-per-row + huge whitespace on small screens.
+
+### Changed
+- `assets/css/style.css`: replaced the single `@media (max-width: 860px)` rule with a tiered system — `≤ 1024px` (small laptops, padding trim), `≤ 768px` (tablet portrait / large phones, main mobile breakpoint), `≤ 480px` (small phones, iPhone SE / 14 Pro).
+- Touch targets lifted to ≥ 40 px tap area: `.dark-toggle`, `#nav-hamburger`, `.filter-chip`, `.filter-clear`, `.authors-toggle`.
+- Brand strip on phones now allows wrap; sub-line English label hides ≤ 768 px; logo shrinks 56 → 44 px ≤ 480 px.
+- Hero title scale: 2.5rem → 1.875rem ≤ 768 px → 1.5rem ≤ 480 px.
+- PI card on home stacks photo above text ≤ 480 px; tightens to 90px-photo grid ≤ 768 px.
+- People grid floor: 240 → 200 px ≤ 768 px → 150 px ≤ 480 px (keeps 2 cards per row on iPhone SE).
+- Publications filter bar: label/chips stack vertically ≤ 480 px; year chips switch to horizontal scroll with momentum on small phones.
+- Funder cards shrink min-width 200 → 160 → 140 px and logo max-height 72 → 56 px on small screens.
+
+### Removed
+- Dead CSS rules `.people-cta`, `.people-cta-alumni`, `.news-cta` (and link variants) — the HTML they styled was removed in Phase 2.
+
+### Expected mobile behavior
+- **iPhone SE (375 px)**: brand strip on one line with logo at 44 px and sub-title hidden; hero title 24 px; people grid shows two cards per row; publications filter chips stack with year row horizontally scrollable; PI card photo centered above text.
+- **iPhone 14 Pro (393 px)**: same as SE with a bit more breathing room; people grid still two cards per row; year chips fit ~3 chips before scroll kicks in.
+- **iPad portrait (768 px)**: hits the tablet breakpoint exactly; page sidebar collapses below main content; hamburger appears; people grid 3-4 cards per row; filter chips wrap but stay in horizontal rows; touch targets enlarged.
+
+### Local preview steps
+```bash
+python -m http.server 4000
+# open http://localhost:4000
+```
+Then in Chrome: open DevTools (F12) → toggle device toolbar (Ctrl+Shift+M) → pick *iPhone SE*, *iPhone 14 Pro*, or *iPad Mini* from the device dropdown, or set a custom width.
+
+---
+
 ## [unreleased] — Phase 2: Form system removal
 
 ### Removed
