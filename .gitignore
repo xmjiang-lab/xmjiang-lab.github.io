@@ -24,3 +24,6 @@ node_modules/
 *~
 *.bak
 *.tmp
+
+# Claude Code personal local settings (per-user, not shared)
+.claude/settings.local.json
