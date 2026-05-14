@@ -498,12 +498,13 @@ def emit_news(rows: list[dict]):
 
 
 def emit_collaborators(rows: list[dict]):
-    """Write collaborators.json — preserves order, includes bio when populated."""
+    """Write collaborators.json — preserves order, includes bio when populated.
+    The `type` column distinguishes senior vs early_career collaborators."""
     rows_sorted = sorted(rows, key=_order_key)
     out = []
     for r in rows_sorted:
         out.append({k: v for k, v in {
-            "group": r.get("group") or "",
+            "type": r.get("type") or "",
             "name": r.get("name") or "",
             "affiliation": r.get("affiliation") or "",
             "url": r.get("url") or "",

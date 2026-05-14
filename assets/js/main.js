@@ -431,8 +431,8 @@
           ? "课题组也很自豪能与一批活跃在学术前沿的青年学者保持合作（多为课题组毕业生）。"
           : "We take pride in collaborating with promising emerging researchers, many of them lab alumni.";
 
-        const key      = collabs.filter(c => c.group === "key");
-        const emerging = collabs.filter(c => c.group === "emerging");
+        const key      = collabs.filter(c => c.type === "senior");
+        const emerging = collabs.filter(c => c.type === "early_career");
 
         function collabCard(c) {
           const nameLink = c.url
