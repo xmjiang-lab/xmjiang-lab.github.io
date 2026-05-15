@@ -14,8 +14,10 @@
       "name_en": "Xiaoming Jiang",
       "title_zh": "教授 · 博士生导师",
       "title_en": "Professor · Doctoral Supervisor",
-      "affil_zh": "上海外国语大学 语言科学研究院｜心理与神经语言学研究中心",
-      "affil_en": "Institute of Language Sciences, SISU｜Research Center of Psycholinguistics & Neurolinguistics",
+      "secondary_title_zh": "上海外国语大学语言科学研究院 副院长",
+      "secondary_title_en": "Vice Dean, Institute of Language Sciences, SISU",
+      "affil_zh": "上海外国语大学",
+      "affil_en": "Shanghai International Studies University",
       "bio_zh": "主要从事心理与神经语言学的科学研究与人才培养工作。研究方向：心理与神经语言学、实验语言学、言语交际与言语障碍、嗓音编码与解码、神经语用学。",
       "bio_en": "Research areas: psycholinguistics & neurolinguistics, experimental linguistics, speech communication & speech disorders, vocal encoding/decoding, neuropragmatics.",
       "education": "PhD, Peking University (2005–2010) | Undergraduate, East China Normal University (2001–2005) | Postdoc, Peking University (2010–2012) | Postdoc / Research Associate / Visiting Professor, McGill University (2013–2018) | Associate Professor, Tongji University (2018–2020) | Professor, SISU – Institute of Linguistics (2020–2024) | Professor, SISU – Institute of Language Sciences (2024–present)",
@@ -26,6 +28,7 @@
       "email": "xiaoming.jiang@shisu.edu.cn",
       "orcid": "0000-0002-5171-9774",
       "scholar": "https://scholar.google.com/citations?user=iF2CM7sAAAAJ&hl=en",
+      "researchgate": "https://www.researchgate.net/profile/Xiaoming-Jiang-3",
       "homepage": "https://ilas.shisu.edu.cn/21/0f/c18209a205071/page.htm"
     }
   ],

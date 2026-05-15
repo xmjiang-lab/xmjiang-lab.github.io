@@ -178,8 +178,8 @@
       }).join("");
     } catch { /* no news.json - leave empty */ }
 
-    const headingTitle = I18N.current === "zh" ? "近期动态" : "Latest updates";
-    const allLinkLabel = I18N.current === "zh" ? "加入我们 →" : "Join us →";
+    const headingTitle = I18N.current === "zh" ? "焦点动态" : "Spotlight";
+    const allLinkLabel = I18N.current === "zh" ? "全部 →" : "View all →";
 
     root.innerHTML = `
       <h3 class="sidebar-news-heading">${headingTitle}</h3>
@@ -204,10 +204,11 @@
       const isPI = role === "pi";
       const isAlumni = (p.status || "").toLowerCase() === "alumni";
 
-      const name  = lang === "zh" ? (p.name_zh  || p.name_en) : (p.name_en || p.name_zh);
-      const title = lang === "zh" ? (p.title_zh || "")        : (p.title_en || "");
-      const affil = lang === "zh" ? (p.affil_zh || "")        : (p.affil_en || "");
-      const bio   = lang === "zh" ? (p.bio_zh   || "")        : (p.bio_en   || "");
+      const name      = lang === "zh" ? (p.name_zh             || p.name_en)             : (p.name_en             || p.name_zh);
+      const title     = lang === "zh" ? (p.title_zh            || "")                    : (p.title_en            || "");
+      const secondary = lang === "zh" ? (p.secondary_title_zh  || "")                    : (p.secondary_title_en  || "");
+      const affil     = lang === "zh" ? (p.affil_zh            || "")                    : (p.affil_en            || "");
+      const bio       = lang === "zh" ? (p.bio_zh              || "")                    : (p.bio_en              || "");
 
       const photoSrc = p.photo ? `assets/images/people/${p.photo}` : "";
       const initial = (name || "?").charAt(0);
@@ -219,9 +220,10 @@
       // PI's email link is intentionally suppressed — email is reachable only
       // via the contact page (parallel to footer + homepage email stripping).
       const links = [];
-      if (p.homepage) links.push(`<a class="ln-home"    href="${p.homepage}" target="_blank" rel="noopener noreferrer">${lang === "zh" ? "个人主页" : "Homepage"}</a>`);
-      if (p.orcid)    links.push(`<a class="ln-orcid"   href="https://orcid.org/${p.orcid}" target="_blank" rel="noopener noreferrer">ORCID</a>`);
-      if (p.scholar)  links.push(`<a class="ln-scholar" href="${p.scholar}" target="_blank" rel="noopener noreferrer">Google Scholar</a>`);
+      if (p.homepage)     links.push(`<a class="ln-home"    href="${p.homepage}" target="_blank" rel="noopener noreferrer">${lang === "zh" ? "个人主页" : "Homepage"}</a>`);
+      if (p.orcid)        links.push(`<a class="ln-orcid"   href="https://orcid.org/${p.orcid}" target="_blank" rel="noopener noreferrer">ORCID</a>`);
+      if (p.scholar)      links.push(`<a class="ln-scholar" href="${p.scholar}" target="_blank" rel="noopener noreferrer">Google Scholar</a>`);
+      if (p.researchgate) links.push(`<a class="ln-rg"      href="${p.researchgate}" target="_blank" rel="noopener noreferrer">ResearchGate</a>`);
       if (p.email && !isPI) links.push(`<a class="ln-mail"    href="mailto:${p.email}">${p.email}</a>`);
 
       const educationLabel = lang === "zh" ? "学业与履历" : "Education & career";
@@ -272,6 +274,7 @@
               <div class="person-meta">
                 <div class="person-name">${name}</div>
                 ${title ? `<div class="person-title">${title}</div>` : ""}
+                ${secondary ? `<div class="person-title person-title-secondary">${secondary}</div>` : ""}
                 ${affil ? `<div class="person-affil">${affil}</div>` : ""}
               </div>
             </div>
@@ -291,6 +294,7 @@
             <div class="person-meta">
               <div class="person-name">${name}</div>
               ${title ? `<div class="person-title">${title}</div>` : ""}
+              ${secondary ? `<div class="person-title person-title-secondary">${secondary}</div>` : ""}
               ${affil ? `<div class="person-affil">${affil}</div>` : ""}
             </div>
             <div class="person-toggle-hint" aria-hidden="true">▾</div>

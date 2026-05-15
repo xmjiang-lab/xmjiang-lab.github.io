@@ -685,13 +685,15 @@ body.dark .person-card.person-placeholder { background: #15181e; }
 .person-card.person-alumni .person-photo { background: #eef2f7; }
 .person-card.person-alumni .person-photo .photo-placeholder { color: var(--muted); }
 
-/* ── Person-detail link badges: 4 distinct colors ─────── */
+/* ── Person-detail link badges: distinct colors per service ─────── */
 .person-links a.ln-home    { border-color: var(--sisu-blue); color: var(--sisu-blue); }
 .person-links a.ln-home:hover { background: var(--sisu-blue); color: #fff; }
 .person-links a.ln-orcid   { border-color: #a6ce39; color: #6a8423; }
 .person-links a.ln-orcid:hover { background: #a6ce39; color: #fff; border-color: #a6ce39; }
 .person-links a.ln-scholar { border-color: #4285f4; color: #1a73e8; }
 .person-links a.ln-scholar:hover { background: #4285f4; color: #fff; border-color: #4285f4; }
+.person-links a.ln-rg      { border-color: #00ccbb; color: #008874; }
+.person-links a.ln-rg:hover { background: #00ccbb; color: #fff; border-color: #00ccbb; }
 .person-links a.ln-mail    { border-color: #888; color: #555; }
 .person-links a.ln-mail:hover { background: #555; color: #fff; border-color: #555; }
 /* Home-page PI links use the same scheme */
@@ -701,6 +703,8 @@ body.dark .person-card.person-placeholder { background: #15181e; }
 .pi-card .pi-links a.ln-orcid:hover { background: #a6ce39; color: #fff; border-color: #a6ce39; }
 .pi-card .pi-links a.ln-scholar { border-color: #4285f4; color: #1a73e8; }
 .pi-card .pi-links a.ln-scholar:hover { background: #4285f4; color: #fff; border-color: #4285f4; }
+.pi-card .pi-links a.ln-rg      { border-color: #00ccbb; color: #008874; }
+.pi-card .pi-links a.ln-rg:hover { background: #00ccbb; color: #fff; border-color: #00ccbb; }
 .pi-card .pi-links a.ln-mail    { border-color: #888; color: #555; }
 .pi-card .pi-links a.ln-mail:hover { background: #555; color: #fff; border-color: #555; }
 
@@ -709,9 +713,23 @@ body.dark .person-links a.ln-orcid,
 body.dark .pi-card .pi-links a.ln-orcid { color: #a6ce39; }
 body.dark .person-links a.ln-scholar,
 body.dark .pi-card .pi-links a.ln-scholar { color: #6ea8ff; border-color: #6ea8ff; }
+body.dark .person-links a.ln-rg,
+body.dark .pi-card .pi-links a.ln-rg { color: #00ccbb; }
 body.dark .person-links a.ln-mail,
 body.dark .pi-card .pi-links a.ln-mail { color: var(--body); border-color: var(--line); }
 body.dark .person-card.person-alumni .person-photo { background: #1e242b; }
+
+/* Secondary title row (e.g. "Vice Dean, …" under "Professor · …") */
+.person-title-secondary {
+  font-weight: 500 !important;
+  color: var(--muted) !important;
+  margin-top: 2px;
+}
+.pi-card .pi-meta-role-extra {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+body.dark .person-title-secondary { color: var(--muted) !important; }
 
 .people-grid {
   display: grid;
@@ -883,43 +901,6 @@ body.dark .role-badge.role-undergrad { background: var(--bg-soft); border-color:
   color: #fff;
   border-color: var(--sisu-blue);
 }
-
-/* ── Home page Join Us CTA box ───────────────────────────── */
-#home-join-cta {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 22px;
-  margin: 28px 0;
-  background: linear-gradient(to right, rgba(252,184,19,0.14), rgba(252,184,19,0.04));
-  border-left: 4px solid var(--sisu-yellow);
-  border-radius: 4px;
-  flex-wrap: wrap;
-}
-#home-join-cta i {
-  font-size: 1.5rem;
-  color: var(--sisu-blue);
-  flex-shrink: 0;
-}
-.home-join-cta-text {
-  font-size: 0.9375rem;
-  color: var(--ink);
-  flex: 1 1 240px;
-  line-height: 1.5;
-}
-.home-join-cta-text strong { color: var(--sisu-blue); }
-.home-join-cta-link {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--sisu-blue);
-  border: none;
-  white-space: nowrap;
-}
-.home-join-cta-link:hover { color: var(--sisu-blue-dk); border: none; }
-body.dark #home-join-cta { background: rgba(252,184,19,0.06); }
-body.dark .home-join-cta-text { color: var(--ink); }
-body.dark .home-join-cta-text strong { color: #6ea8ff; }
-body.dark .home-join-cta-link { color: #6ea8ff; }
 
 /* ── News page Join-Us filter view ───────────────────────── */
 .news-filter-header {
