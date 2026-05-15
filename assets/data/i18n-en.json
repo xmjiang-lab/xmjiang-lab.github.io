@@ -9,7 +9,7 @@
     "projects": "Research",
     "publications": "Publications",
     "facilities": "Facilities",
-    "news": "News",
+    "news": "Join us",
     "contact": "Contact"
   },
   "home": {
@@ -49,11 +49,11 @@
     "intro": "Our research uses the <strong>Key Laboratory of Language Sciences and Multilingual Artificial Intelligence</strong>, a university-level lab at the Institute of Language Sciences, Shanghai International Studies University. The lab comprises 7 sub-labs (Speech, Eye-tracking, EEG, Behavioral, Child Language, Language Data Processing & Application, and Smart Learning), and we have access to a 3T MRI system at the university's Brain Imaging Center."
   },
   "news": {
-    "h1": "News & Recruitment",
-    "intro": "Recruitment calls, collaboration opportunities, and academic activities.",
+    "h1": "Join us",
+    "intro": "We have ongoing openings for Ph.D., postdoctoral, Master's, undergraduate, and visiting positions, alongside international collaboration calls and academic activity announcements.",
     "read_more": "Read more →",
     "filter_join_us_h": "Join us",
-    "filter_clear": "← Show all news",
+    "filter_clear": "← Show all",
     "filter_empty": "No matching items."
   },
   "cta": {
