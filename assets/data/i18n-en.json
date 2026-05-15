@@ -9,7 +9,6 @@
     "projects": "Research",
     "publications": "Publications",
     "facilities": "Facilities",
-    "news": "Join us",
     "contact": "Contact"
   },
   "home": {
@@ -50,24 +49,16 @@
     "intro": "Our research uses the <strong>Key Laboratory of Language Sciences and Multilingual Artificial Intelligence</strong>, a university-level lab at the Institute of Language Sciences, Shanghai International Studies University. The lab comprises 7 sub-labs (Speech, Eye-tracking, EEG, Behavioral, Child Language, Language Data Processing & Application, and Smart Learning), and we have access to a 3T MRI system at the university's Brain Imaging Center."
   },
   "news": {
-    "h1": "Join us",
-    "intro": "We have ongoing openings for Ph.D., postdoctoral, Master's, undergraduate, and visiting positions, alongside international collaboration calls and academic activity announcements.",
+    "h1": "Spotlight",
+    "intro": "Recent recruitment calls, collaboration opportunities, and academic activity announcements.",
     "read_more": "Read more →",
     "filter_join_us_h": "Join us",
     "filter_clear": "← Show all",
     "filter_empty": "No matching items."
   },
-  "cta": {
-    "join_us_home": "<strong>Join us</strong> — ongoing openings for Ph.D., postdoctoral, Master's, undergraduate, and visiting positions.",
-    "join_us_more": "View openings →"
-  },
   "contact": {
-    "h1": "How to reach us",
-    "address_h": "Address",
-    "address": "Research Center of Psycholinguistics &amp; Neurolinguistics<br>Institute of Language Sciences, Shanghai International Studies University<br><br>Bldg. 5, Rm. 101, 1550 Wenxiang Road, Songjiang, Shanghai<br><br><strong>Prof. Jiang's office</strong>: Bldg. 5, Rm. 156",
-    "location_h": "Visiting us",
-    "location_p1": "Prof. Jiang's office is in Bldg. 5, Rm. 156, on the Songjiang campus of Shanghai International Studies University. From central Shanghai, take Metro Line 9 to Songjiang University Town station, then transfer to the campus shuttle (about 15 min).",
-    "location_p2": "Visitors from abroad are encouraged to contact us in advance; we can help arrange accommodation and visa documents."
+    "h1": "Contact",
+    "intro": "Email us about admissions, collaboration, teaching, or visits."
   },
   "footer": {
     "school_address": "Bldg. 5, Rm. 101, 1550 Wenxiang Road, Songjiang, Shanghai",

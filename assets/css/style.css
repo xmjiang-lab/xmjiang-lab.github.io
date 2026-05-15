@@ -1468,20 +1468,116 @@ i.facility-icon { /* phosphor icon variant */
 }
 .news-item p { font-size: 0.9375rem; margin: 0; }
 
-/* ── Contact page ────────────────────────────────────────── */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-bottom: 32px;
+/* ── Contact page (Admissions / Int'l / Collab / Teaching / Contact cards) */
+.contact-intro {
+  font-size: 1.0625rem;
+  color: var(--muted);
+  margin: 6px 0 26px;
+  max-width: 720px;
+  line-height: 1.7;
 }
-.contact-block h2 {
-  font-family: var(--serif);
-  font-size: 1.25rem;
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 8px;
+}
+.contact-card {
+  background: var(--bg-soft);
+  padding: 26px 24px;
+  border-radius: 6px;
+  border-top: 3px solid var(--sisu-blue);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, border-top-color 0.15s ease, box-shadow 0.18s;
+}
+.contact-card:hover {
+  transform: translateY(-2px);
+  border-top-color: var(--sisu-yellow);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+.contact-card-wide {
+  margin-top: 18px;
+}
+.contact-card-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 0 14px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
   color: var(--sisu-blue);
-  border-bottom: 1px solid var(--sisu-blue);
-  padding-bottom: 6px;
-  margin: 0 0 12px;
+  font-size: 1.5rem;
+  line-height: 1;
+  border: 1px solid var(--sisu-blue-soft);
+}
+.contact-card h2 {
+  font-family: var(--serif);
+  color: var(--sisu-blue);
+  font-size: 1.125rem;
+  margin: 0 0 4px;
+  text-align: left;
+  border: none;
+  padding: 0;
+}
+.contact-card-sep {
+  width: 36px;
+  height: 2px;
+  background: var(--sisu-yellow);
+  margin: 4px 0 14px;
+}
+.contact-card-body {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--body);
+}
+.contact-card-body p { margin: 0 0 10px; }
+.contact-card-body p:last-child { margin-bottom: 0; }
+.contact-card-body ul,
+.contact-card-body ol {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.contact-card-body li { line-height: 1.6; margin: 0 0 4px; }
+.contact-address {
+  font-family: var(--sans);
+  color: var(--body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 4px 0 0;
+}
+
+.contact-visit {
+  margin: 44px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-soft);
+}
+.contact-visit-h {
+  font-family: var(--serif);
+  color: var(--sisu-blue);
+  font-size: 1.25rem;
+  margin: 0 0 14px;
+}
+.contact-visit-p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 0 0 14px;
+  color: var(--body);
+  max-width: 760px;
+}
+
+body.dark .contact-card { background: var(--bg-soft); }
+body.dark .contact-card-icon { background: var(--bg); border-color: var(--line); color: #6ea8ff; }
+body.dark .contact-card h2 { color: #6ea8ff; }
+body.dark .contact-visit-h { color: #6ea8ff; }
+body.dark .contact-visit { border-top-color: var(--line); }
+
+@media (max-width: 768px) {
+  .contact-cards-grid { grid-template-columns: 1fr; gap: 14px; }
+  .contact-card { padding: 22px 20px; }
+  .contact-visit { margin-top: 32px; padding-top: 22px; }
 }
 
 /* ── Footer ──────────────────────────────────────────────── */
