@@ -1529,23 +1529,9 @@ i.facility-icon { /* phosphor icon variant */
   margin: 0 auto;
   padding: 36px 24px;
 }
-.footer-school h2 {
-  font-family: var(--serif);
-  color: #fff;
-  font-size: 1.125rem;
-  margin: 0 0 6px;
-}
-.footer-school-sub {
-  font-size: 0.875rem;
-  color: rgba(255,255,255,0.7);
-  margin: 0 0 14px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  letter-spacing: 0.2px;
-}
 .footer-school p { font-size: 0.875rem; line-height: 1.65; margin: 0 0 8px; }
 .footer-school a { color: var(--sisu-yellow); }
-.footer-contact-link { margin: 12px 0 8px; }
+.footer-contact-link { margin: 0; }
 .footer-contact-link a {
   font-size: 0.875rem;
   font-weight: 600;
@@ -1553,13 +1539,24 @@ i.facility-icon { /* phosphor icon variant */
   border: none;
 }
 .footer-contact-link a:hover { color: #fff; border: none; }
+/* Footer banner is now a clickable link to the ILAS English site */
+.footer-banner a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  border: none;
+}
+.footer-banner a:hover { opacity: 0.9; border: none; }
+.footer-banner a img { display: block; margin: 0 auto; }
+/* Last-updated stamp lives in the subfooter row, right-aligned */
 .footer-last-updated {
   font-size: 0.75rem;
   color: rgba(255,255,255,0.5);
-  margin: 12px 0 0;
   letter-spacing: 0.3px;
+  margin-left: auto;
 }
 .footer-last-updated:empty { display: none; }
+.subfooter-copyright { flex: 0 1 auto; }
 
 #subfooter {
   background: #000;

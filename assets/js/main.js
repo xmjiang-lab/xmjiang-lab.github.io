@@ -86,7 +86,7 @@
     return `
       <div id="brand-strip">
         <div class="brand-inner">
-          <a class="brand-sisu" href="https://www.shisu.edu.cn" target="_blank" rel="noopener noreferrer" aria-label="Shanghai International Studies University">
+          <a class="brand-sisu" href="https://en.shisu.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="Shanghai International Studies University">
             <img src="assets/images/logos/sisu-brand.png" alt="上海外国语大学 Shanghai International Studies University">
           </a>
           <div class="brand-divider"></div>
@@ -125,25 +125,25 @@
     return `
       <div id="footer">
         <div class="footer-banner">
-          <img src="assets/images/logos/ilas-foot.svg" alt="Institute of Language Sciences"
-               onerror="this.style.display='none'">
+          <a href="https://ilas-en.shisu.edu.cn/" target="_blank" rel="noopener noreferrer"
+             aria-label="Institute of Language Sciences (English site)">
+            <img src="assets/images/logos/ilas-foot.svg" alt="Institute of Language Sciences"
+                 onerror="this.style.display='none'">
+          </a>
         </div>
         <div class="footer-inner">
           <div class="footer-school">
-            <h2 data-i18n="footer.school_name">心理与神经语言学研究中心</h2>
-            <p class="footer-school-sub" data-i18n="footer.school_sub">上海外国语大学 · 语言科学研究院</p>
             <p class="footer-school-address" data-i18n="footer.school_address">上海市文翔路 1550 号 5 教楼 101 室</p>
             <p class="footer-contact-link">
               <a href="contact.html" data-i18n="footer.contact_link">联系我们 →</a>
             </p>
-            <p id="footer-last-updated" class="footer-last-updated"></p>
           </div>
         </div>
       </div>
       <div id="subfooter">
         <div class="subfooter-inner">
-          <span data-i18n="footer.copyright">© 2026 心理与神经语言学研究中心 · 上海外国语大学语言科学研究院 · 保留所有权利</span>
-          <a href="https://www.shisu.edu.cn" target="_blank" rel="noopener noreferrer" data-i18n="footer.sisu_link">SISU 官网</a>
+          <span class="subfooter-copyright" data-i18n="footer.copyright">© 2026 蒋晓鸣课题组 · 上海外国语大学 · 保留所有权利</span>
+          <span id="footer-last-updated" class="footer-last-updated"></span>
         </div>
       </div>
     `;
