@@ -3,7 +3,19 @@
     "Jiang,\\s?X\\.?(\\s?[A-Z]\\.?)?",
     "Jiang,\\s?Xiaoming",
     "X\\.?\\s?[A-Z]?\\.?\\s?Jiang",
-    "Xiaoming\\sJiang"
+    "Xiaoming\\sJiang",
+    "Xu,\\s?T\\.?(\\s?[A-Z]\\.?)?",
+    "Xu,\\s?Tianze",
+    "T\\.?\\s?[A-Z]?\\.?\\s?Xu",
+    "Tianze\\sXu",
+    "Li,\\s?Y\\.?(\\s?[A-Z]\\.?)?",
+    "Li,\\s?Yi",
+    "Y\\.?\\s?[A-Z]?\\.?\\s?Li",
+    "Yi\\sLi",
+    "Chen,\\s?W\\.?(\\s?[A-Z]\\.?)?",
+    "Chen,\\s?Wenjun",
+    "W\\.?\\s?[A-Z]?\\.?\\s?Chen",
+    "Wenjun\\sChen"
   ],
   "current": [
     {
@@ -32,5 +44,42 @@
       "homepage": "https://ilas.shisu.edu.cn/21/0f/c18209a205071/page.htm"
     }
   ],
-  "alumni": []
+  "alumni": [
+    {
+      "id": "yi-li",
+      "role": "master",
+      "cohort_year": "2021",
+      "name_zh": "李怡",
+      "name_en": "Yi Li",
+      "homepage": "https://www.mrc-cbu.cam.ac.uk/people/yi.li/",
+      "now": "剑桥大学 博士研究生 / PhD candidate, University of Cambridge",
+      "period": "2021–2024",
+      "end_date": "2024-06-30",
+      "next_position": "剑桥大学 博士研究生 / PhD candidate, University of Cambridge"
+    },
+    {
+      "id": "wenjun-chen",
+      "role": "master",
+      "cohort_year": "2021",
+      "name_zh": "陈文均",
+      "name_en": "Wenjun Chen",
+      "homepage": "https://www.mcgill.ca/scsd/wenjun-chen",
+      "now": "麦吉尔大学 博士研究生 / PhD candidate, McGill University",
+      "period": "2021–2024",
+      "end_date": "2024-06-30",
+      "next_position": "麦吉尔大学 博士研究生 / PhD candidate, McGill University"
+    },
+    {
+      "id": "tianze-xu",
+      "role": "undergrad",
+      "cohort_year": "2020",
+      "name_zh": "许天泽",
+      "name_en": "Tianze Xu",
+      "homepage": "https://www.cl.uzh.ch/de/about-us/people/team/phonetics/Timothy-Tianze-Xu.html",
+      "now": "苏黎世大学 博士研究生 / PhD candidate, University of Zurich",
+      "period": "2020–2024",
+      "end_date": "2024-06-30",
+      "next_position": "苏黎世大学 博士研究生 / PhD candidate, University of Zurich"
+    }
+  ]
 }

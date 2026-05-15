@@ -352,11 +352,11 @@
       `;
     }
 
-    // Alumni placeholder — same visual style as student placeholder, no role badge.
+    // Past-member placeholder — same visual style as student placeholder, no role badge.
     function alumniPlaceholderCard(idx) {
-      const label = lang === "zh" ? "毕业生" : "Alumni";
+      const label = lang === "zh" ? "过往成员" : "Past member";
       const tag   = lang === "zh" ? "等待登记" : "To be added";
-      const tip   = lang === "zh" ? "毕业生信息更新中" : "Record to be added";
+      const tip   = lang === "zh" ? "成员去向信息更新中" : "Record to be added";
       return `
         <div class="person-card person-placeholder person-alumni" aria-hidden="true">
           <div class="person-placeholder-inner">
@@ -404,8 +404,8 @@
       <div class="people-grid">${studentCards}</div>
     `);
 
-    // Alumni — always show heading; 3 placeholder cards when no entries yet
-    const alumniLabel = lang === "zh" ? "毕业生 / 离任成员" : "Alumni / Former members";
+    // Past lab members — always show heading; 3 placeholder cards when no entries yet
+    const alumniLabel = lang === "zh" ? "过往成员" : "Past lab members";
     const alumniCards = (data.alumni && data.alumni.length)
       ? data.alumni.map(personCard).join("")
       : [1, 2, 3].map(i => alumniPlaceholderCard(i)).join("");
