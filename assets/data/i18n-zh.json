@@ -9,6 +9,7 @@
     "projects": "研究方向",
     "publications": "发表论文",
     "facilities": "实验平台",
+    "teaching": "教学",
     "contact": "联系我们"
   },
   "home": {
@@ -59,7 +60,25 @@
   },
   "contact": {
     "h1": "联系我们",
-    "intro": "欢迎联系课题组讨论招生、合作、课程或来访。"
+    "intro": "欢迎联系课题组讨论招生、合作或来访。",
+    "admissions_h": "国内学生招生",
+    "admissions_body": "<p><strong>博士招生方向</strong></p><ol><li>嗓音的认知神经科学</li><li>言语脑认知计算与人工智能</li></ol><p>同时招收硕士研究生与本科生研究助理。意向者请邮件联系蒋老师，并附简历与一份简要研究兴趣说明。</p>",
+    "intl_h": "国际申请者",
+    "intl_body": "<ul><li>China Studies Program (CSP) Ph.D. Fellowship</li><li>Shanghai Sci-tech Co-research Program</li></ul><p>建议国际申请者直接邮件联系蒋老师，讨论申请材料、推荐信与申请时间。</p>",
+    "collab_h": "学术合作",
+    "collab_body": "<p>欢迎与全球高校、研究所与医疗机构开展合作：</p><ul><li>访问职位（Visiting positions）</li><li>合作项目（Joint projects）</li><li>联合指导学生（Co-supervision）</li><li>临床合作（Clinical collaboration）</li></ul>",
+    "visit_h": "如何到访",
+    "visit_body": "<p>蒋老师办公室位于上海外国语大学松江校区 5 号楼 156 室。从上海市区可乘地铁 9 号线至松江大学城站，转校车或步行至上海外国语大学松江校区（约 15 分钟）。</p><p>海外合作者来访前建议提前邮件联系，我们可协助安排住宿与签证文件。</p>"
+  },
+  "teaching": {
+    "h1": "教学",
+    "intro": "蒋老师本科与研究生层面的常设课程。",
+    "psycho_h": "心理语言学",
+    "psycho_body": "<p>本科与研究生层面的心理语言学导论，介绍语言加工的认知机制——词汇通达、句子理解、对话与语境加工，以及实验心理语言学常用的范式与方法（行为反应时、眼动、ERP）。</p>",
+    "neuro_h": "神经语言学",
+    "neuro_body": "<p>神经语言学课程，围绕语言加工的脑机制展开——涵盖语言相关脑区与脑网络、EEG / ERP 与 fMRI 等无创神经成像方法，以及健康与疾病人群语言功能的神经基础。</p>",
+    "disorders_h": "语言障碍",
+    "disorders_body": "<p>语言障碍专题，介绍失语症、特定语言障碍、孤独症谱系、帕金森病等人群中语言、嗓音与语用功能的损伤模式与评估方法，以及相关的临床应用。</p>"
   },
   "footer": {
     "school_address": "5 教楼 101 室<br>文翔路 1550 号<br>上海市 松江区<br>中国 201620",

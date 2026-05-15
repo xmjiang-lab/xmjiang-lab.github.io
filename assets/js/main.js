@@ -111,6 +111,7 @@
             <li${activePage === "projects" ? ' class="active"' : ""}><a href="projects.html" data-i18n="nav.projects">研究方向</a></li>
             <li${activePage === "publications" ? ' class="active"' : ""}><a href="publications.html" data-i18n="nav.publications">发表论文</a></li>
             <li${activePage === "facilities" ? ' class="active"' : ""}><a href="facilities.html" data-i18n="nav.facilities">实验平台</a></li>
+            <li${activePage === "teaching" ? ' class="active"' : ""}><a href="teaching.html" data-i18n="nav.teaching">教学</a></li>
             <li${activePage === "contact" ? ' class="active"' : ""}><a href="contact.html" data-i18n="nav.contact">联系我们</a></li>
           </ul>
           <button id="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu"><i class="ph-light ph-list"></i></button>

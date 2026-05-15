@@ -9,6 +9,7 @@
     "projects": "Research",
     "publications": "Publications",
     "facilities": "Facilities",
+    "teaching": "Teaching",
     "contact": "Contact"
   },
   "home": {
@@ -59,7 +60,25 @@
   },
   "contact": {
     "h1": "Contact",
-    "intro": "Email us about admissions, collaboration, teaching, or visits."
+    "intro": "Email us about admissions, collaboration, or visits.",
+    "admissions_h": "Admissions",
+    "admissions_body": "<p><strong>Ph.D. tracks</strong></p><ol><li>Cognitive neuroscience of voice</li><li>Speech-brain cognitive computing and AI</li></ol><p>Master's students and undergraduate research assistants are also welcome. Please email Prof. Jiang with your CV and a brief research statement.</p>",
+    "intl_h": "International applicants",
+    "intl_body": "<ul><li>China Studies Program (CSP) Ph.D. Fellowship</li><li>Shanghai Sci-tech Co-research Program</li></ul><p>International applicants are encouraged to email Prof. Jiang directly to discuss application materials, reference letters, and timing.</p>",
+    "collab_h": "Collaboration",
+    "collab_body": "<p>Open to collaboration with universities, research institutes, and clinical partners worldwide:</p><ul><li>Visiting positions</li><li>Joint projects</li><li>Co-supervision of students</li><li>Clinical collaboration</li></ul>",
+    "visit_h": "Visiting us",
+    "visit_body": "<p>Prof. Jiang's office is in Bldg. 5, Rm. 156, on the Songjiang campus of Shanghai International Studies University. From central Shanghai, take Metro Line 9 to Songjiang University Town station, then transfer to the campus shuttle (about 15 min).</p><p>Visitors from abroad are encouraged to contact us in advance; we can help arrange accommodation and visa documents.</p>"
+  },
+  "teaching": {
+    "h1": "Teaching",
+    "intro": "Standing undergraduate and graduate courses taught by Prof. Jiang.",
+    "psycho_h": "Psycholinguistics",
+    "psycho_body": "<p>Introduction to psycholinguistics at undergraduate and graduate levels — cognitive mechanisms of lexical access, sentence comprehension, and discourse / context processing, alongside the core experimental paradigms and methods (behavioural reaction time, eye-tracking, ERP).</p>",
+    "neuro_h": "Neurolinguistics",
+    "neuro_body": "<p>Neurolinguistics with a focus on the brain mechanisms of language — language-relevant brain regions and networks, non-invasive neuroimaging methods (EEG / ERP and fMRI), and the neural bases of language function in healthy and clinical populations.</p>",
+    "disorders_h": "Language disorders",
+    "disorders_body": "<p>Topics in language disorders — patterns of language, voice, and pragmatic impairment in aphasia, specific language impairment, autism spectrum, Parkinson's disease, and related clinical populations, with assessment methods and translational applications.</p>"
   },
   "footer": {
     "school_address": "Bldg. 5, Rm. 101<br>1550 Wenxiang Road<br>Songjiang District, Shanghai<br>PRC 201620",
