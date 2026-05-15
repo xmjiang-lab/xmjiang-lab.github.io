@@ -1666,15 +1666,6 @@ body.dark .contact-visit { border-top-color: var(--line); }
   margin: 0 auto;
   padding: 36px 24px;
 }
-.footer-inner {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.footer-school { flex: 0 1 auto; text-align: center; }
-.footer-school p { font-size: 0.875rem; line-height: 1.7; margin: 0; }
-.footer-school a { color: var(--sisu-yellow); }
 /* Footer banner is now a clickable link to the ILAS English site */
 .footer-banner a {
   display: block;
@@ -1856,9 +1847,7 @@ body.dark .news-item { border-bottom-color: var(--line); }
     margin: 0;
   }
 
-  /* Footer center-align on mobile */
-  .footer-inner { text-align: center; }
-  .footer-school { width: 100%; text-align: center; }
+  /* Footer mobile: subfooter center-align (banner already centred) */
   .subfooter-inner { justify-content: center; text-align: center; }
 
   /* PI card padding only — fluid clamp() handles photo & gap */

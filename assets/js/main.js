@@ -131,11 +131,6 @@
                  onerror="this.style.display='none'">
           </a>
         </div>
-        <div class="footer-inner">
-          <div class="footer-school">
-            <p class="footer-school-address" data-i18n="footer.school_address">5 教楼 101 室<br>文翔路 1550 号<br>上海市 松江区<br>中国 201620</p>
-          </div>
-        </div>
       </div>
       <div id="subfooter">
         <div class="subfooter-inner">
