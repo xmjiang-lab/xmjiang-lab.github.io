@@ -51,7 +51,14 @@
   "news": {
     "h1": "News & Recruitment",
     "intro": "Recruitment calls, collaboration opportunities, and academic activities.",
-    "read_more": "Read more →"
+    "read_more": "Read more →",
+    "filter_join_us_h": "Join us",
+    "filter_clear": "← Show all news",
+    "filter_empty": "No matching items."
+  },
+  "cta": {
+    "join_us_home": "<strong>Join us</strong> — ongoing openings for Ph.D., postdoctoral, Master's, undergraduate, and visiting positions.",
+    "join_us_more": "View openings →"
   },
   "contact": {
     "h1": "How to reach us",
@@ -59,11 +66,7 @@
     "address": "Research Center of Psycholinguistics &amp; Neurolinguistics<br>Institute of Language Sciences, Shanghai International Studies University<br><br>Bldg. 5, Rm. 101, 1550 Wenxiang Road, Songjiang, Shanghai<br><br><strong>Prof. Jiang's office</strong>: Bldg. 5, Rm. 156",
     "location_h": "Visiting us",
     "location_p1": "Prof. Jiang's office is in Bldg. 5, Rm. 156, on the Songjiang campus of Shanghai International Studies University. From central Shanghai, take Metro Line 9 to Songjiang University Town station, then transfer to the campus shuttle (about 15 min).",
-    "location_p2": "Visitors from abroad are encouraged to contact us in advance; we can help arrange accommodation and visa documents.",
-    "positions_h": "Interested in joining us?",
-    "positions_p1": "We welcome Ph.D. applicants, postdoctoral fellows, and visiting scholars working on psycholinguistics, neurolinguistics, and the neurocognitive basis of pragmatics.",
-    "positions_p2": "International applicants may consider the China Studies Program (CSP) Ph.D. Fellowship and the Shanghai Sci-tech Co-research Program: see <a href=\"news.html\">News</a> for current calls.",
-    "positions_p3": "Postdoctoral candidates and collaborators are encouraged to contact Prof. Jiang directly."
+    "location_p2": "Visitors from abroad are encouraged to contact us in advance; we can help arrange accommodation and visa documents."
   },
   "footer": {
     "school_name": "Research Center of Psycholinguistics & Neurolinguistics",

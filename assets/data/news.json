@@ -1,10 +1,43 @@
 {
   "items": [
     {
+      "date": "2026-05-14",
+      "tag_zh": "加入我们",
+      "tag_en": "Join us",
+      "title_zh": "博士后招聘",
+      "title_en": "Postdoctoral positions",
+      "summary_zh": "课题组招收博士后研究员，方向涵盖心理语言学、神经语言学与神经语用学。",
+      "summary_en": "We welcome postdoctoral researchers in psycholinguistics, neurolinguistics, and neuropragmatics.",
+      "body_zh": "详细信息后续补充。意向者请邮件联系蒋晓鸣教授 (xiaoming.jiang@shisu.edu.cn)，附 CV 与一份简要研究兴趣陈述。",
+      "body_en": "Details to be added soon. Interested candidates please email Prof. Xiaoming Jiang (xiaoming.jiang@shisu.edu.cn) with a CV and a brief research statement."
+    },
+    {
+      "date": "2026-05-14",
+      "tag_zh": "加入我们",
+      "tag_en": "Join us",
+      "title_zh": "硕士研究生招生",
+      "title_en": "Master's admissions",
+      "summary_zh": "课题组通过上海外国语大学语言科学研究院招收硕士研究生，方向以心理与神经语言学为主。",
+      "summary_en": "Master's students join the lab through SISU's Institute of Language Sciences MA program, focusing on psycho- and neurolinguistics.",
+      "body_zh": "详细信息后续补充。意向者请邮件联系蒋老师，附本科背景说明、研究兴趣与中英文成绩单。",
+      "body_en": "Details to be added soon. Please email Prof. Jiang with your undergraduate background, research interests, and Chinese / English transcripts."
+    },
+    {
+      "date": "2026-05-14",
+      "tag_zh": "加入我们",
+      "tag_en": "Join us",
+      "title_zh": "本科生研究助理",
+      "title_en": "Undergraduate research assistantships",
+      "summary_zh": "课题组定期接收本科生作为研究助理，方向涵盖嗓音情绪、神经语用与跨语言加工。",
+      "summary_en": "We regularly host undergraduate research assistants on projects in vocal emotion, neuropragmatics, and cross-linguistic processing.",
+      "body_zh": "详细信息后续补充。意向者请邮件联系蒋老师，附 GPA、课程背景与可参与的时段。",
+      "body_en": "Details to be added soon. Please email Prof. Jiang with your GPA, course background, and your availability."
+    },
+    {
       "date": "2026-01",
       "featured": true,
-      "tag_zh": "国际合作招募",
-      "tag_en": "Int'l Recruitment",
+      "tag_zh": "加入我们",
+      "tag_en": "Join us",
       "title_zh": "上海市国际合作研究项目 2026 年度招募外籍青年学者",
       "title_en": "2026 Shanghai Sci-tech Co-research Program: call for foreign young scientists",
       "summary_zh": "面向 45 岁以下外籍青年学者，单项资助 40 万人民币，资助期 2 年。课题组优先合作方向：言语情绪、神经语用、跨语言认知。",
@@ -15,8 +48,8 @@
     },
     {
       "date": "2025-12",
-      "tag_zh": "博士招生",
-      "tag_en": "Ph.D. Admissions",
+      "tag_zh": "加入我们",
+      "tag_en": "Join us",
       "title_zh": "中国研究 (CSP) 博士奖学金：持续招收国际博士生",
       "title_en": "China Studies Program (CSP) Ph.D. Fellowship: ongoing intake",
       "summary_zh": "面向国际申请者的全额博士奖学金，研究方向涵盖心理语言学、神经语言学、跨文化交际等。",

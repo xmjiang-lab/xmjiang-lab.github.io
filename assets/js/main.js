@@ -765,12 +765,32 @@
   }
 
   /* ── News ─────────────────────────────────────────────── */
+  // Tag groups for ?tag= URL filter. Matches against the news item's
+  // tag_zh + tag_en (case-insensitive) so the same alias hits multiple
+  // legacy tag spellings without changing the source data.
+  const NEWS_TAG_GROUPS = {
+    join_us: /加入我们|join.?us|招聘|招募|招生|recruitment|admissions?/i
+  };
+
   async function renderNews() {
     const root = $("#news-content");
     if (!root) return;
     const data = await loadJSON("assets/data/news.json");
     const lang = I18N.current;
-    const items = (data.items || []).map(n => {
+    const allItems = data.items || [];
+
+    // Parse ?tag= filter from URL. join_us is the canonical group; raw
+    // tag substrings also work as a fallback.
+    const params = new URLSearchParams(window.location.search);
+    const tagFilter = (params.get("tag") || "").trim().toLowerCase();
+    const filterRe = tagFilter ? (NEWS_TAG_GROUPS[tagFilter] || new RegExp(tagFilter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i")) : null;
+    const items = filterRe
+      ? allItems.filter(n => filterRe.test(`${n.tag_zh || ""} ${n.tag_en || ""}`))
+      : allItems;
+
+    const joinUsView = tagFilter === "join_us";
+
+    function newsItem(n) {
       const title = lang === "zh" ? n.title_zh : n.title_en;
       const body  = lang === "zh" ? n.body_zh  : n.body_en;
       const tag   = lang === "zh" ? n.tag_zh   : n.tag_en;
@@ -781,12 +801,54 @@
             ${tag ? `<div class="news-tag">${tag}</div>` : ""}
             <h3>${title || ""}</h3>
             <p>${body || ""}</p>
-            ${n.link ? `<p style="margin-top:8px;"><a href="${n.link}" target="_blank" rel="noopener" data-i18n="news.read_more">阅读详情 →</a></p>` : ""}
+            ${n.link ? `<p style="margin-top:8px;"><a href="${n.link}" target="_blank" rel="noopener noreferrer" data-i18n="news.read_more">阅读详情 →</a></p>` : ""}
           </div>
         </li>
       `;
-    }).join("");
-    root.innerHTML = `<ul class="news-list">${items}</ul>`;
+    }
+
+    function joinUsCard(n) {
+      const title   = lang === "zh" ? (n.title_zh   || n.title_en)   : (n.title_en   || n.title_zh);
+      const summary = lang === "zh" ? (n.summary_zh || n.summary_en) : (n.summary_en || n.summary_zh);
+      const body    = lang === "zh" ? (n.body_zh    || n.body_en)    : (n.body_en    || n.body_zh);
+      const readLabel = lang === "zh" ? "阅读详情 →" : "Read more →";
+      const moreHref = n.link || "#";
+      return `
+        <article class="join-us-card">
+          <div class="join-us-tag">${lang === "zh" ? (n.tag_zh || "加入我们") : (n.tag_en || "Join us")}</div>
+          <h3>${title || ""}</h3>
+          ${summary ? `<p class="join-us-summary">${summary}</p>` : ""}
+          ${body ? `<p class="join-us-body">${body}</p>` : ""}
+          ${n.link ? `<p class="join-us-more-wrap"><a class="join-us-more" href="${moreHref}" target="_blank" rel="noopener noreferrer">${readLabel}</a></p>` : ""}
+        </article>
+      `;
+    }
+
+    let bodyHtml;
+    if (filterRe) {
+      const headLabel = (lang === "zh"
+        ? (get(I18N.data, "news.filter_join_us_h") || (joinUsView ? "加入我们" : tagFilter))
+        : (get(I18N.data, "news.filter_join_us_h") || (joinUsView ? "Join us" : tagFilter)));
+      const clearLabel = get(I18N.data, "news.filter_clear") || (lang === "zh" ? "← 显示全部新闻" : "← Show all news");
+      const emptyLabel = get(I18N.data, "news.filter_empty") || (lang === "zh" ? "暂无符合筛选条件的内容。" : "No matching items.");
+      const header = `
+        <div class="news-filter-header">
+          <h2 class="news-filter-title">${headLabel}</h2>
+          <a class="news-filter-clear" href="news.html">${clearLabel}</a>
+        </div>
+      `;
+      if (!items.length) {
+        bodyHtml = `${header}<p class="news-filter-empty">${emptyLabel}</p>`;
+      } else if (joinUsView) {
+        bodyHtml = `${header}<div class="join-us-grid">${items.map(joinUsCard).join("")}</div>`;
+      } else {
+        bodyHtml = `${header}<ul class="news-list">${items.map(newsItem).join("")}</ul>`;
+      }
+    } else {
+      bodyHtml = `<ul class="news-list">${items.map(newsItem).join("")}</ul>`;
+    }
+
+    root.innerHTML = bodyHtml;
     $$("[data-i18n]", root).forEach(el => {
       const v = get(I18N.data, el.getAttribute("data-i18n"));
       if (v != null) el.innerHTML = v;

@@ -873,6 +873,149 @@ body.dark .role-badge.role-undergrad { background: var(--bg-soft); border-color:
   border-color: var(--sisu-blue);
 }
 
+/* ── Home page Join Us CTA box ───────────────────────────── */
+#home-join-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  margin: 28px 0;
+  background: linear-gradient(to right, rgba(252,184,19,0.14), rgba(252,184,19,0.04));
+  border-left: 4px solid var(--sisu-yellow);
+  border-radius: 4px;
+  flex-wrap: wrap;
+}
+#home-join-cta i {
+  font-size: 1.5rem;
+  color: var(--sisu-blue);
+  flex-shrink: 0;
+}
+.home-join-cta-text {
+  font-size: 0.9375rem;
+  color: var(--ink);
+  flex: 1 1 240px;
+  line-height: 1.5;
+}
+.home-join-cta-text strong { color: var(--sisu-blue); }
+.home-join-cta-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--sisu-blue);
+  border: none;
+  white-space: nowrap;
+}
+.home-join-cta-link:hover { color: var(--sisu-blue-dk); border: none; }
+body.dark #home-join-cta { background: rgba(252,184,19,0.06); }
+body.dark .home-join-cta-text { color: var(--ink); }
+body.dark .home-join-cta-text strong { color: #6ea8ff; }
+body.dark .home-join-cta-link { color: #6ea8ff; }
+
+/* ── News page Join-Us filter view ───────────────────────── */
+.news-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin: 8px 0 28px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--sisu-yellow);
+  flex-wrap: wrap;
+}
+.news-filter-title {
+  font-family: var(--serif);
+  font-size: 1.875rem;
+  color: var(--sisu-blue);
+  margin: 0;
+  font-weight: 600;
+}
+.news-filter-clear {
+  font-size: 0.875rem;
+  color: var(--muted);
+  border: none;
+  font-weight: 600;
+}
+.news-filter-clear:hover { color: var(--sisu-blue); border: none; }
+.news-filter-empty {
+  color: var(--muted);
+  font-style: italic;
+  padding: 32px 0;
+  text-align: center;
+}
+
+.join-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.join-us-card {
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--sisu-blue);
+  border-radius: 6px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.18s, transform 0.15s, border-left-color 0.18s;
+}
+.join-us-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+  border-left-color: var(--sisu-yellow);
+}
+.join-us-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--sisu-yellow);
+  color: var(--ink);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.join-us-card h3 {
+  font-family: var(--serif);
+  color: var(--sisu-blue);
+  font-size: 1.125rem;
+  margin: 0 0 10px;
+}
+.join-us-summary {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.join-us-body {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 0 0 12px;
+  color: var(--body);
+}
+.join-us-more-wrap { margin: auto 0 0; }
+.join-us-more {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--sisu-blue);
+  border: none;
+}
+.join-us-more:hover { color: var(--sisu-blue-dk); border: none; }
+
+body.dark .join-us-card { background: var(--bg-soft); border-color: var(--line); }
+body.dark .join-us-card h3 { color: #6ea8ff; }
+body.dark .join-us-summary { color: var(--ink); }
+body.dark .join-us-body { color: var(--body); }
+body.dark .join-us-more { color: #6ea8ff; }
+body.dark .news-filter-title { color: #6ea8ff; }
+
+@media (max-width: 768px) {
+  .news-filter-title { font-size: 1.5rem; }
+  .join-us-grid { grid-template-columns: 1fr; gap: 14px; }
+  .join-us-card { padding: 18px 20px; }
+}
+
 /* ── Projects / Research-themes page ─────────────────────── */
 .themes-grid {
   display: grid;
