@@ -52,10 +52,10 @@
       "name_zh": "李怡",
       "name_en": "Yi Li",
       "homepage": "https://www.mrc-cbu.cam.ac.uk/people/yi.li/",
-      "now": "剑桥大学 博士研究生 / PhD candidate, University of Cambridge",
+      "now_zh": "剑桥大学 博士研究生（自 2024 起）",
+      "now_en": "PhD candidate, University of Cambridge (since 2024)",
       "period": "2021–2024",
-      "end_date": "2024-06-30",
-      "next_position": "剑桥大学 博士研究生 / PhD candidate, University of Cambridge"
+      "end_date": "2024-06-30"
     },
     {
       "id": "wenjun-chen",
@@ -64,10 +64,10 @@
       "name_zh": "陈文均",
       "name_en": "Wenjun Chen",
       "homepage": "https://www.mcgill.ca/scsd/wenjun-chen",
-      "now": "麦吉尔大学 博士研究生 / PhD candidate, McGill University",
+      "now_zh": "麦吉尔大学 博士研究生（自 2024 起）",
+      "now_en": "PhD candidate, McGill University (since 2024)",
       "period": "2021–2024",
-      "end_date": "2024-06-30",
-      "next_position": "麦吉尔大学 博士研究生 / PhD candidate, McGill University"
+      "end_date": "2024-06-30"
     },
     {
       "id": "tianze-xu",
@@ -76,10 +76,12 @@
       "name_zh": "许天泽",
       "name_en": "Tianze Xu",
       "homepage": "https://www.cl.uzh.ch/de/about-us/people/team/phonetics/Timothy-Tianze-Xu.html",
-      "now": "苏黎世大学 博士研究生 / PhD candidate, University of Zurich",
+      "now_zh": "苏黎世大学 博士研究生（自 2025 起）",
+      "now_en": "PhD candidate, University of Zurich (since 2025)",
+      "mid_zh": "剑桥大学 MPhil 2024–2025",
+      "mid_en": "MPhil, University of Cambridge, 2024–2025",
       "period": "2020–2024",
-      "end_date": "2024-06-30",
-      "next_position": "苏黎世大学 博士研究生 / PhD candidate, University of Zurich"
+      "end_date": "2024-06-30"
     }
   ]
 }

@@ -241,10 +241,20 @@
       if (p.researchgate) links.push(`<a class="ln-rg"      href="${p.researchgate}" target="_blank" rel="noopener noreferrer">ResearchGate</a>`);
       if (p.email && !isPI) links.push(`<a class="ln-mail"    href="mailto:${p.email}">${p.email}</a>`);
 
-      const educationLabel = lang === "zh" ? "学业与履历" : "Education & career";
-      const researchLabel  = lang === "zh" ? "研究方向"   : "Research areas";
-      const nowLabel       = lang === "zh" ? "现在"      : "Currently";
-      const periodLabel    = lang === "zh" ? "在课题组时间" : "Period in lab";
+      const educationLabel = lang === "zh" ? "学业与履历"  : "Education & career";
+      const researchLabel  = lang === "zh" ? "研究方向"    : "Research areas";
+      const periodLabel    = lang === "zh" ? "在 Jiang Lab" : "At Jiang Lab";
+      const midLabel       = lang === "zh" ? "中间经历"    : "Intermediate";
+      const nowLabel       = lang === "zh" ? "当前"        : "Currently";
+      // Full role label (e.g. "Undergraduate" / "本科生") for the past-member
+      // "At Jiang Lab" row — combines with `period` (year span) so the line
+      // reads e.g. "Undergraduate, 2020–2024".
+      const roleFullLabel = roleLabel(role) === role ? "" : roleLabel(role);
+      const periodValue = isAlumni && p.period
+        ? (roleFullLabel ? `${roleFullLabel}, ${p.period}` : p.period)
+        : (p.period || "");
+      const midValue = lang === "zh" ? (p.mid_zh || "") : (p.mid_en || "");
+      const nowValue = lang === "zh" ? (p.now_zh || p.now || "") : (p.now_en || p.now || "");
 
       // Role badge for student-tier members (top-right of card)
       const badgeMap = lang === "zh"
@@ -265,18 +275,20 @@
         ? (p.research_areas_zh || p.research_areas || "")
         : (p.research_areas || "");
 
-      // Compact details for alumni: just period + current position
+      // Compact details for alumni: in-lab tenure + (optional) intermediate
+      // step + current position. All single-language based on `lang`.
       const detailsHtml = isAlumni
         ? `
-            ${p.period ? `<div class="person-row-label">${periodLabel}</div><p>${p.period}</p>` : ""}
-            ${p.now ? `<div class="person-row-label">${nowLabel}</div><p>${p.now}</p>` : ""}
+            ${periodValue ? `<div class="person-row-label">${periodLabel}</div><p>${periodValue}</p>` : ""}
+            ${midValue    ? `<div class="person-row-label">${midLabel}</div><p>${midValue}</p>` : ""}
+            ${nowValue    ? `<div class="person-row-label">${nowLabel}</div><p>${nowValue}</p>` : ""}
             ${links.length ? `<div class="person-links">${links.join("")}</div>` : ""}
           `
         : `
             ${bio ? `<p class="person-bio">${bio}</p>` : ""}
             ${eduText ? `<div class="person-row-label">${educationLabel}</div><div class="person-education">${formatEducation(eduText)}</div>` : ""}
             ${researchText ? `<div class="person-row-label">${researchLabel}</div><p>${researchText}</p>` : ""}
-            ${p.now ? `<div class="person-row-label">${nowLabel}</div><p>${p.now}${p.period ? ` <span style="opacity:0.6;">(${p.period})</span>` : ""}</p>` : ""}
+            ${nowValue ? `<div class="person-row-label">${nowLabel}</div><p>${nowValue}${p.period ? ` <span style="opacity:0.6;">(${p.period})</span>` : ""}</p>` : ""}
             ${links.length ? `<div class="person-links">${links.join("")}</div>` : ""}
           `;
 
