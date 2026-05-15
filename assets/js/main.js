@@ -859,6 +859,98 @@
     });
   }
 
+  /* ── SEO: inject JSON-LD structured data on each page ─── */
+  // The schema.org payload differs per page; this runs once at init()
+  // and appends a <script type="application/ld+json"> to <head>.
+  async function injectJsonLd(page) {
+    const ORG = {
+      "@type": "ResearchOrganization",
+      "name": "Research Center of Psycholinguistics & Neurolinguistics",
+      "alternateName": "心理与神经语言学研究中心",
+      "url": "https://xmjiang-lab.github.io/",
+      "logo": "https://xmjiang-lab.github.io/assets/images/logos/sisu-brand.png",
+      "parentOrganization": {
+        "@type": "EducationalOrganization",
+        "name": "Institute of Language Sciences, Shanghai International Studies University",
+        "url": "https://ilas.shisu.edu.cn/"
+      }
+    };
+    const PI = {
+      "@type": "Person",
+      "name": "Xiaoming Jiang",
+      "alternateName": "蒋晓鸣",
+      "jobTitle": "Professor and Doctoral Supervisor",
+      "affiliation": ORG,
+      "url": "https://ilas.shisu.edu.cn/21/0f/c18209a205071/page.htm",
+      "sameAs": [
+        "https://orcid.org/0000-0002-5171-9774",
+        "https://scholar.google.com/citations?user=iF2CM7sAAAAJ"
+      ]
+    };
+
+    let payload = null;
+    if (page === "home") {
+      payload = { "@context": "https://schema.org", ...ORG, "member": PI };
+    } else if (page === "people") {
+      try {
+        const d = await loadJSON("assets/data/people.json");
+        const all = [...(d.current || []), ...(d.alumni || [])];
+        payload = {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Members and alumni of the Research Center of Psycholinguistics & Neurolinguistics",
+          "itemListElement": all.map((p, i) => {
+            const item = {
+              "@type": "Person",
+              "position": i + 1,
+              "name": p.name_en || p.name_zh,
+              "affiliation": ORG
+            };
+            if (p.name_zh && p.name_en) item.alternateName = p.name_zh;
+            if (p.orcid) item.identifier = `https://orcid.org/${p.orcid}`;
+            if (p.scholar) item.sameAs = [p.scholar];
+            if (p.homepage) item.url = p.homepage;
+            return item;
+          })
+        };
+      } catch { /* people.json missing */ }
+    } else if (page === "publications") {
+      try {
+        const pubs = await loadJSON("assets/data/publications.json");
+        payload = {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Publications of the Research Center of Psycholinguistics & Neurolinguistics",
+          "itemListElement": pubs.slice(0, 50).map((p, i) => {
+            const item = {
+              "@type": "ScholarlyArticle",
+              "position": i + 1,
+              "headline": p.title,
+              "datePublished": String(p.year || "")
+            };
+            if (p.journal) item.isPartOf = { "@type": "Periodical", "name": p.journal };
+            if (p.authors) item.author = p.authors.split(/[,;]\s*/).filter(Boolean).map(n => ({ "@type": "Person", "name": n }));
+            if (p.doi) item.identifier = `https://doi.org/${p.doi}`;
+            if (p.url) item.url = p.url;
+            return item;
+          })
+        };
+      } catch { /* publications.json missing */ }
+    } else {
+      // contact / projects / facilities / news — just declare the org
+      payload = { "@context": "https://schema.org", ...ORG, "member": PI };
+    }
+
+    if (!payload) return;
+    // Remove any stale JSON-LD this function added (re-runs on lang change)
+    document.querySelectorAll('script[type="application/ld+json"][data-injected="1"]').forEach(el => el.remove());
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.setAttribute("data-injected", "1");
+    s.textContent = JSON.stringify(payload);
+    document.head.appendChild(s);
+  }
+
   /* ── Build metadata (last-updated stamp in footer) ────── */
   async function applyLastUpdated() {
     try {
@@ -883,6 +975,8 @@
 
     await applyLang(I18N.current);
     await applyLastUpdated();
+    const seoPage = document.body.getAttribute("data-page") || "home";
+    await injectJsonLd(seoPage);
 
     const page = document.body.getAttribute("data-page");
     if (page === "home")              { await renderSidebar(); await renderFunders(); }

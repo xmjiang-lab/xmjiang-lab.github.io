@@ -1,0 +1,8 @@
+# Research Center of Psycholinguistics & Neurolinguistics
+# Institute of Language Sciences, Shanghai International Studies University
+# https://xmjiang-lab.github.io/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://xmjiang-lab.github.io/sitemap.xml

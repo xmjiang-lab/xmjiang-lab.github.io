@@ -33,6 +33,12 @@ jobs:
           printf '{\n  "last_updated": "%s"\n}\n' "$DATE" > assets/data/build-info.json
           echo "Injected last_updated=$DATE"
 
+      - name: Refresh sitemap.xml lastmod dates
+        run: |
+          DATE="$(git log -1 --format=%cd --date=format:'%Y-%m-%d')"
+          sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>${DATE}</lastmod>|g" sitemap.xml
+          echo "Refreshed sitemap.xml lastmod to $DATE"
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
