@@ -62,8 +62,12 @@
     "intro": "Email us about admissions, collaboration, teaching, or visits."
   },
   "footer": {
-    "school_address": "Bldg. 5, Rm. 101, 1550 Wenxiang Road, Songjiang, Shanghai",
-    "contact_link": "Contact us →",
-    "copyright": "© 2026 Jiang Lab, Shanghai International Studies University · All rights reserved"
+    "school_address": "Bldg. 5, Rm. 101<br>1550 Wenxiang Road<br>Songjiang District, Shanghai<br>PRC 201620",
+    "copyright": "© 2026 Jiang Lab, Shanghai International Studies University · All rights reserved",
+    "link_sisu_label": "SISU site →",
+    "link_sisu_url": "https://en.shisu.edu.cn/",
+    "link_ilas_label": "ILAS site →",
+    "link_ilas_url": "https://ilas-en.shisu.edu.cn/",
+    "link_github_label": "Source on GitHub →"
   }
 }

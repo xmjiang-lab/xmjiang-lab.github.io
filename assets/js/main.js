@@ -132,11 +132,27 @@
         </div>
         <div class="footer-inner">
           <div class="footer-school">
-            <p class="footer-school-address" data-i18n="footer.school_address">上海市文翔路 1550 号 5 教楼 101 室</p>
-            <p class="footer-contact-link">
-              <a href="contact.html" data-i18n="footer.contact_link">联系我们 →</a>
-            </p>
+            <p class="footer-school-address" data-i18n="footer.school_address">5 教楼 101 室<br>文翔路 1550 号<br>上海市 松江区<br>中国 201620</p>
           </div>
+          <ul class="footer-links">
+            <li>
+              <a href="https://www.shisu.edu.cn/"
+                 data-i18n="footer.link_sisu_label"
+                 data-i18n-attr="href:footer.link_sisu_url"
+                 target="_blank" rel="noopener noreferrer">SISU 官网</a>
+            </li>
+            <li>
+              <a href="https://ilas.shisu.edu.cn/"
+                 data-i18n="footer.link_ilas_label"
+                 data-i18n-attr="href:footer.link_ilas_url"
+                 target="_blank" rel="noopener noreferrer">ILAS 院网</a>
+            </li>
+            <li>
+              <a href="https://github.com/xmjiang-lab/xmjiang-lab.github.io"
+                 data-i18n="footer.link_github_label"
+                 target="_blank" rel="noopener noreferrer">网站源码 →</a>
+            </li>
+          </ul>
         </div>
       </div>
       <div id="subfooter">

@@ -62,8 +62,12 @@
     "intro": "欢迎联系课题组讨论招生、合作、课程或来访。"
   },
   "footer": {
-    "school_address": "上海市文翔路 1550 号 5 教楼 101 室",
-    "contact_link": "联系我们 →",
-    "copyright": "© 2026 蒋晓鸣课题组 · 上海外国语大学 · 保留所有权利"
+    "school_address": "5 教楼 101 室<br>文翔路 1550 号<br>上海市 松江区<br>中国 201620",
+    "copyright": "© 2026 蒋晓鸣课题组 · 上海外国语大学 · 保留所有权利",
+    "link_sisu_label": "SISU 官网 →",
+    "link_sisu_url": "https://www.shisu.edu.cn/",
+    "link_ilas_label": "ILAS 院网 →",
+    "link_ilas_url": "https://ilas.shisu.edu.cn/",
+    "link_github_label": "网站源码 →"
   }
 }
