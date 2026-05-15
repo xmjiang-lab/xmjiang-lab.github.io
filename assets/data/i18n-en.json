@@ -42,7 +42,8 @@
     "h1": "Publications",
     "filter_cat_label": "Type",
     "filter_year_label": "Year",
-    "filter_clear": "Clear filters"
+    "filter_clear": "Clear filters",
+    "search_placeholder": "Search title, authors, year…"
   },
   "facilities": {
     "h1": "Lab facilities & equipment",

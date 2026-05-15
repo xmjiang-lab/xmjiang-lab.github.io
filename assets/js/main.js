@@ -554,7 +554,7 @@
     other:      { label_zh:"其他",        label_en:"Other",            cls:"cat-other",      btn_zh:"查看",      btn_en:"View"     }
   };
   let ALL_PUBS = [];
-  let FILTER_STATE = { cats: new Set(), years: new Set() };   // empty = show all
+  let FILTER_STATE = { cats: new Set(), years: new Set(), search: "" };   // empty = show all
   const AUTHOR_FOLD_THRESHOLD = 10;     // > this many authors → fold
   const PREPRINT_HOSTS = ["biorxiv.org", "preprints.org", "psyarxiv.com",
                           "arxiv.org", "medrxiv.org", "osf.io"];
@@ -608,12 +608,18 @@
   };
 
   function filterPubsList() {
+    const q = (FILTER_STATE.search || "").toLowerCase().trim();
     return ALL_PUBS.filter(p => {
       const cat = resolveCat(p);
       const year = String(p.year || "");
       const catOk  = FILTER_STATE.cats.size  === 0 || FILTER_STATE.cats.has(cat);
       const yearOk = FILTER_STATE.years.size === 0 || FILTER_STATE.years.has(year);
-      return catOk && yearOk;
+      let searchOk = true;
+      if (q) {
+        const hay = `${p.title || ""} ${p.authors || ""} ${p.journal || ""} ${p.year || ""}`.toLowerCase();
+        searchOk = hay.includes(q);
+      }
+      return catOk && yearOk && searchOk;
     });
   }
 
@@ -726,10 +732,27 @@
   window.clearAllFilters = function () {
     FILTER_STATE.cats.clear();
     FILTER_STATE.years.clear();
+    FILTER_STATE.search = "";
+    const input = $("#pub-search");
+    if (input) input.value = "";
     buildCategoryFilters();
     buildYearFilters();
     renderPubsList();
   };
+
+  function setupPubSearch() {
+    const input = $("#pub-search");
+    if (!input) return;
+    // Keep current FILTER_STATE.search in the input on lang/render re-runs
+    input.value = FILTER_STATE.search || "";
+    // Avoid double-binding if renderPublications runs again (lang switch)
+    if (input.dataset.bound === "1") return;
+    input.addEventListener("input", (e) => {
+      FILTER_STATE.search = e.target.value;
+      renderPubsList();
+    });
+    input.dataset.bound = "1";
+  }
 
   async function renderPublications() {
     const root = $("#pub-list");
@@ -739,6 +762,7 @@
       ALL_PUBS = await loadJSON("assets/data/publications.json");
       buildCategoryFilters();
       buildYearFilters();
+      setupPubSearch();
       renderPubsList();
     } catch {
       root.innerHTML = '<p style="color:#c00;">无法载入论文列表 / Could not load publications.</p>';
@@ -954,6 +978,31 @@
     document.head.appendChild(s);
   }
 
+  /* ── Floating back-to-top button (all pages) ─────────── */
+  function setupBackToTop() {
+    let btn = document.getElementById("back-to-top");
+    if (!btn) {
+      btn = document.createElement("button");
+      btn.id = "back-to-top";
+      btn.type = "button";
+      btn.innerHTML = '<i class="ph-light ph-arrow-up" aria-hidden="true"></i>';
+      btn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      document.body.appendChild(btn);
+    }
+    btn.setAttribute("aria-label", I18N.current === "zh" ? "回到顶部" : "Back to top");
+    if (btn.dataset.bound !== "1") {
+      const onScroll = () => {
+        if (window.scrollY > 400) btn.classList.add("visible");
+        else btn.classList.remove("visible");
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      btn.dataset.bound = "1";
+    }
+  }
+
   /* ── Build metadata (last-updated stamp in footer) ────── */
   async function applyLastUpdated() {
     try {
@@ -978,6 +1027,7 @@
 
     await applyLang(I18N.current);
     await applyLastUpdated();
+    setupBackToTop();
     const seoPage = document.body.getAttribute("data-page") || "home";
     await injectJsonLd(seoPage);
 

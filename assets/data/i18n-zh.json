@@ -42,7 +42,8 @@
     "h1": "发表论文",
     "filter_cat_label": "类别",
     "filter_year_label": "年份",
-    "filter_clear": "清除筛选"
+    "filter_clear": "清除筛选",
+    "search_placeholder": "搜索论文标题、作者、年份…"
   },
   "facilities": {
     "h1": "实验平台与硬件设施",
