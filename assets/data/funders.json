@@ -1,22 +1,43 @@
 [
   {
+    "name": "国家语言文字工作委员会 / National Language Commission",
+    "tooltip": "国家语言文字工作委员会",
+    "period": "ongoing",
+    "url": "https://www.ywky.edu.cn/"
+  },
+  {
     "name": "国家自然科学基金 / NSFC",
-    "logo_path": "nsfc.png",
-    "tooltip": "国家自然科学基金面上项目 (NSFC General Program)",
+    "logo_path": "nsfc.jpg",
+    "tooltip": "National Natural Science Foundation of China",
     "period": "ongoing",
     "url": "https://www.nsfc.gov.cn/"
   },
   {
-    "name": "国家社科基金 / NSSFC",
-    "logo_path": "nssfc.png",
-    "tooltip": "国家社科基金重大项目（参与）/ National Social Science Fund of China (Major Project, participated)",
+    "name": "国家社会科学基金 / NSSFC",
+    "logo_path": "nssfc.jpg",
+    "tooltip": "National Social Science Fund of China",
     "period": "ongoing",
-    "url": "http://www.nopss.gov.cn/"
+    "url": "https://www.nopss.gov.cn/"
+  },
+  {
+    "name": "上海市曙光计划 / Shanghai Chenguang Program",
+    "logo_path": "chenguang.jpg",
+    "tooltip": "Shanghai Chenguang Scholar Program",
+    "period": "ongoing",
+    "url": "https://edu.sh.gov.cn/xxgk2_zdgz_xxkxyj/index.html"
   },
   {
     "name": "上海市科学技术委员会 / STCSM",
-    "tooltip": "Shanghai Science and Technology Commission — Shanghai Sci-tech Co-research Program",
+    "logo_path": "stcsm.png",
+    "tooltip": "Shanghai Science and Technology Committee — Sci-tech Co-research Program",
     "period": "ongoing",
     "url": "https://stcsm.sh.gov.cn/"
+  },
+  {
+    "name": "上海市哲学社会科学规划办公室 / Shanghai Planning Office of Philosophy and Social Science",
+    "logo_path": "shpopss.jpg",
+    "tooltip": "Shanghai Planning Office of Philosophy and Social Science",
+    "period": "ongoing",
+    "url": "https://www.sh-popss.gov.cn/"
   }
 ]
