@@ -542,10 +542,12 @@
   /* ── Publications ─────────────────────────────────────── */
   // Color-coded category badges + per-type button labels.
   const PUB_CAT = {
-    journal:    { label_zh:"期刊论文",    label_en:"Journal article",  cls:"cat-journal",    btn_zh:"原文",      btn_en:"Article"  },
-    preprint:   { label_zh:"预印本",      label_en:"Preprint",         cls:"cat-preprint",   btn_zh:"预印本",     btn_en:"Preprint" },
-    chinese:    { label_zh:"中文期刊",    label_en:"Chinese journal",  cls:"cat-chinese",    btn_zh:"原文",      btn_en:"Article"  },
-    conference: { label_zh:"会议论文",    label_en:"Conference paper", cls:"cat-conference", btn_zh:"论文",      btn_en:"Paper"    },
+    journal:      { label_zh:"期刊论文",   label_en:"Journal article",  cls:"cat-journal",       btn_zh:"原文",      btn_en:"Article"  },
+    preprint:     { label_zh:"预印本",     label_en:"Preprint",         cls:"cat-preprint",      btn_zh:"预印本",    btn_en:"Preprint" },
+    chinese:      { label_zh:"中文期刊",   label_en:"Chinese journal",  cls:"cat-chinese",       btn_zh:"原文",      btn_en:"Article"  },
+    conference:   { label_zh:"会议论文",   label_en:"Conference paper", cls:"cat-conference",    btn_zh:"论文",      btn_en:"Paper"    },
+    book:         { label_zh:"书著",       label_en:"Book",             cls:"cat-book",          btn_zh:"原文",      btn_en:"Book"     },
+    book_chapter: { label_zh:"书籍章节",   label_en:"Book chapter",     cls:"cat-book-chapter",  btn_zh:"原文",      btn_en:"Chapter"  },
     other:      { label_zh:"其他",        label_en:"Other",            cls:"cat-other",      btn_zh:"查看",      btn_en:"View"     }
   };
   let ALL_PUBS = [];
@@ -561,6 +563,8 @@
     const t = (p.type || "").toLowerCase();
     if (t === "journal-article" || t === "journal_article") return "journal";
     if (t === "conference-paper" || t === "conference_paper") return "conference";
+    if (t === "book")                                          return "book";
+    if (t === "book-chapter" || t === "book_chapter")          return "book_chapter";
     if (t === "preprint")         return "preprint";
     return "other";
   }

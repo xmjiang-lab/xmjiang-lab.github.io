@@ -1168,10 +1168,12 @@ body.dark .theme-card:hover .theme-icon { background: #6ea8ff; color: var(--bg);
   background: var(--sisu-blue);
 }
 /* Category-specific active colors */
-.filter-chip.cat-journal.active    { background: #002a5c; }
-.filter-chip.cat-preprint.active   { background: #b35a00; }
-.filter-chip.cat-chinese.active    { background: #b52a2a; }
-.filter-chip.cat-conference.active { background: #5a2ab5; }
+.filter-chip.cat-journal.active      { background: #002a5c; }
+.filter-chip.cat-preprint.active     { background: #b35a00; }
+.filter-chip.cat-chinese.active      { background: #b52a2a; }
+.filter-chip.cat-conference.active   { background: #5a2ab5; }
+.filter-chip.cat-book.active         { background: #3b6b1a; }
+.filter-chip.cat-book-chapter.active { background: #1a6b6b; }
 
 .filter-summary {
   display: flex;
@@ -1282,11 +1284,13 @@ body.dark .theme-card:hover .theme-icon { background: #6ea8ff; color: var(--bg);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.cat-journal    { background: #e3eeff; color: #002a5c; }
-.cat-preprint   { background: #fff3e0; color: #b35a00; }
-.cat-chinese    { background: #fde8e8; color: #b52a2a; }
-.cat-conference { background: #ede8ff; color: #5a2ab5; }
-.cat-other      { background: #eee;    color: #666; }
+.cat-journal      { background: #e3eeff; color: #002a5c; }
+.cat-preprint     { background: #fff3e0; color: #b35a00; }
+.cat-chinese      { background: #fde8e8; color: #b52a2a; }
+.cat-conference   { background: #ede8ff; color: #5a2ab5; }
+.cat-book         { background: #e3f3e0; color: #3b6b1a; }
+.cat-book-chapter { background: #d6e9e9; color: #1a6b6b; }
+.cat-other        { background: #eee;    color: #666; }
 
 .pub-note {
   font-size: 0.625rem;
@@ -1555,10 +1559,12 @@ body.dark .filter-clear:hover { color: #6ea8ff; border-color: #6ea8ff; }
 body.dark .pub-empty { background: var(--bg-soft); border-color: var(--line); }
 body.dark .authors-toggle { border-color: var(--line); color: #6ea8ff; }
 body.dark .authors-toggle:hover { background: #6ea8ff; color: var(--bg); border-color: #6ea8ff; }
-body.dark .cat-journal    { background: #1d2a4d; color: #9ec4ff; }
-body.dark .cat-preprint   { background: #3a2410; color: #ffb670; }
-body.dark .cat-chinese    { background: #3a1a1a; color: #ff9696; }
-body.dark .cat-conference { background: #2a1f3d; color: #c9a8ff; }
+body.dark .cat-journal      { background: #1d2a4d; color: #9ec4ff; }
+body.dark .cat-preprint     { background: #3a2410; color: #ffb670; }
+body.dark .cat-chinese      { background: #3a1a1a; color: #ff9696; }
+body.dark .cat-conference   { background: #2a1f3d; color: #c9a8ff; }
+body.dark .cat-book         { background: #1d3a14; color: #a3d28a; }
+body.dark .cat-book-chapter { background: #143030; color: #8acaca; }
 body.dark .pub-note { background: #2a2410; color: #fcb813; border-color: #5a4400; }
 body.dark .person-card { background: var(--bg-soft); border-color: var(--line); }
 body.dark .person-avatar-btn:hover { background: rgba(110,168,255,0.05); }
