@@ -4,49 +4,49 @@
     {
       "icon": "ph-microphone-stage",
       "name_zh": "语音实验室",
-      "name_en": "Speech Lab",
+      "name_en": "Speech Facility",
       "desc_zh": "用于语音录制、声学分析及发音生理研究的专用空间，配备隔音录音室与多通道声学采集设备。",
       "desc_en": "Dedicated space for speech recording, acoustic analysis, and articulatory studies, with a sound-attenuated booth and multi-channel acoustic acquisition."
     },
     {
       "icon": "ph-eye",
       "name_zh": "眼动实验室",
-      "name_en": "Eye-tracking Lab",
+      "name_en": "Eye-tracking Facility",
       "desc_zh": "EyeLink 系列高采样率眼动仪，支持阅读、视觉世界范式、视听加工与社会注意等研究。",
       "desc_en": "EyeLink high-sampling-rate eye-trackers supporting reading, visual-world paradigm, audiovisual processing, and social attention research."
     },
     {
       "icon": "ph-brain",
       "name_zh": "脑电实验室",
-      "name_en": "EEG / ERP Lab",
+      "name_en": "EEG / ERP Facility",
       "desc_zh": "高密度脑电采集系统，配备电磁屏蔽室，开展事件相关电位（ERP）与时频分析的语言神经研究。",
       "desc_en": "High-density EEG with dedicated electromagnetic shielding for event-related potential (ERP) and time-frequency studies of language."
     },
     {
       "icon": "ph-users-three",
       "name_zh": "行为实验室",
-      "name_en": "Behavioral Lab",
+      "name_en": "Behavioral Facility",
       "desc_zh": "多座位行为测试空间，支持反应时实验、问卷研究与小规模心理语言学行为实验。",
       "desc_en": "Multi-station behavioral testing space for reaction-time experiments, surveys, and group behavioral protocols."
     },
     {
       "icon": "ph-baby",
       "name_zh": "儿童实验室",
-      "name_en": "Child Language Lab",
+      "name_en": "Child Language Facility",
       "desc_zh": "面向儿童与发育人群的友好实验空间，支持语言发展与儿童认知研究设计。",
       "desc_en": "Child-friendly testing space designed for developmental and pediatric cognitive research."
     },
     {
       "icon": "ph-database",
       "name_zh": "语言数据处理与应用实验室",
-      "name_en": "Language Data Processing & Application Lab",
+      "name_en": "Language Data Processing & Application Facility",
       "desc_zh": "面向大规模语言数据加工的服务器集群与语料库建设平台，支持自然语言处理与计算语言学研究。",
       "desc_en": "Server cluster and corpus-development platform for large-scale language data processing, NLP, and computational linguistics."
     },
     {
       "icon": "ph-lightbulb",
       "name_zh": "智慧学习实验室",
-      "name_en": "Smart Learning Lab",
+      "name_en": "Smart Learning Facility",
       "desc_zh": "面向语言教学与学习过程的实验空间，整合学习分析、可视化与教育技术研究。",
       "desc_en": "Lab dedicated to language teaching and learning processes, integrating learning analytics, visualization, and educational technology research."
     },

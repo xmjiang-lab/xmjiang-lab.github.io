@@ -46,8 +46,8 @@
     "search_placeholder": "Search title, authors, year…"
   },
   "facilities": {
-    "h1": "Lab facilities & equipment",
-    "intro": "Our research uses the <strong>Key Laboratory of Language Sciences and Multilingual Artificial Intelligence</strong>, a university-level lab at the Institute of Language Sciences, Shanghai International Studies University. The lab comprises 7 sub-labs (Speech, Eye-tracking, EEG, Behavioral, Child Language, Language Data Processing & Application, and Smart Learning), and we have access to a 3T MRI system at the university's Brain Imaging Center."
+    "h1": "Test sites & equipment",
+    "intro": "Our research is supported by access to multiple test sites at the Institute of Language Sciences, Shanghai International Studies University, including 7 sub-facilities (Speech, Eye-tracking, EEG, Behavioral, Child Language, Language Data Processing & Application, Smart Learning) under the university's <strong>Key Laboratory of Language Sciences and Multilingual Artificial Intelligence</strong>, plus access to a 3T MRI system at the university's Brain Imaging Center."
   },
   "news": {
     "h1": "Spotlight",
