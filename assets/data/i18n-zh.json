@@ -1,8 +1,7 @@
 {
   "lang_switch_to": "EN",
   "brand": {
-    "lab_name": "心理与神经语言学研究中心",
-    "lab_name_sub": "上海外国语大学 · 语言科学研究院"
+    "lab_name": "心理与神经语言学研究中心"
   },
   "nav": {
     "home": "首页",
@@ -12,10 +11,6 @@
     "facilities": "实验平台",
     "news": "动态",
     "contact": "联系我们"
-  },
-  "breadcrumb": {
-    "sisu": "上海外国语大学",
-    "lab": "心理与神经语言学研究中心"
   },
   "home": {
     "h1": "理解语言中的情绪、意图与社会意义",

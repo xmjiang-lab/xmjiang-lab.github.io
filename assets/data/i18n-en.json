@@ -1,8 +1,7 @@
 {
   "lang_switch_to": "中文",
   "brand": {
-    "lab_name": "Research Center of Psycholinguistics & Neurolinguistics",
-    "lab_name_sub": "Institute of Language Sciences, Shanghai International Studies University"
+    "lab_name": "Research Center of Psycholinguistics & Neurolinguistics"
   },
   "nav": {
     "home": "Home",
@@ -12,10 +11,6 @@
     "facilities": "Facilities",
     "news": "News",
     "contact": "Contact"
-  },
-  "breadcrumb": {
-    "sisu": "Shanghai International Studies University",
-    "lab": "Research Center of Psycholinguistics & Neurolinguistics"
   },
   "home": {
     "h1": "Emotion, intention and social meaning in spoken language",

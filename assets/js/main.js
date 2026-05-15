@@ -92,7 +92,6 @@
           <div class="brand-divider"></div>
           <a class="brand-lab" href="index.html">
             <span data-i18n="brand.lab_name">心理与神经语言学研究中心</span>
-            <span class="en" data-i18n="brand.lab_name_sub">上海外国语大学 · 语言科学研究院</span>
           </a>
           <div class="brand-controls">
             <button class="dark-toggle" type="button" onclick="toggleDark()"
@@ -112,20 +111,13 @@
             <li${activePage === "projects" ? ' class="active"' : ""}><a href="projects.html" data-i18n="nav.projects">研究方向</a></li>
             <li${activePage === "publications" ? ' class="active"' : ""}><a href="publications.html" data-i18n="nav.publications">发表论文</a></li>
             <li${activePage === "facilities" ? ' class="active"' : ""}><a href="facilities.html" data-i18n="nav.facilities">实验平台</a></li>
-            <li${activePage === "news" ? ' class="active"' : ""}><a href="news.html" data-i18n="nav.news">新闻动态</a></li>
+            <li${activePage === "news" ? ' class="active"' : ""}><a href="news.html" data-i18n="nav.news">动态</a></li>
             <li${activePage === "contact" ? ' class="active"' : ""}><a href="contact.html" data-i18n="nav.contact">联系我们</a></li>
           </ul>
           <button id="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu"><i class="ph-light ph-list"></i></button>
         </div>
       </nav>
 
-      <div id="breadcrumb">
-        <div class="breadcrumb-inner">
-          <a href="https://www.shisu.edu.cn" target="_blank" rel="noopener noreferrer" data-i18n="breadcrumb.sisu">上海外国语大学</a>
-          &nbsp;/&nbsp;
-          <a href="index.html" data-i18n="breadcrumb.lab">心理与神经语言学研究中心</a>
-        </div>
-      </div>
     `;
   }
 
