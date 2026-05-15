@@ -235,7 +235,7 @@
       // PI's email link is intentionally suppressed — email is reachable only
       // via the contact page (parallel to footer + homepage email stripping).
       const links = [];
-      if (p.homepage)     links.push(`<a class="ln-home"    href="${p.homepage}" target="_blank" rel="noopener noreferrer">${lang === "zh" ? "个人主页" : "Homepage"}</a>`);
+      if (p.homepage)     links.push(`<a class="ln-home"    href="${p.homepage}" target="_blank" rel="noopener noreferrer">${lang === "zh" ? (isPI ? "官方个人主页" : "个人主页") : (isPI ? "Faculty page" : "Homepage")}</a>`);
       if (p.orcid)        links.push(`<a class="ln-orcid"   href="https://orcid.org/${p.orcid}" target="_blank" rel="noopener noreferrer">ORCID</a>`);
       if (p.scholar)      links.push(`<a class="ln-scholar" href="${p.scholar}" target="_blank" rel="noopener noreferrer">Google Scholar</a>`);
       if (p.researchgate) links.push(`<a class="ln-rg"      href="${p.researchgate}" target="_blank" rel="noopener noreferrer">ResearchGate</a>`);
