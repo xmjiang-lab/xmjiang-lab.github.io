@@ -215,6 +215,15 @@ body.dark .lab-intro-title { color: #6ea8ff; }
 .page-grid .main-col h2:first-child { margin-top: 0; }
 .page-single .main-col { max-width: 920px; }
 
+/* CSS-Grid intrinsic-min-content fix: a `1fr` track defaults to
+   minmax(auto, 1fr), which lets a child's max-content (e.g. the
+   funder marquee track with `width: max-content`) push the column
+   wider than the available space and shove the sidebar out of view.
+   Explicit `min-width: 0` lets `1fr` honour its share. */
+.page-grid > * { min-width: 0; }
+.main-col      { min-width: 0; }
+.funders-marquee { max-width: 100%; }
+
 /* PI card on home — with photo. Lives at the top of .main-col since
    the homepage now leads with the PI block, so no top margin. */
 .pi-card {
