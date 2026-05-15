@@ -1018,59 +1018,111 @@ body.dark .news-filter-title { color: #6ea8ff; }
   .join-us-card { padding: 18px 20px; }
 }
 
-/* ── Projects / Research-themes page ─────────────────────── */
+/* ── Projects / Research-themes page (Option α — full-bleed SISU
+   Blue panel + white floating cards) ─────────────────────────── */
+#main.page-themes {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+.themes-section {
+  background: linear-gradient(135deg, var(--sisu-blue) 0%, var(--sisu-blue-dk) 100%);
+  padding: 64px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.themes-section::before {
+  /* subtle yellow corner accent, matches old #hero treatment */
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: var(--sisu-yellow);
+  opacity: 0.07;
+  pointer-events: none;
+}
+.themes-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+.themes-section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.625rem, 4vw, 2.25rem);
+  color: #fff;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+.themes-yellow-rule {
+  width: 80px;
+  height: 4px;
+  background: var(--sisu-yellow);
+  margin: 4px 0 18px;
+}
+.themes-section-intro {
+  color: rgba(255,255,255,0.86);
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  line-height: 1.75;
+  max-width: 760px;
+  margin: 0 0 32px;
+}
+
+/* White cards float on the blue panel */
 .themes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 24px;
+  margin-top: 12px;
 }
 .theme-card {
-  background: var(--bg-soft);
-  padding: 28px 22px;
-  border-top: 3px solid var(--sisu-blue);
+  background: var(--bg);
+  padding: 28px 24px;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.15s ease, border-top-color 0.15s ease, box-shadow 0.18s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .theme-card:hover {
-  transform: translateY(-3px);
-  border-top-color: var(--sisu-yellow);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
 }
 .theme-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 0 14px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  margin: 4px auto 14px;
-  border-radius: 50%;
-  background: var(--bg);
+  background: var(--sisu-blue-soft);
   color: var(--sisu-blue);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   line-height: 1;
-  border: 1px solid var(--sisu-blue-soft);
-  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  transition: background 0.18s, color 0.18s;
 }
 .theme-card:hover .theme-icon {
-  background: var(--sisu-blue);
-  color: #fff;
-  border-color: var(--sisu-blue);
+  background: var(--sisu-yellow);
+  color: var(--ink);
 }
 .theme-card h3 {
   font-family: var(--serif);
   color: var(--sisu-blue);
   font-size: 1.125rem;
   line-height: 1.35;
-  text-align: center;
-  margin: 0 0 12px;
+  text-align: left;
+  margin: 0 0 6px;
 }
 .theme-sep {
   width: 36px;
   height: 2px;
   background: var(--sisu-yellow);
-  margin: 0 auto 14px;
+  margin: 0 0 14px;
 }
 .theme-card p {
   font-size: 0.9375rem;
@@ -1079,10 +1131,18 @@ body.dark .news-filter-title { color: #6ea8ff; }
   color: var(--body);
   text-align: left;
 }
-body.dark .theme-card { background: var(--bg-soft); }
-body.dark .theme-card h3 { color: #6ea8ff; }
-body.dark .theme-icon { background: var(--bg); color: #6ea8ff; border-color: var(--line); }
-body.dark .theme-card:hover .theme-icon { background: #6ea8ff; color: var(--bg); border-color: #6ea8ff; }
+
+body.dark .themes-section {
+  background: linear-gradient(135deg, #0d1830 0%, #0a1224 100%);
+}
+body.dark .theme-card { background: #1a2336; }
+body.dark .theme-card h3 { color: #9ec4ff; }
+body.dark .theme-icon { background: rgba(255,255,255,0.08); color: #9ec4ff; }
+body.dark .theme-card:hover .theme-icon { background: var(--sisu-yellow); color: var(--ink); }
+
+@media (max-width: 1024px) {
+  .themes-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
 /* ── Publications page: new filter bar ──────────────────── */
 .pub-filter-bar {
@@ -1673,8 +1733,10 @@ body.dark .news-item { border-bottom-color: var(--line); }
   /* Collaborator grid: single column for readability */
   .collab-list { grid-template-columns: 1fr; }
 
-  /* Research themes: 2 cols on tablet portrait */
-  .themes-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Research themes: 2 cols on tablet portrait + tighter panel padding */
+  .themes-section { padding: 44px 0 52px; }
+  .themes-inner { padding: 0 20px; }
+  .themes-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 
   /* Facilities grid */
   .facilities-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
@@ -1781,8 +1843,11 @@ body.dark .news-item { border-bottom-color: var(--line); }
   .funder-card img { max-height: 56px; }
   .funders-track { gap: 14px; }
 
-  /* Research themes: 1 column on small phones */
-  .themes-grid { grid-template-columns: 1fr; gap: 14px; }
+  /* Research themes: 1 column on small phones, tighter panel */
+  .themes-section { padding: 32px 0 40px; }
+  .themes-section::before { width: 180px; height: 180px; top: -60px; right: -60px; }
+  .themes-inner { padding: 0 14px; }
+  .themes-grid { grid-template-columns: 1fr; gap: 12px; }
   .theme-card { padding: 22px 18px; }
 
   /* Sidebar */
